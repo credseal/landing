@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roles & Permissions — CredSeal</title>
+  <meta name="description" content="Manage roles and permissions for your team members.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#00ff9d">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="/" class="sidebar-logo">
+        <div class="logo-mark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <span>CredSeal</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Overview</span>
+        <a href="index.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="9" rx="1"/>
+            <rect x="14" y="3" width="7" height="5" rx="1"/>
+            <rect x="14" y="12" width="7" height="9" rx="1"/>
+            <rect x="3" y="16" width="7" height="5" rx="1"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="quickstart.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Quickstart
+        </a>
+        <a href="playground.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+          API Playground
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Manage</span>
+        <a href="credentials.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Credentials
+        </a>
+        <a href="sessions.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
+          Sessions
+        </a>
+        <a href="agents.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          Agents
+        </a>
+        <a href="workflows.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
+          </svg>
+          Workflows
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18 9l-5 5-4-4-3 3"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="policies.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Policies
+        </a>
+        <a href="team.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Team
+        </a>
+        <a href="roles.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M5 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M12 12v3"/>
+            <path d="M19 14v2"/>
+            <path d="M5 14v2"/>
+            <path d="M8 22v-5a4 4 0 0 1 8 0v5"/>
+            <path d="M16 22v-3a2 2 0 0 1 4 0v3"/>
+            <path d="M4 22v-3a2 2 0 0 1 4 0v3"/>
+          </svg>
+          Roles
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Audit Logs
+        </a>
+        <a href="webhooks.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Webhooks
+        </a>
+        <a href="security.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Security
+        </a>
+        <a href="compliance.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Compliance
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Account</span>
+        <a href="settings.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+        <a href="branding.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="10.5" r="2.5"/>
+            <circle cx="8.5" cy="7.5" r="2.5"/>
+            <circle cx="6.5" cy="12.5" r="2.5"/>
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          </svg>
+          Branding
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Billing
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="usage-meter">
+        <div class="usage-header">
+          <span>Executions</span>
+          <span>127 / 500</span>
+        </div>
+        <div class="usage-bar">
+          <div class="usage-fill" style="width: 25.4%"></div>
+        </div>
+        <a href="billing.html" class="usage-upgrade">Upgrade plan</a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main-content" id="main-content">
+    <header class="header">
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="header-left">
+        <h1 class="page-title">Roles & Permissions</h1>
+      </div>
+
+      <button class="header-search" onclick="CommandPalette.open()">
+        <span class="header-search-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <span class="header-search-text">Search...</span>
+        <kbd class="header-search-kbd">⌘K</kbd>
+      </button>
+
+      <div class="header-right">
+        <button class="btn btn-primary" onclick="openRoleModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Create Role
+        </button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="page-header">
+        <div class="page-header-content">
+          <h2>Role-Based Access Control</h2>
+          <p>Define roles and assign granular permissions to team members.</p>
+        </div>
+      </div>
+
+      <!-- Built-in Roles -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Built-in Roles</h3>
+          <span class="badge badge-secondary">System</span>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="roles-list">
+            <div class="role-item">
+              <div class="role-info">
+                <div class="role-icon owner">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Owner</h4>
+                  <p>Full access to all resources and settings. Can manage billing and delete the organization.</p>
+                </div>
+              </div>
+              <div class="role-meta">
+                <span class="role-members">1 member</span>
+                <span class="badge badge-warning">Cannot Edit</span>
+              </div>
+            </div>
+
+            <div class="role-item">
+              <div class="role-info">
+                <div class="role-icon admin">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Admin</h4>
+                  <p>Full access to resources except billing. Can manage team members and all settings.</p>
+                </div>
+              </div>
+              <div class="role-meta">
+                <span class="role-members">3 members</span>
+                <span class="badge badge-warning">Cannot Edit</span>
+              </div>
+            </div>
+
+            <div class="role-item">
+              <div class="role-info">
+                <div class="role-icon member">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Member</h4>
+                  <p>Access to credentials and basic features. Cannot modify settings or manage team.</p>
+                </div>
+              </div>
+              <div class="role-meta">
+                <span class="role-members">8 members</span>
+                <span class="badge badge-warning">Cannot Edit</span>
+              </div>
+            </div>
+
+            <div class="role-item">
+              <div class="role-info">
+                <div class="role-icon viewer">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Viewer</h4>
+                  <p>Read-only access to credentials and analytics. Cannot create or modify resources.</p>
+                </div>
+              </div>
+              <div class="role-meta">
+                <span class="role-members">2 members</span>
+                <span class="badge badge-warning">Cannot Edit</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Roles -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Custom Roles</h3>
+          <span class="badge badge-info">2 Roles</span>
+        </div>
+        <div class="card-body" style="padding: 0;">
+          <div class="roles-list">
+            <div class="role-item">
+              <div class="role-info">
+                <div class="role-icon custom">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Security Auditor</h4>
+                  <p>Read access to audit logs, security settings, and compliance reports.</p>
+                </div>
+              </div>
+              <div class="role-meta">
+                <span class="role-members">2 members</span>
+                <div class="role-actions">
+                  <button class="btn btn-sm btn-secondary" onclick="editRole('security-auditor')">Edit</button>
+                  <button class="btn btn-sm btn-ghost" onclick="deleteRole('security-auditor')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="3 6 5 6 21 6"/>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-item">
+              <div class="role-info">
+                <div class="role-icon custom">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>DevOps Engineer</h4>
+                  <p>Manage credentials, agents, and integrations. No access to billing or team settings.</p>
+                </div>
+              </div>
+              <div class="role-meta">
+                <span class="role-members">4 members</span>
+                <div class="role-actions">
+                  <button class="btn btn-sm btn-secondary" onclick="editRole('devops')">Edit</button>
+                  <button class="btn btn-sm btn-ghost" onclick="deleteRole('devops')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="3 6 5 6 21 6"/>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Permission Matrix -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Permission Matrix</h3>
+        </div>
+        <div class="card-body" style="padding: 0; overflow-x: auto;">
+          <table class="permission-matrix">
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>Owner</th>
+                <th>Admin</th>
+                <th>Member</th>
+                <th>Viewer</th>
+                <th>Security Auditor</th>
+                <th>DevOps</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="category-row">
+                <td colspan="7">Credentials</td>
+              </tr>
+              <tr>
+                <td>View credentials</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+              </tr>
+              <tr>
+                <td>Create credentials</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-check"></span></td>
+              </tr>
+              <tr>
+                <td>Rotate credentials</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-check"></span></td>
+              </tr>
+              <tr>
+                <td>Delete credentials</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-check"></span></td>
+              </tr>
+              <tr class="category-row">
+                <td colspan="7">Team</td>
+              </tr>
+              <tr>
+                <td>View members</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+              </tr>
+              <tr>
+                <td>Invite members</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+              </tr>
+              <tr>
+                <td>Remove members</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+              </tr>
+              <tr class="category-row">
+                <td colspan="7">Security</td>
+              </tr>
+              <tr>
+                <td>View audit logs</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+              </tr>
+              <tr>
+                <td>Manage policies</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+              </tr>
+              <tr class="category-row">
+                <td colspan="7">Billing</td>
+              </tr>
+              <tr>
+                <td>View billing</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+              </tr>
+              <tr>
+                <td>Manage billing</td>
+                <td><span class="perm-check"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+                <td><span class="perm-x"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Create Role Modal -->
+  <div class="modal" id="role-modal">
+    <div class="modal-backdrop" onclick="closeRoleModal()"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create Custom Role</h2>
+        <button class="modal-close" onclick="closeRoleModal()" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="role-name">Role Name</label>
+          <input type="text" id="role-name" placeholder="e.g., QA Engineer">
+        </div>
+        <div class="form-group">
+          <label for="role-description">Description</label>
+          <textarea id="role-description" rows="2" placeholder="Describe what this role can do"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Base Permissions</label>
+          <select id="base-role">
+            <option value="">Start from scratch</option>
+            <option value="member">Copy from Member</option>
+            <option value="viewer">Copy from Viewer</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Permissions</label>
+          <div class="permission-checkboxes">
+            <label class="checkbox-item">
+              <input type="checkbox" checked> View credentials
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox"> Create credentials
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox"> Rotate credentials
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox"> Delete credentials
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" checked> View members
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox"> Invite members
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox"> View audit logs
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox"> Manage policies
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeRoleModal()">Cancel</button>
+        <button class="btn btn-primary" onclick="saveRole()">Create Role</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    function openRoleModal() {
+      document.getElementById('role-modal').classList.add('active');
+    }
+
+    function closeRoleModal() {
+      document.getElementById('role-modal').classList.remove('active');
+    }
+
+    function saveRole() {
+      closeRoleModal();
+      CredSeal.showToast('Role created successfully', 'success');
+    }
+
+    function editRole(roleId) {
+      CredSeal.showToast(`Editing role: ${roleId}`, 'info');
+    }
+
+    function deleteRole(roleId) {
+      if (confirm('Are you sure you want to delete this role?')) {
+        CredSeal.showToast('Role deleted', 'success');
+      }
+    }
+  </script>
+
+  <style>
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .role-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      gap: 20px;
+    }
+
+    .role-item:last-child {
+      border-bottom: none;
+    }
+
+    .role-info {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    .role-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .role-icon.owner {
+      background: rgba(251, 191, 36, 0.1);
+      color: #fbbf24;
+    }
+
+    .role-icon.admin {
+      background: rgba(139, 92, 246, 0.1);
+      color: #8b5cf6;
+    }
+
+    .role-icon.member {
+      background: rgba(99, 102, 241, 0.1);
+      color: #6366f1;
+    }
+
+    .role-icon.viewer {
+      background: rgba(107, 114, 128, 0.1);
+      color: #6b7280;
+    }
+
+    .role-icon.custom {
+      background: rgba(0, 255, 157, 0.1);
+      color: var(--green);
+    }
+
+    .role-info h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0 0 4px;
+    }
+
+    .role-info p {
+      font-size: 13px;
+      color: var(--fg-2);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .role-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .role-members {
+      font-size: 13px;
+      color: var(--fg-3);
+    }
+
+    .role-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: none;
+      color: var(--fg-3);
+      padding: 8px;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: all 0.15s;
+    }
+
+    .btn-ghost:hover {
+      background: var(--surface-2);
+      color: var(--red);
+    }
+
+    /* Permission Matrix */
+    .permission-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .permission-matrix th,
+    .permission-matrix td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .permission-matrix th {
+      background: var(--surface-2);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .permission-matrix th:first-child {
+      min-width: 180px;
+    }
+
+    .permission-matrix th:not(:first-child) {
+      text-align: center;
+    }
+
+    .permission-matrix td:not(:first-child) {
+      text-align: center;
+    }
+
+    .category-row td {
+      background: var(--bg-1);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--fg-2);
+    }
+
+    .perm-check,
+    .perm-x {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+
+    .perm-check {
+      background: rgba(0, 255, 157, 0.1);
+    }
+
+    .perm-check::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .perm-x {
+      background: rgba(255, 77, 77, 0.1);
+    }
+
+    .perm-x::after {
+      content: '';
+      width: 8px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    /* Permission Checkboxes */
+    .permission-checkboxes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--green);
+    }
+
+    @media (max-width: 768px) {
+      .role-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .role-meta {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+      }
+
+      .permission-checkboxes {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</body>
+</html>

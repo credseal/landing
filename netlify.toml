@@ -1,0 +1,43 @@
+# Netlify configuration for CredSeal Landing + Dashboard
+
+[build]
+  publish = "."
+  command = "echo 'Static site - no build needed'"
+
+# Pretty URLs (remove .html)
+[[redirects]]
+  from = "/app"
+  to = "/dashboard/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/docs"
+  to = "https://github.com/credseal/sdk#readme"
+  status = 301
+
+# API proxy to backend
+[[redirects]]
+  from = "/api/*"
+  to = "https://credseal-cloud.fly.dev/v1/:splat"
+  status = 200
+  force = true
+
+# SPA fallback for dashboard
+[[redirects]]
+  from = "/dashboard/*"
+  to = "/dashboard/index.html"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/dashboard/*"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"

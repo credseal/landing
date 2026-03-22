@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quickstart — CredSeal</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="/" class="sidebar-logo">
+        <div class="logo-mark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <span>CredSeal</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Overview</span>
+        <a href="index.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="9" rx="1"/>
+            <rect x="14" y="3" width="7" height="5" rx="1"/>
+            <rect x="14" y="12" width="7" height="9" rx="1"/>
+            <rect x="3" y="16" width="7" height="5" rx="1"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="quickstart.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Quickstart
+        </a>
+        <a href="playground.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+          API Playground
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Manage</span>
+        <a href="credentials.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Credentials
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="sessions.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
+          Sessions
+        </a>
+        <a href="agents.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          Agents
+        </a>
+        <a href="workflows.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
+          </svg>
+          Workflows
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18 9l-5 5-4-4-3 3"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="rate-limits.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/>
+          </svg>
+          Rate Limits
+        </a>
+        <a href="policies.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Policies
+        </a>
+        <a href="team.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Team
+        </a>
+        <a href="roles.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/><path d="M5 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/><path d="M12 12v3"/><path d="M19 14v2"/><path d="M5 14v2"/><path d="M8 22v-5a4 4 0 0 1 8 0v5"/><path d="M16 22v-3a2 2 0 0 1 4 0v3"/><path d="M4 22v-3a2 2 0 0 1 4 0v3"/>
+          </svg>
+          Roles
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Audit Logs
+        </a>
+        <a href="webhooks.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Webhooks
+        </a>
+        <a href="integrations.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="8" height="8" rx="2"/><rect x="14" y="2" width="8" height="8" rx="2"/><rect x="2" y="14" width="8" height="8" rx="2"/><rect x="14" y="14" width="8" height="8" rx="2"/>
+          </svg>
+          Integrations
+        </a>
+        <a href="security.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Security
+        </a>
+        <a href="compliance.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Compliance
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Account</span>
+        <a href="settings.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+        <a href="branding.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="10.5" r="2.5"/><circle cx="8.5" cy="7.5" r="2.5"/><circle cx="6.5" cy="12.5" r="2.5"/><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          </svg>
+          Branding
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Billing
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="usage-meter">
+        <div class="usage-header">
+          <span>Executions</span>
+          <span>127 / 500</span>
+        </div>
+        <div class="usage-bar">
+          <div class="usage-fill" style="width: 25.4%"></div>
+        </div>
+        <a href="billing.html" class="usage-upgrade">Upgrade plan</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+    <!-- Header -->
+    <header class="header">
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="header-left">
+        <h1 class="page-title">Quickstart</h1>
+      </div>
+
+      <button class="header-search" onclick="CommandPalette.open()">
+        <span class="header-search-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <span class="header-search-text">Search...</span>
+        <kbd class="header-search-kbd">⌘K</kbd>
+      </button>
+
+      <div class="header-right">
+        <a href="https://github.com/credseal/sdk#readme" target="_blank" rel="noopener" class="header-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+          Docs
+        </a>
+
+        <div class="header-divider"></div>
+
+        <div class="user-menu" id="user-menu">
+          <button class="user-menu-btn" id="user-menu-btn">
+            <div class="user-avatar">A</div>
+            <span class="user-name">Acme Corp</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="user-dropdown" id="user-dropdown">
+            <div class="dropdown-header">
+              <div class="dropdown-user-info">
+                <strong>Acme Corp</strong>
+                <span>admin@acme.com</span>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="settings.html" class="dropdown-item">Settings</a>
+            <a href="billing.html" class="dropdown-item">Billing</a>
+            <div class="dropdown-divider"></div>
+            <a href="/login.html" class="dropdown-item dropdown-item-danger">Log out</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="content">
+      <!-- Page Header -->
+      <div class="page-header">
+        <div class="page-header-content">
+          <h2>Get Started with CredSeal</h2>
+          <p>Integrate secure credential management into your AI agents in minutes.</p>
+        </div>
+      </div>
+
+      <!-- API Key Section -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Your API Key</h3>
+        </div>
+        <div class="card-body">
+          <p class="text-muted" style="margin-bottom: 16px;">Use this key to authenticate your agents with CredSeal Cloud.</p>
+          <div class="api-key-display">
+            <code id="api-key">cs_live_••••••••••••••••••••••••</code>
+            <button class="btn btn-secondary btn-sm" onclick="revealApiKey()">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              Reveal
+            </button>
+            <button class="btn btn-secondary btn-sm" data-copy="cs_live_7x9k2m4n5p8q1v3w6y0z">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Installation -->
+      <div class="card">
+        <div class="card-header">
+          <h3>1. Install the SDK</h3>
+        </div>
+        <div class="card-body">
+          <div class="code-tabs">
+            <button class="code-tab active" data-lang="python">Python</button>
+            <button class="code-tab" data-lang="typescript">TypeScript</button>
+          </div>
+          <div class="code-block" data-lang="python">
+            <button class="code-copy" data-copy="pip install credseal">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+<pre><code><span class="token-comment"># Install via pip</span>
+pip install credseal</code></pre>
+          </div>
+          <div class="code-block" data-lang="typescript" style="display: none;">
+            <button class="code-copy" data-copy="npm install @credseal/sdk">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+<pre><code><span class="token-comment">// Install via npm</span>
+npm install @credseal/sdk</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Initialize -->
+      <div class="card">
+        <div class="card-header">
+          <h3>2. Initialize CredSeal</h3>
+        </div>
+        <div class="card-body">
+          <div class="code-tabs">
+            <button class="code-tab active" data-lang="python">Python</button>
+            <button class="code-tab" data-lang="typescript">TypeScript</button>
+          </div>
+          <div class="code-block" data-lang="python">
+            <button class="code-copy" data-copy="from credseal import CredSeal
+
+cs = CredSeal(
+    api_key=&quot;cs_live_7x9k2m4n5p8q1v3w6y0z&quot;,
+    agent_id=&quot;research-agent&quot;
+)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+<pre><code><span class="token-keyword">from</span> credseal <span class="token-keyword">import</span> CredSeal
+
+cs = CredSeal(
+    api_key=<span class="token-string">"cs_live_7x9k2m4n5p8q1v3w6y0z"</span>,
+    agent_id=<span class="token-string">"research-agent"</span>
+)</code></pre>
+          </div>
+          <div class="code-block" data-lang="typescript" style="display: none;">
+            <button class="code-copy" data-copy="import { CredSeal } from '@credseal/sdk';
+
+const cs = new CredSeal({
+  apiKey: 'cs_live_7x9k2m4n5p8q1v3w6y0z',
+  agentId: 'research-agent'
+});">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+<pre><code><span class="token-keyword">import</span> { CredSeal } <span class="token-keyword">from</span> <span class="token-string">'@credseal/sdk'</span>;
+
+<span class="token-keyword">const</span> cs = <span class="token-keyword">new</span> CredSeal({
+  apiKey: <span class="token-string">'cs_live_7x9k2m4n5p8q1v3w6y0z'</span>,
+  agentId: <span class="token-string">'research-agent'</span>
+});</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Request Credentials -->
+      <div class="card">
+        <div class="card-header">
+          <h3>3. Request Credentials</h3>
+        </div>
+        <div class="card-body">
+          <div class="code-tabs">
+            <button class="code-tab active" data-lang="python">Python</button>
+            <button class="code-tab" data-lang="typescript">TypeScript</button>
+          </div>
+          <div class="code-block" data-lang="python">
+            <button class="code-copy" data-copy="# Request a credential with specific scopes
+with cs.session(&quot;github-api&quot;, scopes=[&quot;repo:read&quot;]) as session:
+    # Credential is automatically injected
+    token = session.get(&quot;GITHUB_TOKEN&quot;)
+
+    # Use the token in your API calls
+    response = requests.get(
+        &quot;https://api.github.com/user/repos&quot;,
+        headers={&quot;Authorization&quot;: f&quot;Bearer {token}&quot;}
+    )
+
+# Credential is automatically revoked when session ends">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+<pre><code><span class="token-comment"># Request a credential with specific scopes</span>
+<span class="token-keyword">with</span> cs.session(<span class="token-string">"github-api"</span>, scopes=[<span class="token-string">"repo:read"</span>]) <span class="token-keyword">as</span> session:
+    <span class="token-comment"># Credential is automatically injected</span>
+    token = session.get(<span class="token-string">"GITHUB_TOKEN"</span>)
+
+    <span class="token-comment"># Use the token in your API calls</span>
+    response = requests.get(
+        <span class="token-string">"https://api.github.com/user/repos"</span>,
+        headers={<span class="token-string">"Authorization"</span>: <span class="token-string">f"Bearer </span>{token}<span class="token-string">"</span>}
+    )
+
+<span class="token-comment"># Credential is automatically revoked when session ends</span></code></pre>
+          </div>
+          <div class="code-block" data-lang="typescript" style="display: none;">
+            <button class="code-copy" data-copy="// Request a credential with specific scopes
+const session = await cs.session('github-api', {
+  scopes: ['repo:read']
+});
+
+try {
+  // Credential is automatically injected
+  const token = session.get('GITHUB_TOKEN');
+
+  // Use the token in your API calls
+  const response = await fetch('https://api.github.com/user/repos', {
+    headers: { Authorization: `Bearer ${token}` }
+  });
+} finally {
+  // Always close the session
+  await session.close();
+}">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+            </button>
+<pre><code><span class="token-comment">// Request a credential with specific scopes</span>
+<span class="token-keyword">const</span> session = <span class="token-keyword">await</span> cs.session(<span class="token-string">'github-api'</span>, {
+  scopes: [<span class="token-string">'repo:read'</span>]
+});
+
+<span class="token-keyword">try</span> {
+  <span class="token-comment">// Credential is automatically injected</span>
+  <span class="token-keyword">const</span> token = session.get(<span class="token-string">'GITHUB_TOKEN'</span>);
+
+  <span class="token-comment">// Use the token in your API calls</span>
+  <span class="token-keyword">const</span> response = <span class="token-keyword">await</span> fetch(<span class="token-string">'https://api.github.com/user/repos'</span>, {
+    headers: { Authorization: <span class="token-string">`Bearer </span>${token}<span class="token-string">`</span> }
+  });
+} <span class="token-keyword">finally</span> {
+  <span class="token-comment">// Always close the session</span>
+  <span class="token-keyword">await</span> session.close();
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Framework Integrations -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Framework Integrations</h3>
+        </div>
+        <div class="card-body">
+          <p class="text-muted" style="margin-bottom: 20px;">CredSeal integrates with popular AI agent frameworks out of the box.</p>
+
+          <div class="integrations-grid">
+            <div class="integration-card">
+              <div class="integration-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <h4>LangChain</h4>
+              <p>Drop-in tool wrapper for LangChain agents</p>
+              <a href="https://github.com/credseal/sdk#langchain" target="_blank" rel="noopener">View docs</a>
+            </div>
+
+            <div class="integration-card">
+              <div class="integration-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+              <h4>CrewAI</h4>
+              <p>Secure credentials for multi-agent crews</p>
+              <a href="https://github.com/credseal/sdk#crewai" target="_blank" rel="noopener">View docs</a>
+            </div>
+
+            <div class="integration-card">
+              <div class="integration-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+                  <line x1="12" y1="22" x2="12" y2="15.5"/>
+                  <polyline points="22 8.5 12 15.5 2 8.5"/>
+                </svg>
+              </div>
+              <h4>OpenAI Agents</h4>
+              <p>Function calling with secure secrets</p>
+              <a href="https://github.com/credseal/sdk#openai" target="_blank" rel="noopener">View docs</a>
+            </div>
+
+            <div class="integration-card">
+              <div class="integration-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="9" y1="9" x2="15" y2="15"/>
+                  <line x1="15" y1="9" x2="9" y2="15"/>
+                </svg>
+              </div>
+              <h4>Claude MCP</h4>
+              <p>Native MCP server integration</p>
+              <a href="https://github.com/credseal/sdk#mcp" target="_blank" rel="noopener">View docs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Steps -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Next Steps</h3>
+        </div>
+        <div class="card-body">
+          <div class="next-steps">
+            <a href="credentials.html" class="next-step-item">
+              <div class="next-step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                </svg>
+              </div>
+              <div class="next-step-content">
+                <strong>Add your first credential</strong>
+                <span>Store an API key or secret securely</span>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </a>
+
+            <a href="agents.html" class="next-step-item">
+              <div class="next-step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                </svg>
+              </div>
+              <div class="next-step-content">
+                <strong>Register an agent</strong>
+                <span>Connect your AI agent to CredSeal</span>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </a>
+
+            <a href="https://github.com/credseal/sdk#readme" target="_blank" rel="noopener" class="next-step-item">
+              <div class="next-step-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+              </div>
+              <div class="next-step-content">
+                <strong>Read the full documentation</strong>
+                <span>Advanced features and best practices</span>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/checklist.js"></script>
+  <script>
+    // Track external docs link clicks
+    document.querySelectorAll('a[href*="github.com/credseal"]').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.OnboardingChecklist) {
+          OnboardingChecklist.completeStep('explore_docs');
+        }
+      });
+    });
+
+    // Code tab switching
+    document.querySelectorAll('.code-tabs').forEach(tabs => {
+      tabs.querySelectorAll('.code-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          const lang = tab.dataset.lang;
+          const card = tabs.closest('.card');
+
+          // Update active tab
+          tabs.querySelectorAll('.code-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          // Show corresponding code block
+          card.querySelectorAll('.code-block').forEach(block => {
+            block.style.display = block.dataset.lang === lang ? 'block' : 'none';
+          });
+        });
+      });
+    });
+
+    function revealApiKey() {
+      const keyEl = document.getElementById('api-key');
+      if (keyEl.textContent.includes('••••')) {
+        keyEl.textContent = 'cs_live_7x9k2m4n5p8q1v3w6y0z';
+      } else {
+        keyEl.textContent = 'cs_live_••••••••••••••••••••••••';
+      }
+    }
+  </script>
+
+  <style>
+    /* Quickstart-specific styles */
+    .api-key-display {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    .api-key-display code {
+      flex: 1;
+      font-size: 14px;
+    }
+
+    .code-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+
+    .code-tab {
+      padding: 8px 16px;
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-sm);
+      color: var(--fg-2);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .code-tab:hover {
+      color: var(--fg);
+    }
+
+    .code-tab.active {
+      background: var(--surface-2);
+      color: var(--fg);
+    }
+
+    .code-block {
+      position: relative;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .code-block pre {
+      margin: 0;
+      padding: 16px;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .code-copy {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      padding: 6px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--fg-2);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .code-copy:hover {
+      color: var(--fg);
+      border-color: var(--border-bright);
+    }
+
+    .code-copy.copied {
+      color: var(--green);
+      border-color: var(--green);
+    }
+
+    .token-keyword { color: #ff79c6; }
+    .token-string { color: #f1fa8c; }
+    .token-comment { color: #6272a4; }
+
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .integration-card {
+      padding: 20px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: all 0.15s;
+    }
+
+    .integration-card:hover {
+      border-color: var(--border-bright);
+    }
+
+    .integration-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-dim);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      color: var(--green);
+    }
+
+    .integration-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .integration-card p {
+      font-size: 13px;
+      color: var(--fg-2);
+      margin-bottom: 12px;
+    }
+
+    .integration-card a {
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    .integration-card a:hover {
+      text-decoration: underline;
+    }
+
+    .next-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .next-step-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: all 0.15s;
+    }
+
+    .next-step-item:hover {
+      border-color: var(--green);
+      transform: translateX(4px);
+    }
+
+    .next-step-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-dim);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .next-step-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .next-step-content strong {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .next-step-content span {
+      font-size: 13px;
+      color: var(--fg-2);
+    }
+
+    .next-step-item > svg:last-child {
+      color: var(--fg-3);
+    }
+
+    @media (max-width: 768px) {
+      .api-key-display {
+        flex-wrap: wrap;
+      }
+
+      .api-key-display code {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</body>
+</html>

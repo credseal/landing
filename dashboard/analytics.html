@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics — CredSeal</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="/" class="sidebar-logo">
+        <div class="logo-mark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <span>CredSeal</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Overview</span>
+        <a href="index.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="9" rx="1"/>
+            <rect x="14" y="3" width="7" height="5" rx="1"/>
+            <rect x="14" y="12" width="7" height="9" rx="1"/>
+            <rect x="3" y="16" width="7" height="5" rx="1"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="analytics.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="quickstart.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Quickstart
+        </a>
+        <a href="playground.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+          API Playground
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Manage</span>
+        <a href="credentials.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Credentials
+          <span class="nav-badge">3</span>
+        </a>
+        <a href="sessions.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
+          Sessions
+        </a>
+        <a href="agents.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          Agents
+        </a>
+        <a href="workflows.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
+          </svg>
+          Workflows
+        </a>
+        <a href="analytics.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18 9l-5 5-4-4-3 3"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="rate-limits.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+          Rate Limits
+        </a>
+        <a href="policies.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Policies
+        </a>
+        <a href="team.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Team
+        </a>
+        <a href="roles.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M5 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M12 14c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4z"/>
+          </svg>
+          Roles
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Audit Logs
+        </a>
+        <a href="webhooks.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Webhooks
+        </a>
+        <a href="integrations.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="8" height="8" rx="1"/>
+            <rect x="14" y="2" width="8" height="8" rx="1"/>
+            <rect x="2" y="14" width="8" height="8" rx="1"/>
+            <rect x="14" y="14" width="8" height="8" rx="1"/>
+            <path d="M10 6h4M6 10v4M18 10v4M10 18h4"/>
+          </svg>
+          Integrations
+        </a>
+        <a href="security.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Security
+        </a>
+        <a href="compliance.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Compliance
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Account</span>
+        <a href="settings.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+        <a href="branding.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="10.5" r="2.5"/>
+            <circle cx="8.5" cy="7.5" r="2.5"/>
+            <circle cx="6.5" cy="12.5" r="2.5"/>
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          </svg>
+          Branding
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Billing
+        </a>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="usage-meter">
+        <div class="usage-header">
+          <span>Executions</span>
+          <span>127 / 500</span>
+        </div>
+        <div class="usage-bar">
+          <div class="usage-fill" style="width: 25.4%"></div>
+        </div>
+        <a href="billing.html" class="usage-upgrade">Upgrade plan</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="main-content">
+    <!-- Header -->
+    <header class="header">
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="header-left">
+        <h1 class="page-title">Analytics</h1>
+      </div>
+
+      <button class="header-search" onclick="CommandPalette.open()">
+        <span class="header-search-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </span>
+        <span class="header-search-text">Search...</span>
+        <kbd class="header-search-kbd">⌘K</kbd>
+      </button>
+
+      <div class="header-right">
+        <!-- Date Range Picker -->
+        <div class="date-range-picker">
+          <button class="date-range-btn active" data-range="7d">7D</button>
+          <button class="date-range-btn" data-range="30d">30D</button>
+          <button class="date-range-btn" data-range="90d">90D</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="content">
+      <!-- Summary Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <span class="stat-value">1,247</span>
+            <span class="stat-label">Total Executions</span>
+          </div>
+          <div class="stat-change stat-change-up">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+            +23% vs last period
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon icon-success">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <span class="stat-value">99.2%</span>
+            <span class="stat-label">Success Rate</span>
+          </div>
+          <div class="stat-change stat-change-up">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+            +0.5% vs last period
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <span class="stat-value">142ms</span>
+            <span class="stat-label">Avg Response Time</span>
+          </div>
+          <div class="stat-change stat-change-down">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/>
+              <polyline points="17 18 23 18 23 12"/>
+            </svg>
+            -12ms vs last period
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <div class="stat-content">
+            <span class="stat-value">$12.47</span>
+            <span class="stat-label">Est. Cost This Month</span>
+          </div>
+          <div class="stat-change">
+            <span class="text-muted">Budget: $50.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="charts-row">
+        <!-- Usage Over Time Chart -->
+        <div class="card chart-card">
+          <div class="card-header">
+            <h3>Executions Over Time</h3>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background: var(--accent)"></span> Success</span>
+              <span class="legend-item"><span class="legend-dot" style="background: var(--danger)"></span> Failed</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container" id="usage-chart">
+              <!-- SVG Chart -->
+              <svg viewBox="0 0 600 200" class="line-chart">
+                <!-- Grid lines -->
+                <g class="grid-lines">
+                  <line x1="50" y1="20" x2="580" y2="20" stroke="var(--border-subtle)" stroke-dasharray="4"/>
+                  <line x1="50" y1="60" x2="580" y2="60" stroke="var(--border-subtle)" stroke-dasharray="4"/>
+                  <line x1="50" y1="100" x2="580" y2="100" stroke="var(--border-subtle)" stroke-dasharray="4"/>
+                  <line x1="50" y1="140" x2="580" y2="140" stroke="var(--border-subtle)" stroke-dasharray="4"/>
+                  <line x1="50" y1="180" x2="580" y2="180" stroke="var(--border-subtle)"/>
+                </g>
+                <!-- Y-axis labels -->
+                <g class="y-labels" fill="var(--fg-4)" font-size="11">
+                  <text x="45" y="24" text-anchor="end">200</text>
+                  <text x="45" y="64" text-anchor="end">150</text>
+                  <text x="45" y="104" text-anchor="end">100</text>
+                  <text x="45" y="144" text-anchor="end">50</text>
+                  <text x="45" y="184" text-anchor="end">0</text>
+                </g>
+                <!-- X-axis labels -->
+                <g class="x-labels" fill="var(--fg-4)" font-size="11">
+                  <text x="90" y="198" text-anchor="middle">Mon</text>
+                  <text x="165" y="198" text-anchor="middle">Tue</text>
+                  <text x="240" y="198" text-anchor="middle">Wed</text>
+                  <text x="315" y="198" text-anchor="middle">Thu</text>
+                  <text x="390" y="198" text-anchor="middle">Fri</text>
+                  <text x="465" y="198" text-anchor="middle">Sat</text>
+                  <text x="540" y="198" text-anchor="middle">Sun</text>
+                </g>
+                <!-- Success area -->
+                <path d="M90,100 L165,80 L240,60 L315,90 L390,50 L465,70 L540,40 L540,180 L90,180 Z"
+                      fill="url(#successGradient)" opacity="0.3"/>
+                <!-- Success line -->
+                <path d="M90,100 L165,80 L240,60 L315,90 L390,50 L465,70 L540,40"
+                      fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+                <!-- Data points -->
+                <g class="data-points">
+                  <circle cx="90" cy="100" r="4" fill="var(--accent)"/>
+                  <circle cx="165" cy="80" r="4" fill="var(--accent)"/>
+                  <circle cx="240" cy="60" r="4" fill="var(--accent)"/>
+                  <circle cx="315" cy="90" r="4" fill="var(--accent)"/>
+                  <circle cx="390" cy="50" r="4" fill="var(--accent)"/>
+                  <circle cx="465" cy="70" r="4" fill="var(--accent)"/>
+                  <circle cx="540" cy="40" r="4" fill="var(--accent)"/>
+                </g>
+                <!-- Gradient definition -->
+                <defs>
+                  <linearGradient id="successGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:var(--accent);stop-opacity:0.4"/>
+                    <stop offset="100%" style="stop-color:var(--accent);stop-opacity:0"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Credential Usage Breakdown -->
+        <div class="card chart-card chart-card-sm">
+          <div class="card-header">
+            <h3>Top Credentials</h3>
+          </div>
+          <div class="card-body">
+            <div class="usage-bars">
+              <div class="usage-bar-item">
+                <div class="usage-bar-header">
+                  <code>github-api</code>
+                  <span>523 requests</span>
+                </div>
+                <div class="usage-bar-track">
+                  <div class="usage-bar-fill" style="width: 72%"></div>
+                </div>
+              </div>
+              <div class="usage-bar-item">
+                <div class="usage-bar-header">
+                  <code>aws-s3</code>
+                  <span>312 requests</span>
+                </div>
+                <div class="usage-bar-track">
+                  <div class="usage-bar-fill" style="width: 43%"></div>
+                </div>
+              </div>
+              <div class="usage-bar-item">
+                <div class="usage-bar-header">
+                  <code>slack-bot</code>
+                  <span>198 requests</span>
+                </div>
+                <div class="usage-bar-track">
+                  <div class="usage-bar-fill" style="width: 27%"></div>
+                </div>
+              </div>
+              <div class="usage-bar-item">
+                <div class="usage-bar-header">
+                  <code>openai-api</code>
+                  <span>142 requests</span>
+                </div>
+                <div class="usage-bar-track">
+                  <div class="usage-bar-fill" style="width: 19%"></div>
+                </div>
+              </div>
+              <div class="usage-bar-item">
+                <div class="usage-bar-header">
+                  <code>stripe-api</code>
+                  <span>72 requests</span>
+                </div>
+                <div class="usage-bar-track">
+                  <div class="usage-bar-fill" style="width: 10%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Row -->
+      <div class="charts-row">
+        <!-- Agent Activity -->
+        <div class="card chart-card chart-card-sm">
+          <div class="card-header">
+            <h3>Agent Activity</h3>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Agent</th>
+                  <th>Sessions</th>
+                  <th>Success</th>
+                  <th>Trend</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>research-agent</code></td>
+                  <td>423</td>
+                  <td><span class="badge badge-success">99.5%</span></td>
+                  <td>
+                    <svg width="60" height="20" viewBox="0 0 60 20">
+                      <polyline points="0,15 10,12 20,8 30,10 40,5 50,7 60,3" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>data-processor</code></td>
+                  <td>312</td>
+                  <td><span class="badge badge-success">98.7%</span></td>
+                  <td>
+                    <svg width="60" height="20" viewBox="0 0 60 20">
+                      <polyline points="0,10 10,8 20,12 30,6 40,9 50,4 60,5" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                    </svg>
+                  </td>
+                </tr>
+                <tr>
+                  <td><code>code-review-bot</code></td>
+                  <td>89</td>
+                  <td><span class="badge badge-warning">97.2%</span></td>
+                  <td>
+                    <svg width="60" height="20" viewBox="0 0 60 20">
+                      <polyline points="0,8 10,10 20,6 30,12 40,8 50,10 60,7" fill="none" stroke="var(--warning)" stroke-width="2"/>
+                    </svg>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Real-time Activity Feed -->
+        <div class="card chart-card">
+          <div class="card-header">
+            <h3>
+              <span class="live-indicator"></span>
+              Live Activity
+            </h3>
+            <span class="text-xs text-muted">Auto-refreshes every 5s</span>
+          </div>
+          <div class="card-body activity-feed" id="activity-feed">
+            <div class="activity-item">
+              <div class="activity-icon success">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-agent">research-agent</span> accessed <code>github-api</code>
+              </div>
+              <span class="activity-time">just now</span>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon success">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-agent">data-processor</span> accessed <code>aws-s3</code>
+              </div>
+              <span class="activity-time">12s ago</span>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon success">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-agent">research-agent</span> accessed <code>slack-bot</code>
+              </div>
+              <span class="activity-time">34s ago</span>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon denied">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-agent">unknown-agent</span> denied access to <code>stripe-api</code>
+              </div>
+              <span class="activity-time">1m ago</span>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon success">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <span class="activity-agent">code-review-bot</span> accessed <code>github-api</code>
+              </div>
+              <span class="activity-time">2m ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security Summary -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Security Summary</h3>
+          <span class="badge badge-success">All Systems Normal</span>
+        </div>
+        <div class="card-body">
+          <div class="security-grid">
+            <div class="security-item">
+              <div class="security-icon success">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div class="security-content">
+                <strong>0 Policy Violations</strong>
+                <span>Last 7 days</span>
+              </div>
+            </div>
+            <div class="security-item">
+              <div class="security-icon success">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <div class="security-content">
+                <strong>All Credentials Encrypted</strong>
+                <span>AES-256-GCM</span>
+              </div>
+            </div>
+            <div class="security-item">
+              <div class="security-icon success">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <div class="security-content">
+                <strong>3 Registered Agents</strong>
+                <span>All verified</span>
+              </div>
+            </div>
+            <div class="security-item">
+              <div class="security-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+              </div>
+              <div class="security-content">
+                <strong>1 Denied Request</strong>
+                <span>Unregistered agent blocked</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    // Date range picker
+    document.querySelectorAll('.date-range-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.date-range-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // In production, this would fetch new data
+        CredSeal.showToast(`Showing data for ${btn.dataset.range}`, 'info');
+      });
+    });
+
+    // Simulated live activity feed
+    const activities = [
+      { agent: 'research-agent', cred: 'github-api', status: 'success' },
+      { agent: 'data-processor', cred: 'aws-s3', status: 'success' },
+      { agent: 'code-review-bot', cred: 'github-api', status: 'success' },
+      { agent: 'research-agent', cred: 'slack-bot', status: 'success' },
+      { agent: 'data-processor', cred: 'openai-api', status: 'success' },
+    ];
+
+    function addActivity() {
+      const feed = document.getElementById('activity-feed');
+      const activity = activities[Math.floor(Math.random() * activities.length)];
+
+      const item = document.createElement('div');
+      item.className = 'activity-item new';
+      item.innerHTML = `
+        <div class="activity-icon ${activity.status}">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="activity-content">
+          <span class="activity-agent">${activity.agent}</span> accessed <code>${activity.cred}</code>
+        </div>
+        <span class="activity-time">just now</span>
+      `;
+
+      feed.insertBefore(item, feed.firstChild);
+
+      // Remove oldest if more than 6
+      while (feed.children.length > 6) {
+        feed.removeChild(feed.lastChild);
+      }
+
+      // Remove 'new' class after animation
+      setTimeout(() => item.classList.remove('new'), 500);
+    }
+
+    // Add new activity every 5-10 seconds
+    setInterval(addActivity, 5000 + Math.random() * 5000);
+  </script>
+
+  <style>
+    /* Analytics-specific styles */
+    .date-range-picker {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-2);
+      padding: 4px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .date-range-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--fg-3);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+
+    .date-range-btn:hover {
+      color: var(--fg-1);
+    }
+
+    .date-range-btn.active {
+      background: var(--accent);
+      color: #000;
+    }
+
+    .charts-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--space-6);
+      margin-bottom: var(--space-6);
+    }
+
+    @media (max-width: 1024px) {
+      .charts-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-card {
+      min-height: 300px;
+    }
+
+    .chart-card-sm {
+      min-height: auto;
+    }
+
+    .chart-legend {
+      display: flex;
+      gap: var(--space-4);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: var(--fg-3);
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .chart-container {
+      height: 220px;
+      padding: var(--space-2);
+    }
+
+    .line-chart {
+      width: 100%;
+      height: 100%;
+    }
+
+    .usage-bars {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .usage-bar-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .usage-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--text-sm);
+    }
+
+    .usage-bar-header span {
+      color: var(--fg-3);
+      font-size: var(--text-xs);
+    }
+
+    .usage-bar-track {
+      height: 6px;
+      background: var(--bg-3);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .usage-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .live-indicator {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: var(--space-2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .activity-feed {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: var(--bg-3);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      transition: all 0.2s ease;
+    }
+
+    .activity-item.new {
+      animation: slideIn 0.3s ease;
+      background: var(--accent-muted);
+    }
+
+    .activity-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .activity-icon.success {
+      background: var(--accent-muted);
+      color: var(--accent);
+    }
+
+    .activity-icon.denied {
+      background: var(--danger-muted);
+      color: var(--danger);
+    }
+
+    .activity-content {
+      flex: 1;
+    }
+
+    .activity-agent {
+      font-weight: 500;
+      color: var(--fg-1);
+    }
+
+    .activity-time {
+      font-size: var(--text-xs);
+      color: var(--fg-4);
+    }
+
+    .security-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-4);
+    }
+
+    @media (max-width: 1024px) {
+      .security-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .security-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .security-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      background: var(--bg-3);
+      border-radius: var(--radius-md);
+    }
+
+    .security-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-elevated);
+      color: var(--fg-3);
+      flex-shrink: 0;
+    }
+
+    .security-icon.success {
+      background: var(--accent-muted);
+      color: var(--accent);
+    }
+
+    .security-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .security-content strong {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+
+    .security-content span {
+      font-size: var(--text-xs);
+      color: var(--fg-3);
+    }
+
+    .stat-change {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-size: var(--text-xs);
+      margin-top: var(--space-2);
+    }
+
+    .stat-change-up {
+      color: var(--accent);
+    }
+
+    .stat-change-down {
+      color: var(--danger);
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compliance - CredSeal Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#6366f1"/>
+              <stop offset="100%" style="stop-color:#8b5cf6"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 5 L90 20 L90 45 C90 70 70 90 50 95 C30 90 10 70 10 45 L10 20 Z" fill="url(#shieldGradient)"/>
+          <path d="M35 50 L45 60 L65 40" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>CredSeal</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Overview</span>
+        <a href="index.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="quickstart.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Quickstart
+        </a>
+        <a href="playground.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Playground
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Manage</span>
+        <a href="credentials.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Credentials
+        </a>
+        <a href="sessions.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
+          Sessions
+        </a>
+        <a href="agents.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          Agents
+        </a>
+        <a href="workflows.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
+          </svg>
+          Workflows
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18 9l-5 5-4-4-3 3"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="rate-limits.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+          Rate Limits
+        </a>
+        <a href="policies.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Policies
+        </a>
+        <a href="team.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Team
+        </a>
+        <a href="roles.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M5 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M12 14c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4z"/>
+          </svg>
+          Roles
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Audit Logs
+        </a>
+        <a href="webhooks.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Webhooks
+        </a>
+        <a href="integrations.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="8" height="8" rx="1"/>
+            <rect x="14" y="2" width="8" height="8" rx="1"/>
+            <rect x="2" y="14" width="8" height="8" rx="1"/>
+            <rect x="14" y="14" width="8" height="8" rx="1"/>
+            <path d="M10 6h4M6 10v4M18 10v4M10 18h4"/>
+          </svg>
+          Integrations
+        </a>
+        <a href="security.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Security
+        </a>
+        <a href="compliance.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Compliance
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Account</span>
+        <a href="settings.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+        <a href="branding.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="10.5" r="2.5"/>
+            <circle cx="8.5" cy="7.5" r="2.5"/>
+            <circle cx="6.5" cy="12.5" r="2.5"/>
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          </svg>
+          Branding
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Billing
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content" id="main-content">
+    <header class="main-header">
+      <div class="header-left">
+        <h1>Compliance Center</h1>
+        <p class="header-subtitle">Monitor compliance status and generate audit reports</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" onclick="CommandPalette.open()" title="Search (⌘K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+        <button class="btn btn-secondary" onclick="generateReport()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Export Report
+        </button>
+      </div>
+    </header>
+
+    <!-- Compliance Overview -->
+    <div class="compliance-overview">
+      <div class="compliance-score-large">
+        <div class="score-circle">
+          <svg viewBox="0 0 140 140">
+            <circle cx="70" cy="70" r="62" fill="none" stroke="var(--border)" stroke-width="10"/>
+            <circle cx="70" cy="70" r="62" fill="none" stroke="#10b981" stroke-width="10"
+                    stroke-dasharray="389.6" stroke-dashoffset="58.4" stroke-linecap="round"
+                    transform="rotate(-90 70 70)"/>
+          </svg>
+          <div class="score-inner">
+            <span class="score-percent">85%</span>
+            <span class="score-text">Compliant</span>
+          </div>
+        </div>
+      </div>
+      <div class="compliance-summary">
+        <h2>Overall Compliance Status</h2>
+        <p>Your organization meets most compliance requirements. Address the remaining items to achieve full compliance.</p>
+        <div class="compliance-stats">
+          <div class="comp-stat">
+            <span class="comp-stat-value text-success">42</span>
+            <span class="comp-stat-label">Controls Passed</span>
+          </div>
+          <div class="comp-stat">
+            <span class="comp-stat-value text-warning">6</span>
+            <span class="comp-stat-label">Needs Attention</span>
+          </div>
+          <div class="comp-stat">
+            <span class="comp-stat-value text-danger">2</span>
+            <span class="comp-stat-label">Critical Issues</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Framework Cards -->
+    <div class="framework-grid">
+      <div class="framework-card">
+        <div class="framework-header">
+          <div class="framework-icon soc2">
+            <span>SOC 2</span>
+          </div>
+          <div class="framework-info">
+            <h3>SOC 2 Type II</h3>
+            <p>Service Organization Control</p>
+          </div>
+          <div class="framework-status status-good">
+            <span class="status-percent">92%</span>
+          </div>
+        </div>
+        <div class="framework-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 92%; background: linear-gradient(90deg, #10b981, #34d399);"></div>
+          </div>
+        </div>
+        <div class="framework-controls">
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Security (CC6)</span>
+          </div>
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Availability (A1)</span>
+          </div>
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Confidentiality (C1)</span>
+          </div>
+          <div class="control-item warning">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span>Processing Integrity</span>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="viewFramework('soc2')">View Details</button>
+      </div>
+
+      <div class="framework-card">
+        <div class="framework-header">
+          <div class="framework-icon gdpr">
+            <span>GDPR</span>
+          </div>
+          <div class="framework-info">
+            <h3>GDPR</h3>
+            <p>EU Data Protection</p>
+          </div>
+          <div class="framework-status status-good">
+            <span class="status-percent">88%</span>
+          </div>
+        </div>
+        <div class="framework-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 88%; background: linear-gradient(90deg, #10b981, #34d399);"></div>
+          </div>
+        </div>
+        <div class="framework-controls">
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Data Processing</span>
+          </div>
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Consent Management</span>
+          </div>
+          <div class="control-item warning">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span>Data Portability</span>
+          </div>
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Right to Erasure</span>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="viewFramework('gdpr')">View Details</button>
+      </div>
+
+      <div class="framework-card">
+        <div class="framework-header">
+          <div class="framework-icon hipaa">
+            <span>HIPAA</span>
+          </div>
+          <div class="framework-info">
+            <h3>HIPAA</h3>
+            <p>Healthcare Data Protection</p>
+          </div>
+          <div class="framework-status status-warning">
+            <span class="status-percent">75%</span>
+          </div>
+        </div>
+        <div class="framework-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 75%; background: linear-gradient(90deg, #f59e0b, #fbbf24);"></div>
+          </div>
+        </div>
+        <div class="framework-controls">
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Access Controls</span>
+          </div>
+          <div class="control-item failed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="15" y1="9" x2="9" y2="15"/>
+              <line x1="9" y1="9" x2="15" y2="15"/>
+            </svg>
+            <span>Audit Logging</span>
+          </div>
+          <div class="control-item warning">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span>Encryption</span>
+          </div>
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>BAA Compliance</span>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="viewFramework('hipaa')">View Details</button>
+      </div>
+
+      <div class="framework-card">
+        <div class="framework-header">
+          <div class="framework-icon pci">
+            <span>PCI</span>
+          </div>
+          <div class="framework-info">
+            <h3>PCI DSS</h3>
+            <p>Payment Card Security</p>
+          </div>
+          <div class="framework-status status-good">
+            <span class="status-percent">95%</span>
+          </div>
+        </div>
+        <div class="framework-progress">
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 95%; background: linear-gradient(90deg, #10b981, #34d399);"></div>
+          </div>
+        </div>
+        <div class="framework-controls">
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Network Security</span>
+          </div>
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Data Protection</span>
+          </div>
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Vulnerability Mgmt</span>
+          </div>
+          <div class="control-item passed">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Access Control</span>
+          </div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="viewFramework('pci')">View Details</button>
+      </div>
+    </div>
+
+    <!-- Critical Issues -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Action Required</h3>
+        <span class="badge badge-danger">2 Critical</span>
+      </div>
+      <div class="card-body">
+        <div class="issues-list">
+          <div class="issue-item critical">
+            <div class="issue-severity">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div class="issue-content">
+              <h4>HIPAA Audit Logging Incomplete</h4>
+              <p>PHI access events are not being logged with required detail level. This affects compliance with 45 CFR 164.312(b).</p>
+              <div class="issue-meta">
+                <span class="issue-framework">HIPAA</span>
+                <span class="issue-control">Control: Audit Controls</span>
+                <span class="issue-due">Due: Mar 30, 2026</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="fixIssue('hipaa-audit')">Remediate</button>
+          </div>
+
+          <div class="issue-item critical">
+            <div class="issue-severity">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div class="issue-content">
+              <h4>Encryption at Rest Not Enabled for All Credentials</h4>
+              <p>3 credential stores are using deprecated encryption. Upgrade required for HIPAA and SOC 2 compliance.</p>
+              <div class="issue-meta">
+                <span class="issue-framework">HIPAA, SOC 2</span>
+                <span class="issue-control">Control: Encryption</span>
+                <span class="issue-due">Due: Mar 25, 2026</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="fixIssue('encryption')">Remediate</button>
+          </div>
+
+          <div class="issue-item warning">
+            <div class="issue-severity warning">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <div class="issue-content">
+              <h4>MFA Not Enforced for All Admin Users</h4>
+              <p>2 admin users do not have MFA enabled. SOC 2 CC6.1 requires strong authentication for privileged access.</p>
+              <div class="issue-meta">
+                <span class="issue-framework">SOC 2</span>
+                <span class="issue-control">Control: CC6.1</span>
+                <span class="issue-due">Due: Apr 5, 2026</span>
+              </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="fixIssue('mfa')">Review</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compliance Reports -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Recent Reports</h3>
+        <button class="btn btn-secondary btn-sm" onclick="scheduleReport()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          Schedule Report
+        </button>
+      </div>
+      <div class="card-body card-body-flush">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Report</th>
+              <th>Framework</th>
+              <th>Generated</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="report-name">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                  <span>Q1 2026 Compliance Report</span>
+                </div>
+              </td>
+              <td><span class="framework-badge soc2">SOC 2</span></td>
+              <td>Mar 15, 2026</td>
+              <td><span class="status-badge status-success">Completed</span></td>
+              <td>
+                <button class="btn-icon" onclick="downloadReport('q1-2026')" title="Download">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="report-name">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                  <span>GDPR Data Processing Report</span>
+                </div>
+              </td>
+              <td><span class="framework-badge gdpr">GDPR</span></td>
+              <td>Mar 10, 2026</td>
+              <td><span class="status-badge status-success">Completed</span></td>
+              <td>
+                <button class="btn-icon" onclick="downloadReport('gdpr-dpa')" title="Download">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="report-name">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                  <span>PCI DSS Self-Assessment</span>
+                </div>
+              </td>
+              <td><span class="framework-badge pci">PCI DSS</span></td>
+              <td>Feb 28, 2026</td>
+              <td><span class="status-badge status-success">Completed</span></td>
+              <td>
+                <button class="btn-icon" onclick="downloadReport('pci-saq')" title="Download">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    function generateReport() {
+      showNotification('Generating compliance report...', 'info');
+      setTimeout(() => {
+        showNotification('Report generated successfully', 'success');
+      }, 2000);
+    }
+
+    function viewFramework(framework) {
+      showNotification(`Opening ${framework.toUpperCase()} compliance details...`, 'info');
+    }
+
+    function fixIssue(issue) {
+      showNotification('Opening remediation wizard...', 'info');
+    }
+
+    function scheduleReport() {
+      showNotification('Report scheduling coming soon', 'info');
+    }
+
+    function downloadReport(id) {
+      showNotification(`Downloading report: ${id}.pdf`, 'success');
+    }
+
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          ${type === 'success' ? '<polyline points="20 6 9 17 4 12"/>'
+            : '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>'}
+        </svg>
+        <span>${message}</span>
+      `;
+      document.body.appendChild(notification);
+
+      setTimeout(() => notification.classList.add('show'), 10);
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+  </script>
+
+  <style>
+    /* Compliance Overview */
+    .compliance-overview {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+    }
+
+    .compliance-score-large {
+      flex-shrink: 0;
+    }
+
+    .score-circle {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+
+    .score-circle svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .score-inner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .score-percent {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #10b981;
+    }
+
+    .score-text {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .compliance-summary {
+      flex: 1;
+    }
+
+    .compliance-summary h2 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.5rem;
+    }
+
+    .compliance-summary > p {
+      margin: 0 0 1.5rem 0;
+      color: var(--text-secondary);
+    }
+
+    .compliance-stats {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .comp-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .comp-stat-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    .comp-stat-label {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .text-success { color: #10b981; }
+    .text-warning { color: #f59e0b; }
+    .text-danger { color: #ef4444; }
+
+    /* Framework Grid */
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .framework-card {
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .framework-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .framework-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      color: white;
+    }
+
+    .framework-icon.soc2 {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    }
+
+    .framework-icon.gdpr {
+      background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    }
+
+    .framework-icon.hipaa {
+      background: linear-gradient(135deg, #10b981, #34d399);
+    }
+
+    .framework-icon.pci {
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+    }
+
+    .framework-info {
+      flex: 1;
+    }
+
+    .framework-info h3 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .framework-info p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .framework-status {
+      text-align: center;
+    }
+
+    .status-percent {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .status-good .status-percent {
+      color: #10b981;
+    }
+
+    .status-warning .status-percent {
+      color: #f59e0b;
+    }
+
+    .framework-progress {
+      margin-bottom: 1rem;
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: var(--surface-hover);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    .framework-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .control-item {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.625rem;
+      background: var(--surface-hover);
+      border-radius: 20px;
+      font-size: 0.75rem;
+    }
+
+    .control-item.passed {
+      color: #10b981;
+    }
+
+    .control-item.warning {
+      color: #f59e0b;
+    }
+
+    .control-item.failed {
+      color: #ef4444;
+    }
+
+    /* Issues List */
+    .issues-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .issue-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--surface-hover);
+      border-radius: 12px;
+      border-left: 4px solid;
+    }
+
+    .issue-item.critical {
+      border-left-color: #ef4444;
+    }
+
+    .issue-item.warning {
+      border-left-color: #f59e0b;
+    }
+
+    .issue-severity {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(239, 68, 68, 0.1);
+      border-radius: 10px;
+      color: #ef4444;
+      flex-shrink: 0;
+    }
+
+    .issue-severity.warning {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+    }
+
+    .issue-content {
+      flex: 1;
+    }
+
+    .issue-content h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .issue-content p {
+      margin: 0 0 0.75rem 0;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .issue-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .issue-framework {
+      padding: 0.125rem 0.5rem;
+      background: var(--surface);
+      border-radius: 4px;
+    }
+
+    /* Table */
+    .card-body-flush {
+      padding: 0;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table th {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      background: var(--surface-hover);
+    }
+
+    .table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .report-name {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .framework-badge {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .framework-badge.soc2 {
+      background: #6366f1;
+    }
+
+    .framework-badge.gdpr {
+      background: #3b82f6;
+    }
+
+    .framework-badge.pci {
+      background: #f59e0b;
+    }
+
+    .framework-badge.hipaa {
+      background: #10b981;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      padding: 0.25rem 0.625rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .status-success {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+
+    .badge-danger {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification-success {
+      border-left: 4px solid #10b981;
+    }
+
+    .notification-success svg {
+      stroke: #10b981;
+    }
+
+    .notification-info {
+      border-left: 4px solid #6366f1;
+    }
+
+    .notification-info svg {
+      stroke: #6366f1;
+    }
+
+    .btn-sm {
+      padding: 0.5rem 0.875rem;
+      font-size: 0.8125rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .compliance-overview {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .compliance-stats {
+        justify-content: center;
+      }
+
+      .framework-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .issue-item {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</body>
+</html>

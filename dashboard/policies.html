@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policies - CredSeal Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#6366f1"/>
+              <stop offset="100%" style="stop-color:#8b5cf6"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 5 L90 20 L90 45 C90 70 70 90 50 95 C30 90 10 70 10 45 L10 20 Z" fill="url(#shieldGradient)"/>
+          <path d="M35 50 L45 60 L65 40" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>CredSeal</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Overview</span>
+        <a href="index.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="quickstart.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Quickstart
+        </a>
+        <a href="playground.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Playground
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Manage</span>
+        <a href="credentials.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Credentials
+        </a>
+        <a href="sessions.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
+          Sessions
+        </a>
+        <a href="agents.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          Agents
+        </a>
+        <a href="workflows.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
+          </svg>
+          Workflows
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18 9l-5 5-4-4-3 3"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="rate-limits.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+          Rate Limits
+        </a>
+        <a href="policies.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Policies
+        </a>
+        <a href="team.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Team
+        </a>
+        <a href="roles.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M5 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M12 14c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4z"/>
+          </svg>
+          Roles
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Audit Logs
+        </a>
+        <a href="webhooks.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Webhooks
+        </a>
+        <a href="integrations.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="8" height="8" rx="1"/>
+            <rect x="14" y="2" width="8" height="8" rx="1"/>
+            <rect x="2" y="14" width="8" height="8" rx="1"/>
+            <rect x="14" y="14" width="8" height="8" rx="1"/>
+            <path d="M10 6h4M6 10v4M18 10v4M10 18h4"/>
+          </svg>
+          Integrations
+        </a>
+        <a href="security.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Security
+        </a>
+        <a href="compliance.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Compliance
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Account</span>
+        <a href="settings.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+        <a href="branding.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="10.5" r="2.5"/>
+            <circle cx="8.5" cy="7.5" r="2.5"/>
+            <circle cx="6.5" cy="12.5" r="2.5"/>
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          </svg>
+          Branding
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Billing
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content" id="main-content">
+    <header class="main-header">
+      <div class="header-left">
+        <h1>Security Policies</h1>
+        <p class="header-subtitle">Define access rules and constraints for your credentials</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" onclick="CommandPalette.open()" title="Search (⌘K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+        <button class="btn btn-primary" onclick="openPolicyBuilder()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          New Policy
+        </button>
+      </div>
+    </header>
+
+    <!-- Policy Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">8</span>
+          <span class="stat-label">Active Policies</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">1,247</span>
+          <span class="stat-label">Requests Allowed</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">23</span>
+          <span class="stat-label">Blocked Today</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Critical Violations</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Policy List -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Policy Rules</h3>
+        <div class="card-actions">
+          <select class="form-select" id="policy-filter">
+            <option value="all">All Policies</option>
+            <option value="active">Active Only</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="policy-list">
+          <!-- Rate Limiting Policy -->
+          <div class="policy-item" data-policy-id="1">
+            <div class="policy-header">
+              <div class="policy-toggle">
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="policy-info">
+                <h4>API Rate Limiting</h4>
+                <p>Limit API calls to 100 requests per minute per agent</p>
+              </div>
+              <div class="policy-meta">
+                <span class="policy-badge badge-success">Active</span>
+                <span class="policy-scope">All Credentials</span>
+              </div>
+              <div class="policy-actions">
+                <button class="btn-icon" onclick="editPolicy(1)" title="Edit">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                </button>
+                <button class="btn-icon" onclick="deletePolicy(1)" title="Delete">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"/>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="policy-rules">
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                100 req/min
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Per Agent
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                </svg>
+                Block on exceed
+              </div>
+            </div>
+          </div>
+
+          <!-- IP Whitelist Policy -->
+          <div class="policy-item" data-policy-id="2">
+            <div class="policy-header">
+              <div class="policy-toggle">
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="policy-info">
+                <h4>IP Whitelist</h4>
+                <p>Only allow requests from approved IP ranges</p>
+              </div>
+              <div class="policy-meta">
+                <span class="policy-badge badge-success">Active</span>
+                <span class="policy-scope">Production Keys</span>
+              </div>
+              <div class="policy-actions">
+                <button class="btn-icon" onclick="editPolicy(2)" title="Edit">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                </button>
+                <button class="btn-icon" onclick="deletePolicy(2)" title="Delete">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"/>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="policy-rules">
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                </svg>
+                10.0.0.0/8
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                </svg>
+                192.168.1.0/24
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                Strict mode
+              </div>
+            </div>
+          </div>
+
+          <!-- Time Window Policy -->
+          <div class="policy-item" data-policy-id="3">
+            <div class="policy-header">
+              <div class="policy-toggle">
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="policy-info">
+                <h4>Business Hours Only</h4>
+                <p>Restrict credential access to business hours (9AM - 6PM EST)</p>
+              </div>
+              <div class="policy-meta">
+                <span class="policy-badge badge-success">Active</span>
+                <span class="policy-scope">Financial APIs</span>
+              </div>
+              <div class="policy-actions">
+                <button class="btn-icon" onclick="editPolicy(3)" title="Edit">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                </button>
+                <button class="btn-icon" onclick="deletePolicy(3)" title="Delete">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"/>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="policy-rules">
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                09:00 - 18:00
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                </svg>
+                EST Timezone
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                </svg>
+                Mon - Fri
+              </div>
+            </div>
+          </div>
+
+          <!-- Scope Restriction Policy -->
+          <div class="policy-item" data-policy-id="4">
+            <div class="policy-header">
+              <div class="policy-toggle">
+                <label class="toggle-switch">
+                  <input type="checkbox" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="policy-info">
+                <h4>Scope Restrictions</h4>
+                <p>Limit credential actions to read-only for non-admin agents</p>
+              </div>
+              <div class="policy-meta">
+                <span class="policy-badge badge-success">Active</span>
+                <span class="policy-scope">Database Creds</span>
+              </div>
+              <div class="policy-actions">
+                <button class="btn-icon" onclick="editPolicy(4)" title="Edit">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                </button>
+                <button class="btn-icon" onclick="deletePolicy(4)" title="Delete">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"/>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="policy-rules">
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Read Only
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                Non-admin agents
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                SELECT queries only
+              </div>
+            </div>
+          </div>
+
+          <!-- Audit Logging Policy -->
+          <div class="policy-item" data-policy-id="5">
+            <div class="policy-header">
+              <div class="policy-toggle">
+                <label class="toggle-switch">
+                  <input type="checkbox">
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="policy-info">
+                <h4>Enhanced Audit Logging</h4>
+                <p>Log all credential access with full request/response bodies</p>
+              </div>
+              <div class="policy-meta">
+                <span class="policy-badge badge-secondary">Inactive</span>
+                <span class="policy-scope">All Credentials</span>
+              </div>
+              <div class="policy-actions">
+                <button class="btn-icon" onclick="editPolicy(5)" title="Edit">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                  </svg>
+                </button>
+                <button class="btn-icon" onclick="deletePolicy(5)" title="Delete">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"/>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="policy-rules">
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                Full body logging
+              </div>
+              <div class="rule-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+                90-day retention
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Policy Builder Modal -->
+    <div class="modal" id="policy-builder-modal">
+      <div class="modal-backdrop" onclick="closePolicyBuilder()"></div>
+      <div class="modal-content modal-large">
+        <div class="modal-header">
+          <h2 id="policy-modal-title">Create New Policy</h2>
+          <button class="btn-icon" onclick="closePolicyBuilder()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="policy-form">
+            <!-- Policy Basics -->
+            <div class="form-section">
+              <h3>Basic Information</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="policy-name">Policy Name</label>
+                  <input type="text" id="policy-name" class="form-input" placeholder="e.g., Production Rate Limiting">
+                </div>
+                <div class="form-group">
+                  <label for="policy-priority">Priority</label>
+                  <select id="policy-priority" class="form-select">
+                    <option value="high">High (evaluated first)</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low (evaluated last)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="policy-description">Description</label>
+                <textarea id="policy-description" class="form-textarea" rows="2" placeholder="Describe what this policy does..."></textarea>
+              </div>
+            </div>
+
+            <!-- Policy Type -->
+            <div class="form-section">
+              <h3>Policy Type</h3>
+              <div class="policy-type-grid">
+                <label class="policy-type-card" data-type="rate-limit">
+                  <input type="radio" name="policy-type" value="rate-limit" checked>
+                  <div class="policy-type-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                  </div>
+                  <span class="policy-type-name">Rate Limiting</span>
+                  <span class="policy-type-desc">Limit request frequency</span>
+                </label>
+                <label class="policy-type-card" data-type="ip-filter">
+                  <input type="radio" name="policy-type" value="ip-filter">
+                  <div class="policy-type-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                      <line x1="6" y1="6" x2="6.01" y2="6"/>
+                      <line x1="6" y1="18" x2="6.01" y2="18"/>
+                    </svg>
+                  </div>
+                  <span class="policy-type-name">IP Filtering</span>
+                  <span class="policy-type-desc">Whitelist/blacklist IPs</span>
+                </label>
+                <label class="policy-type-card" data-type="time-window">
+                  <input type="radio" name="policy-type" value="time-window">
+                  <div class="policy-type-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                      <line x1="16" y1="2" x2="16" y2="6"/>
+                      <line x1="8" y1="2" x2="8" y2="6"/>
+                      <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                  </div>
+                  <span class="policy-type-name">Time Windows</span>
+                  <span class="policy-type-desc">Schedule-based access</span>
+                </label>
+                <label class="policy-type-card" data-type="scope">
+                  <input type="radio" name="policy-type" value="scope">
+                  <div class="policy-type-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                  </div>
+                  <span class="policy-type-name">Scope Limits</span>
+                  <span class="policy-type-desc">Restrict operations</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Rate Limit Config (shown by default) -->
+            <div class="form-section config-section" id="config-rate-limit">
+              <h3>Rate Limit Configuration</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="rate-limit-count">Max Requests</label>
+                  <input type="number" id="rate-limit-count" class="form-input" value="100" min="1">
+                </div>
+                <div class="form-group">
+                  <label for="rate-limit-window">Time Window</label>
+                  <select id="rate-limit-window" class="form-select">
+                    <option value="second">Per Second</option>
+                    <option value="minute" selected>Per Minute</option>
+                    <option value="hour">Per Hour</option>
+                    <option value="day">Per Day</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="rate-limit-scope">Apply Per</label>
+                  <select id="rate-limit-scope" class="form-select">
+                    <option value="agent">Per Agent</option>
+                    <option value="credential">Per Credential</option>
+                    <option value="global">Global</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="rate-limit-action">On Exceed</label>
+                <select id="rate-limit-action" class="form-select">
+                  <option value="block">Block Request</option>
+                  <option value="queue">Queue Request</option>
+                  <option value="warn">Allow with Warning</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- IP Filter Config (hidden by default) -->
+            <div class="form-section config-section" id="config-ip-filter" style="display: none;">
+              <h3>IP Filter Configuration</h3>
+              <div class="form-group">
+                <label for="ip-filter-mode">Filter Mode</label>
+                <select id="ip-filter-mode" class="form-select">
+                  <option value="whitelist">Whitelist (allow only these IPs)</option>
+                  <option value="blacklist">Blacklist (block these IPs)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="ip-filter-ranges">IP Ranges (one per line)</label>
+                <textarea id="ip-filter-ranges" class="form-textarea" rows="4" placeholder="10.0.0.0/8&#10;192.168.1.0/24&#10;203.0.113.50"></textarea>
+              </div>
+            </div>
+
+            <!-- Time Window Config (hidden by default) -->
+            <div class="form-section config-section" id="config-time-window" style="display: none;">
+              <h3>Time Window Configuration</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="time-window-start">Start Time</label>
+                  <input type="time" id="time-window-start" class="form-input" value="09:00">
+                </div>
+                <div class="form-group">
+                  <label for="time-window-end">End Time</label>
+                  <input type="time" id="time-window-end" class="form-input" value="18:00">
+                </div>
+                <div class="form-group">
+                  <label for="time-window-tz">Timezone</label>
+                  <select id="time-window-tz" class="form-select">
+                    <option value="UTC">UTC</option>
+                    <option value="EST" selected>EST</option>
+                    <option value="PST">PST</option>
+                    <option value="CET">CET</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Active Days</label>
+                <div class="day-picker">
+                  <label class="day-option"><input type="checkbox" checked> Mon</label>
+                  <label class="day-option"><input type="checkbox" checked> Tue</label>
+                  <label class="day-option"><input type="checkbox" checked> Wed</label>
+                  <label class="day-option"><input type="checkbox" checked> Thu</label>
+                  <label class="day-option"><input type="checkbox" checked> Fri</label>
+                  <label class="day-option"><input type="checkbox"> Sat</label>
+                  <label class="day-option"><input type="checkbox"> Sun</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Scope Config (hidden by default) -->
+            <div class="form-section config-section" id="config-scope" style="display: none;">
+              <h3>Scope Configuration</h3>
+              <div class="form-group">
+                <label>Allowed Operations</label>
+                <div class="scope-options">
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="scope-ops" value="read" checked>
+                    <span>Read</span>
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="scope-ops" value="write">
+                    <span>Write</span>
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="scope-ops" value="delete">
+                    <span>Delete</span>
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="scope-ops" value="admin">
+                    <span>Admin</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Apply To -->
+            <div class="form-section">
+              <h3>Apply To</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="apply-credentials">Credentials</label>
+                  <select id="apply-credentials" class="form-select" multiple>
+                    <option value="all" selected>All Credentials</option>
+                    <option value="prod">Production Keys</option>
+                    <option value="dev">Development Keys</option>
+                    <option value="db">Database Credentials</option>
+                    <option value="api">API Keys</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="apply-agents">Agents</label>
+                  <select id="apply-agents" class="form-select" multiple>
+                    <option value="all" selected>All Agents</option>
+                    <option value="agent-1">Research Assistant</option>
+                    <option value="agent-2">Data Processor</option>
+                    <option value="agent-3">API Gateway</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closePolicyBuilder()">Cancel</button>
+          <button class="btn btn-primary" onclick="savePolicy()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Save Policy
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    // Policy Builder Functions
+    function openPolicyBuilder(policyId = null) {
+      const modal = document.getElementById('policy-builder-modal');
+      const title = document.getElementById('policy-modal-title');
+
+      if (policyId) {
+        title.textContent = 'Edit Policy';
+        // Load policy data here
+      } else {
+        title.textContent = 'Create New Policy';
+        document.getElementById('policy-form').reset();
+      }
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePolicyBuilder() {
+      const modal = document.getElementById('policy-builder-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function editPolicy(id) {
+      openPolicyBuilder(id);
+    }
+
+    function deletePolicy(id) {
+      if (confirm('Are you sure you want to delete this policy? This action cannot be undone.')) {
+        const policyItem = document.querySelector(`[data-policy-id="${id}"]`);
+        if (policyItem) {
+          policyItem.style.opacity = '0';
+          policyItem.style.transform = 'translateX(-20px)';
+          setTimeout(() => policyItem.remove(), 300);
+        }
+      }
+    }
+
+    function savePolicy() {
+      const name = document.getElementById('policy-name').value;
+      if (!name.trim()) {
+        alert('Please enter a policy name');
+        return;
+      }
+
+      // In a real app, this would save to backend
+      console.log('Saving policy:', {
+        name: name,
+        type: document.querySelector('input[name="policy-type"]:checked').value,
+        priority: document.getElementById('policy-priority').value
+      });
+
+      closePolicyBuilder();
+
+      // Show success notification
+      showNotification('Policy created successfully', 'success');
+    }
+
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          ${type === 'success'
+            ? '<polyline points="20 6 9 17 4 12"/>'
+            : '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>'}
+        </svg>
+        <span>${message}</span>
+      `;
+      document.body.appendChild(notification);
+
+      setTimeout(() => notification.classList.add('show'), 10);
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+
+    // Policy type switching
+    document.querySelectorAll('input[name="policy-type"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        // Hide all config sections
+        document.querySelectorAll('.config-section').forEach(section => {
+          section.style.display = 'none';
+        });
+
+        // Show selected config section
+        const configId = 'config-' + this.value;
+        const configSection = document.getElementById(configId);
+        if (configSection) {
+          configSection.style.display = 'block';
+        }
+
+        // Update card styling
+        document.querySelectorAll('.policy-type-card').forEach(card => {
+          card.classList.remove('selected');
+        });
+        this.closest('.policy-type-card').classList.add('selected');
+      });
+    });
+
+    // Initialize first card as selected
+    document.querySelector('.policy-type-card').classList.add('selected');
+
+    // Policy filter
+    document.getElementById('policy-filter').addEventListener('change', function() {
+      const filter = this.value;
+      document.querySelectorAll('.policy-item').forEach(item => {
+        const isActive = item.querySelector('input[type="checkbox"]').checked;
+
+        if (filter === 'all') {
+          item.style.display = 'block';
+        } else if (filter === 'active' && isActive) {
+          item.style.display = 'block';
+        } else if (filter === 'inactive' && !isActive) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+
+    // Toggle switch functionality
+    document.querySelectorAll('.toggle-switch input').forEach(toggle => {
+      toggle.addEventListener('change', function() {
+        const policyItem = this.closest('.policy-item');
+        const badge = policyItem.querySelector('.policy-badge');
+
+        if (this.checked) {
+          badge.textContent = 'Active';
+          badge.className = 'policy-badge badge-success';
+        } else {
+          badge.textContent = 'Inactive';
+          badge.className = 'policy-badge badge-secondary';
+        }
+      });
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closePolicyBuilder();
+      }
+    });
+  </script>
+
+  <style>
+    /* Policy-specific styles */
+    .policy-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .policy-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .policy-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+    }
+
+    .policy-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--text-muted);
+      transition: 0.3s;
+      border-radius: 24px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    }
+
+    .toggle-switch input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+
+    .policy-info {
+      flex: 1;
+    }
+
+    .policy-info h4 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .policy-info p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .policy-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+    }
+
+    .policy-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-success {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+
+    .badge-secondary {
+      background: var(--surface-hover);
+      color: var(--text-muted);
+    }
+
+    .policy-scope {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .policy-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .policy-rules {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .rule-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.375rem 0.75rem;
+      background: var(--surface-hover);
+      border-radius: 20px;
+      font-size: 0.8125rem;
+      color: var(--text-secondary);
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      position: relative;
+      background: var(--background);
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    .modal-large {
+      max-width: 800px;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Form sections */
+    .form-section {
+      margin-bottom: 2rem;
+    }
+
+    .form-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-section h3 {
+      margin: 0 0 1rem 0;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9375rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* Policy type cards */
+    .policy-type-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+
+    .policy-type-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1.25rem 1rem;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .policy-type-card input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .policy-type-card:hover {
+      border-color: var(--primary);
+      background: var(--surface-hover);
+    }
+
+    .policy-type-card.selected {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .policy-type-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-hover);
+      border-radius: 12px;
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-type-card.selected .policy-type-icon {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    }
+
+    .policy-type-card.selected .policy-type-icon svg {
+      stroke: white;
+    }
+
+    .policy-type-name {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .policy-type-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Day picker */
+    .day-picker {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .day-option {
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.5rem 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: all 0.2s ease;
+    }
+
+    .day-option:has(input:checked) {
+      background: rgba(99, 102, 241, 0.1);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .day-option input {
+      display: none;
+    }
+
+    /* Scope options */
+    .scope-options {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .checkbox-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .checkbox-option input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification-success {
+      border-left: 4px solid #10b981;
+    }
+
+    .notification-success svg {
+      stroke: #10b981;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .policy-header {
+        flex-wrap: wrap;
+      }
+
+      .policy-meta {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+      }
+
+      .policy-actions {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .policy-item {
+        position: relative;
+      }
+
+      .modal-content {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        border-radius: 0;
+      }
+
+      .policy-type-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit Logs - CredSeal Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#6366f1"/>
+              <stop offset="100%" style="stop-color:#8b5cf6"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 5 L90 20 L90 45 C90 70 70 90 50 95 C30 90 10 70 10 45 L10 20 Z" fill="url(#shieldGradient)"/>
+          <path d="M35 50 L45 60 L65 40" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>CredSeal</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Overview</span>
+        <a href="index.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="quickstart.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Quickstart
+        </a>
+        <a href="playground.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Playground
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Manage</span>
+        <a href="credentials.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Credentials
+        </a>
+        <a href="sessions.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
+          Sessions
+        </a>
+        <a href="agents.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          Agents
+        </a>
+        <a href="workflows.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
+          </svg>
+          Workflows
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18 9l-5 5-4-4-3 3"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="rate-limits.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+          Rate Limits
+        </a>
+        <a href="policies.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Policies
+        </a>
+        <a href="team.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Team
+        </a>
+        <a href="roles.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M5 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M12 14c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4z"/>
+          </svg>
+          Roles
+        </a>
+        <a href="audit.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          Audit Logs
+        </a>
+        <a href="webhooks.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Webhooks
+        </a>
+        <a href="integrations.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="8" height="8" rx="1"/>
+            <rect x="14" y="2" width="8" height="8" rx="1"/>
+            <rect x="2" y="14" width="8" height="8" rx="1"/>
+            <rect x="14" y="14" width="8" height="8" rx="1"/>
+            <path d="M10 6h4M6 10v4M18 10v4M10 18h4"/>
+          </svg>
+          Integrations
+        </a>
+        <a href="security.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Security
+        </a>
+        <a href="compliance.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Compliance
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Account</span>
+        <a href="settings.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+        <a href="branding.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="10.5" r="2.5"/>
+            <circle cx="8.5" cy="7.5" r="2.5"/>
+            <circle cx="6.5" cy="12.5" r="2.5"/>
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          </svg>
+          Branding
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Billing
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content" id="main-content">
+    <header class="main-header">
+      <div class="header-left">
+        <h1>Audit Logs</h1>
+        <p class="header-subtitle">Complete activity history for compliance and security</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" onclick="CommandPalette.open()" title="Search (⌘K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+        <button class="btn btn-secondary" onclick="exportLogs()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Export
+        </button>
+      </div>
+    </header>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Date Range</label>
+        <div class="date-range-picker">
+          <input type="date" id="date-from" class="form-input">
+          <span>to</span>
+          <input type="date" id="date-to" class="form-input">
+        </div>
+      </div>
+      <div class="filter-group">
+        <label>Event Type</label>
+        <select id="event-type-filter" class="form-select" onchange="filterLogs()">
+          <option value="all">All Events</option>
+          <option value="auth">Authentication</option>
+          <option value="credential">Credential Access</option>
+          <option value="policy">Policy Changes</option>
+          <option value="team">Team Changes</option>
+          <option value="system">System Events</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>User</label>
+        <select id="user-filter" class="form-select" onchange="filterLogs()">
+          <option value="all">All Users</option>
+          <option value="john">John Doe</option>
+          <option value="alice">Alice Smith</option>
+          <option value="bob">Bob Johnson</option>
+          <option value="system">System</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Status</label>
+        <select id="status-filter" class="form-select" onchange="filterLogs()">
+          <option value="all">All</option>
+          <option value="success">Success</option>
+          <option value="warning">Warning</option>
+          <option value="error">Error</option>
+        </select>
+      </div>
+      <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid stats-grid-5">
+      <div class="stat-card stat-card-compact">
+        <span class="stat-value">2,847</span>
+        <span class="stat-label">Total Events</span>
+      </div>
+      <div class="stat-card stat-card-compact">
+        <span class="stat-value text-success">2,691</span>
+        <span class="stat-label">Successful</span>
+      </div>
+      <div class="stat-card stat-card-compact">
+        <span class="stat-value text-warning">134</span>
+        <span class="stat-label">Warnings</span>
+      </div>
+      <div class="stat-card stat-card-compact">
+        <span class="stat-value text-danger">22</span>
+        <span class="stat-label">Errors</span>
+      </div>
+      <div class="stat-card stat-card-compact">
+        <span class="stat-value">12</span>
+        <span class="stat-label">Active Users</span>
+      </div>
+    </div>
+
+    <!-- Audit Log Table -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Activity Log</h3>
+        <div class="card-actions">
+          <span class="log-count">Showing 50 of 2,847 events</span>
+        </div>
+      </div>
+      <div class="card-body card-body-flush">
+        <div class="audit-log" id="audit-log">
+          <!-- Today -->
+          <div class="log-date-group">
+            <div class="log-date-header">Today, March 22, 2026</div>
+
+            <div class="log-entry" data-type="credential" data-status="success">
+              <div class="log-time">10:32:15</div>
+              <div class="log-icon log-icon-credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">Credential accessed</div>
+                <div class="log-details">
+                  <span class="log-user">Research Assistant</span> accessed
+                  <span class="log-resource">OpenAI API Key</span>
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-success">Success</span>
+                <span class="log-ip">192.168.1.105</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="log-entry" data-type="auth" data-status="success">
+              <div class="log-time">10:28:03</div>
+              <div class="log-icon log-icon-auth">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                  <polyline points="10 17 15 12 10 7"/>
+                  <line x1="15" y1="12" x2="3" y2="12"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">User signed in</div>
+                <div class="log-details">
+                  <span class="log-user">Alice Smith</span> signed in via
+                  <span class="log-resource">SSO (Google)</span>
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-success">Success</span>
+                <span class="log-ip">203.0.113.42</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="log-entry" data-type="policy" data-status="success">
+              <div class="log-time">10:15:47</div>
+              <div class="log-icon log-icon-policy">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">Policy updated</div>
+                <div class="log-details">
+                  <span class="log-user">John Doe</span> modified
+                  <span class="log-resource">API Rate Limiting</span> policy
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-success">Success</span>
+                <span class="log-ip">10.0.0.15</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="log-entry" data-type="credential" data-status="warning">
+              <div class="log-time">09:58:22</div>
+              <div class="log-icon log-icon-credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">Rate limit warning</div>
+                <div class="log-details">
+                  <span class="log-user">Data Processor</span> approaching rate limit on
+                  <span class="log-resource">Database Credentials</span>
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-warning">Warning</span>
+                <span class="log-ip">192.168.1.88</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="log-entry" data-type="team" data-status="success">
+              <div class="log-time">09:45:11</div>
+              <div class="log-icon log-icon-team">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">Team member invited</div>
+                <div class="log-details">
+                  <span class="log-user">Alice Smith</span> invited
+                  <span class="log-resource">grace@company.com</span> as Admin
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-success">Success</span>
+                <span class="log-ip">203.0.113.42</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="log-entry" data-type="credential" data-status="error">
+              <div class="log-time">09:32:58</div>
+              <div class="log-icon log-icon-credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">Access denied</div>
+                <div class="log-details">
+                  <span class="log-user">Unknown Agent</span> blocked from accessing
+                  <span class="log-resource">Production AWS Keys</span> - IP not whitelisted
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-error">Blocked</span>
+                <span class="log-ip">45.33.32.156</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Yesterday -->
+          <div class="log-date-group">
+            <div class="log-date-header">Yesterday, March 21, 2026</div>
+
+            <div class="log-entry" data-type="system" data-status="success">
+              <div class="log-time">23:00:00</div>
+              <div class="log-icon log-icon-system">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">Scheduled backup completed</div>
+                <div class="log-details">
+                  <span class="log-user">System</span> completed daily credential backup
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-success">Success</span>
+                <span class="log-ip">Internal</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="log-entry" data-type="auth" data-status="error">
+              <div class="log-time">18:42:33</div>
+              <div class="log-icon log-icon-auth">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                  <polyline points="10 17 15 12 10 7"/>
+                  <line x1="15" y1="12" x2="3" y2="12"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">Failed login attempt</div>
+                <div class="log-details">
+                  <span class="log-user">unknown@attacker.com</span> failed authentication -
+                  <span class="log-resource">Invalid credentials (3rd attempt)</span>
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-error">Failed</span>
+                <span class="log-ip">185.220.101.34</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="log-entry" data-type="credential" data-status="success">
+              <div class="log-time">16:15:22</div>
+              <div class="log-icon log-icon-credential">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+                </svg>
+              </div>
+              <div class="log-content">
+                <div class="log-title">Credential rotated</div>
+                <div class="log-details">
+                  <span class="log-user">Bob Johnson</span> rotated
+                  <span class="log-resource">Stripe API Key</span>
+                </div>
+              </div>
+              <div class="log-meta">
+                <span class="log-status log-status-success">Success</span>
+                <span class="log-ip">10.0.0.22</span>
+              </div>
+              <button class="btn-icon log-expand" onclick="toggleLogDetails(this)">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More -->
+        <div class="load-more">
+          <button class="btn btn-secondary" onclick="loadMoreLogs()">Load More Events</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Export Modal -->
+    <div class="modal" id="export-modal">
+      <div class="modal-backdrop" onclick="closeExportModal()"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Export Audit Logs</h2>
+          <button class="btn-icon" onclick="closeExportModal()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Export Format</label>
+            <div class="export-format-options">
+              <label class="export-option selected">
+                <input type="radio" name="export-format" value="csv" checked>
+                <div class="export-option-content">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                  </svg>
+                  <span>CSV</span>
+                </div>
+              </label>
+              <label class="export-option">
+                <input type="radio" name="export-format" value="json">
+                <div class="export-option-content">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"/>
+                    <polyline points="8 6 2 12 8 18"/>
+                  </svg>
+                  <span>JSON</span>
+                </div>
+              </label>
+              <label class="export-option">
+                <input type="radio" name="export-format" value="pdf">
+                <div class="export-option-content">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                  </svg>
+                  <span>PDF</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Date Range</label>
+            <select class="form-select" id="export-range">
+              <option value="today">Today</option>
+              <option value="7days" selected>Last 7 Days</option>
+              <option value="30days">Last 30 Days</option>
+              <option value="90days">Last 90 Days</option>
+              <option value="custom">Custom Range</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Include</label>
+            <div class="checkbox-list">
+              <label class="checkbox-item">
+                <input type="checkbox" checked> Authentication events
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" checked> Credential access
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" checked> Policy changes
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" checked> Team changes
+              </label>
+              <label class="checkbox-item">
+                <input type="checkbox" checked> System events
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeExportModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="downloadExport()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Export
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    // Initialize date filters
+    const today = new Date();
+    const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+    document.getElementById('date-to').valueAsDate = today;
+    document.getElementById('date-from').valueAsDate = weekAgo;
+
+    // Filter logs
+    function filterLogs() {
+      const eventType = document.getElementById('event-type-filter').value;
+      const user = document.getElementById('user-filter').value;
+      const status = document.getElementById('status-filter').value;
+
+      document.querySelectorAll('.log-entry').forEach(entry => {
+        const entryType = entry.dataset.type;
+        const entryStatus = entry.dataset.status;
+
+        let show = true;
+        if (eventType !== 'all' && entryType !== eventType) show = false;
+        if (status !== 'all' && entryStatus !== status) show = false;
+
+        entry.style.display = show ? 'flex' : 'none';
+      });
+    }
+
+    function clearFilters() {
+      document.getElementById('event-type-filter').value = 'all';
+      document.getElementById('user-filter').value = 'all';
+      document.getElementById('status-filter').value = 'all';
+      document.querySelectorAll('.log-entry').forEach(entry => {
+        entry.style.display = 'flex';
+      });
+    }
+
+    // Toggle log details
+    function toggleLogDetails(btn) {
+      const entry = btn.closest('.log-entry');
+      entry.classList.toggle('expanded');
+    }
+
+    // Load more logs
+    function loadMoreLogs() {
+      showNotification('Loading more events...', 'info');
+      // Simulate loading
+      setTimeout(() => {
+        showNotification('Loaded 50 more events', 'success');
+      }, 1000);
+    }
+
+    // Export functionality
+    function exportLogs() {
+      document.getElementById('export-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeExportModal() {
+      document.getElementById('export-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function downloadExport() {
+      const format = document.querySelector('input[name="export-format"]:checked').value;
+      const range = document.getElementById('export-range').value;
+
+      closeExportModal();
+      showNotification(`Preparing ${format.toUpperCase()} export...`, 'info');
+
+      setTimeout(() => {
+        showNotification(`Export downloaded: audit_logs_${range}.${format}`, 'success');
+      }, 1500);
+    }
+
+    // Export format selection
+    document.querySelectorAll('.export-option').forEach(option => {
+      option.addEventListener('click', function() {
+        document.querySelectorAll('.export-option').forEach(o => o.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+
+    // Notification
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          ${type === 'success'
+            ? '<polyline points="20 6 9 17 4 12"/>'
+            : '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>'}
+        </svg>
+        <span>${message}</span>
+      `;
+      document.body.appendChild(notification);
+
+      setTimeout(() => notification.classList.add('show'), 10);
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeExportModal();
+      }
+    });
+  </script>
+
+  <style>
+    /* Audit Log Styles */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: flex-end;
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .filter-group label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .date-range-picker {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .date-range-picker span {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .date-range-picker input {
+      width: 140px;
+    }
+
+    .stats-grid-5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .stat-card-compact {
+      padding: 1rem 1.25rem;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-card-compact .stat-value {
+      font-size: 1.5rem;
+    }
+
+    .stat-card-compact .stat-label {
+      font-size: 0.8125rem;
+    }
+
+    .text-success { color: #10b981; }
+    .text-warning { color: #f59e0b; }
+    .text-danger { color: #ef4444; }
+
+    .card-body-flush {
+      padding: 0;
+    }
+
+    .log-count {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .audit-log {
+      max-height: 600px;
+      overflow-y: auto;
+    }
+
+    .log-date-group {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .log-date-group:last-child {
+      border-bottom: none;
+    }
+
+    .log-date-header {
+      padding: 0.75rem 1.5rem;
+      background: var(--surface-hover);
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    .log-entry {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s ease;
+    }
+
+    .log-entry:hover {
+      background: var(--surface-hover);
+    }
+
+    .log-entry:last-child {
+      border-bottom: none;
+    }
+
+    .log-time {
+      font-family: monospace;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      min-width: 70px;
+    }
+
+    .log-icon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .log-icon-credential {
+      background: rgba(99, 102, 241, 0.1);
+      color: #6366f1;
+    }
+
+    .log-icon-auth {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+
+    .log-icon-policy {
+      background: rgba(139, 92, 246, 0.1);
+      color: #8b5cf6;
+    }
+
+    .log-icon-team {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+    }
+
+    .log-icon-system {
+      background: var(--surface-hover);
+      color: var(--text-muted);
+    }
+
+    .log-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .log-title {
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .log-details {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .log-user {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .log-resource {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .log-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+      min-width: 100px;
+    }
+
+    .log-status {
+      padding: 0.25rem 0.625rem;
+      border-radius: 20px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .log-status-success {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+
+    .log-status-warning {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+    }
+
+    .log-status-error {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+
+    .log-ip {
+      font-family: monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .log-expand {
+      opacity: 0.5;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .log-entry:hover .log-expand {
+      opacity: 1;
+    }
+
+    .log-entry.expanded .log-expand {
+      transform: rotate(180deg);
+    }
+
+    .load-more {
+      padding: 1.5rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Export Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      position: relative;
+      background: var(--background);
+      border-radius: 16px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .export-format-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .export-option {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .export-option input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .export-option-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .export-option:hover .export-option-content {
+      border-color: var(--primary);
+    }
+
+    .export-option.selected .export-option-content {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .export-option-content span {
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      font-size: 0.9375rem;
+    }
+
+    .checkbox-item input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .form-input,
+    .form-select {
+      padding: 0.625rem 0.875rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9375rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification-success {
+      border-left: 4px solid #10b981;
+    }
+
+    .notification-success svg {
+      stroke: #10b981;
+    }
+
+    .notification-info {
+      border-left: 4px solid #6366f1;
+    }
+
+    .notification-info svg {
+      stroke: #6366f1;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .stats-grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .stats-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .log-entry {
+        flex-wrap: wrap;
+      }
+
+      .log-meta {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 0.5rem;
+      }
+
+      .export-format-options {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</body>
+</html>

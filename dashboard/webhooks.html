@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webhooks - CredSeal Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#6366f1"/>
+              <stop offset="100%" style="stop-color:#8b5cf6"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 5 L90 20 L90 45 C90 70 70 90 50 95 C30 90 10 70 10 45 L10 20 Z" fill="url(#shieldGradient)"/>
+          <path d="M35 50 L45 60 L65 40" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>CredSeal</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Overview</span>
+        <a href="index.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="quickstart.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Quickstart
+        </a>
+        <a href="playground.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Playground
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Manage</span>
+        <a href="credentials.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Credentials
+        </a>
+        <a href="sessions.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
+          Sessions
+        </a>
+        <a href="agents.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          Agents
+        </a>
+        <a href="workflows.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
+          </svg>
+          Workflows
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18 9l-5 5-4-4-3 3"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="rate-limits.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+          Rate Limits
+        </a>
+        <a href="policies.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Policies
+        </a>
+        <a href="team.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Team
+        </a>
+        <a href="roles.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M5 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M12 14c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4z"/>
+          </svg>
+          Roles
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+          Audit Logs
+        </a>
+        <a href="webhooks.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Webhooks
+        </a>
+        <a href="integrations.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="8" height="8" rx="1"/>
+            <rect x="14" y="2" width="8" height="8" rx="1"/>
+            <rect x="2" y="14" width="8" height="8" rx="1"/>
+            <rect x="14" y="14" width="8" height="8" rx="1"/>
+            <path d="M10 6h4M6 10v4M18 10v4M10 18h4"/>
+          </svg>
+          Integrations
+        </a>
+        <a href="security.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Security
+        </a>
+        <a href="compliance.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Compliance
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Account</span>
+        <a href="settings.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+        <a href="branding.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="10.5" r="2.5"/>
+            <circle cx="8.5" cy="7.5" r="2.5"/>
+            <circle cx="6.5" cy="12.5" r="2.5"/>
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          </svg>
+          Branding
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Billing
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content" id="main-content">
+    <header class="main-header">
+      <div class="header-left">
+        <h1>Webhooks</h1>
+        <p class="header-subtitle">Configure event notifications to external services</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" onclick="CommandPalette.open()" title="Search (⌘K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+        <button class="btn btn-primary" onclick="openWebhookModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Webhook
+        </button>
+      </div>
+    </header>
+
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">4</span>
+          <span class="stat-label">Active Webhooks</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">1,847</span>
+          <span class="stat-label">Delivered Today</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">142ms</span>
+          <span class="stat-label">Avg Response Time</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background: linear-gradient(135deg, #ef4444, #f87171);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <div class="stat-content">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Failed Today</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Webhook List -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Configured Webhooks</h3>
+      </div>
+      <div class="card-body">
+        <div class="webhook-list">
+          <!-- Slack Webhook -->
+          <div class="webhook-item" data-webhook-id="1">
+            <div class="webhook-status-indicator status-healthy"></div>
+            <div class="webhook-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/>
+                <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/>
+                <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/>
+                <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/>
+                <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
+                <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/>
+                <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>
+              </svg>
+            </div>
+            <div class="webhook-info">
+              <h4>Slack Notifications</h4>
+              <p class="webhook-url">https://hooks.slack.com/services/T00.../B00.../xxx</p>
+              <div class="webhook-events">
+                <span class="event-badge">credential.accessed</span>
+                <span class="event-badge">policy.violated</span>
+                <span class="event-badge">auth.failed</span>
+              </div>
+            </div>
+            <div class="webhook-stats">
+              <div class="webhook-stat">
+                <span class="stat-number">847</span>
+                <span class="stat-label">Delivered</span>
+              </div>
+              <div class="webhook-stat">
+                <span class="stat-number">99.8%</span>
+                <span class="stat-label">Success Rate</span>
+              </div>
+            </div>
+            <div class="webhook-actions">
+              <button class="btn-icon" onclick="testWebhook(1)" title="Test">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </button>
+              <button class="btn-icon" onclick="editWebhook(1)" title="Edit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </button>
+              <button class="btn-icon" onclick="deleteWebhook(1)" title="Delete">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- PagerDuty Webhook -->
+          <div class="webhook-item" data-webhook-id="2">
+            <div class="webhook-status-indicator status-healthy"></div>
+            <div class="webhook-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/>
+              </svg>
+            </div>
+            <div class="webhook-info">
+              <h4>PagerDuty Alerts</h4>
+              <p class="webhook-url">https://events.pagerduty.com/v2/enqueue</p>
+              <div class="webhook-events">
+                <span class="event-badge">policy.violated</span>
+                <span class="event-badge">credential.expired</span>
+              </div>
+            </div>
+            <div class="webhook-stats">
+              <div class="webhook-stat">
+                <span class="stat-number">23</span>
+                <span class="stat-label">Delivered</span>
+              </div>
+              <div class="webhook-stat">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Success Rate</span>
+              </div>
+            </div>
+            <div class="webhook-actions">
+              <button class="btn-icon" onclick="testWebhook(2)" title="Test">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </button>
+              <button class="btn-icon" onclick="editWebhook(2)" title="Edit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </button>
+              <button class="btn-icon" onclick="deleteWebhook(2)" title="Delete">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Custom API -->
+          <div class="webhook-item" data-webhook-id="3">
+            <div class="webhook-status-indicator status-healthy"></div>
+            <div class="webhook-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <div class="webhook-info">
+              <h4>Internal Analytics API</h4>
+              <p class="webhook-url">https://api.internal.company.com/webhooks/credseal</p>
+              <div class="webhook-events">
+                <span class="event-badge">credential.accessed</span>
+                <span class="event-badge">session.created</span>
+                <span class="event-badge">session.ended</span>
+              </div>
+            </div>
+            <div class="webhook-stats">
+              <div class="webhook-stat">
+                <span class="stat-number">974</span>
+                <span class="stat-label">Delivered</span>
+              </div>
+              <div class="webhook-stat">
+                <span class="stat-number">99.5%</span>
+                <span class="stat-label">Success Rate</span>
+              </div>
+            </div>
+            <div class="webhook-actions">
+              <button class="btn-icon" onclick="testWebhook(3)" title="Test">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </button>
+              <button class="btn-icon" onclick="editWebhook(3)" title="Edit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </button>
+              <button class="btn-icon" onclick="deleteWebhook(3)" title="Delete">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Failing Webhook -->
+          <div class="webhook-item" data-webhook-id="4">
+            <div class="webhook-status-indicator status-failing"></div>
+            <div class="webhook-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="webhook-info">
+              <h4>Email Service (Failing)</h4>
+              <p class="webhook-url">https://api.mailservice.io/webhook/credseal</p>
+              <div class="webhook-events">
+                <span class="event-badge">team.invited</span>
+                <span class="event-badge">credential.rotated</span>
+              </div>
+              <div class="webhook-error">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="8" x2="12" y2="12"/>
+                  <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Last 3 requests failed with HTTP 503
+              </div>
+            </div>
+            <div class="webhook-stats">
+              <div class="webhook-stat">
+                <span class="stat-number text-danger">3</span>
+                <span class="stat-label">Failed</span>
+              </div>
+              <div class="webhook-stat">
+                <span class="stat-number text-danger">85%</span>
+                <span class="stat-label">Success Rate</span>
+              </div>
+            </div>
+            <div class="webhook-actions">
+              <button class="btn-icon" onclick="testWebhook(4)" title="Test">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+              </button>
+              <button class="btn-icon" onclick="editWebhook(4)" title="Edit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                </svg>
+              </button>
+              <button class="btn-icon" onclick="deleteWebhook(4)" title="Delete">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Deliveries -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Recent Deliveries</h3>
+        <button class="btn btn-secondary btn-sm" onclick="refreshDeliveries()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="23 4 23 10 17 10"/>
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+          </svg>
+          Refresh
+        </button>
+      </div>
+      <div class="card-body card-body-flush">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Webhook</th>
+              <th>Status</th>
+              <th>Response Time</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>credential.accessed</code></td>
+              <td>Slack Notifications</td>
+              <td><span class="status-badge status-success">200 OK</span></td>
+              <td>89ms</td>
+              <td>Just now</td>
+            </tr>
+            <tr>
+              <td><code>session.created</code></td>
+              <td>Internal Analytics API</td>
+              <td><span class="status-badge status-success">200 OK</span></td>
+              <td>142ms</td>
+              <td>2 min ago</td>
+            </tr>
+            <tr>
+              <td><code>credential.rotated</code></td>
+              <td>Email Service</td>
+              <td><span class="status-badge status-error">503 Error</span></td>
+              <td>5,012ms</td>
+              <td>5 min ago</td>
+            </tr>
+            <tr>
+              <td><code>auth.failed</code></td>
+              <td>Slack Notifications</td>
+              <td><span class="status-badge status-success">200 OK</span></td>
+              <td>76ms</td>
+              <td>8 min ago</td>
+            </tr>
+            <tr>
+              <td><code>policy.violated</code></td>
+              <td>PagerDuty Alerts</td>
+              <td><span class="status-badge status-success">202 Accepted</span></td>
+              <td>234ms</td>
+              <td>15 min ago</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Webhook Modal -->
+    <div class="modal" id="webhook-modal">
+      <div class="modal-backdrop" onclick="closeWebhookModal()"></div>
+      <div class="modal-content modal-large">
+        <div class="modal-header">
+          <h2 id="webhook-modal-title">Add Webhook</h2>
+          <button class="btn-icon" onclick="closeWebhookModal()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="webhook-form">
+            <div class="form-group">
+              <label for="webhook-name">Webhook Name</label>
+              <input type="text" id="webhook-name" class="form-input" placeholder="e.g., Slack Notifications">
+            </div>
+
+            <div class="form-group">
+              <label for="webhook-url">Endpoint URL</label>
+              <input type="url" id="webhook-url" class="form-input" placeholder="https://your-service.com/webhook">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="webhook-method">HTTP Method</label>
+                <select id="webhook-method" class="form-select">
+                  <option value="POST" selected>POST</option>
+                  <option value="PUT">PUT</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="webhook-format">Payload Format</label>
+                <select id="webhook-format" class="form-select">
+                  <option value="json" selected>JSON</option>
+                  <option value="form">Form Data</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Events to Subscribe</label>
+              <div class="event-grid">
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="credential.accessed">
+                  <span>credential.accessed</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="credential.created">
+                  <span>credential.created</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="credential.rotated">
+                  <span>credential.rotated</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="credential.expired">
+                  <span>credential.expired</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="session.created">
+                  <span>session.created</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="session.ended">
+                  <span>session.ended</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="policy.violated">
+                  <span>policy.violated</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="auth.failed">
+                  <span>auth.failed</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="team.invited">
+                  <span>team.invited</span>
+                </label>
+                <label class="event-checkbox">
+                  <input type="checkbox" name="events" value="team.removed">
+                  <span>team.removed</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="webhook-secret">Signing Secret (optional)</label>
+              <div class="input-with-button">
+                <input type="text" id="webhook-secret" class="form-input" placeholder="Used to verify webhook authenticity">
+                <button type="button" class="btn btn-secondary" onclick="generateSecret()">Generate</button>
+              </div>
+              <span class="form-hint">We'll include a signature header you can use to verify requests</span>
+            </div>
+
+            <div class="form-group">
+              <label>Additional Headers (optional)</label>
+              <div class="headers-list" id="headers-list">
+                <div class="header-row">
+                  <input type="text" class="form-input" placeholder="Header name">
+                  <input type="text" class="form-input" placeholder="Value">
+                  <button type="button" class="btn-icon" onclick="removeHeader(this)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="18" y1="6" x2="6" y2="18"/>
+                      <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="addHeader()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="5" x2="12" y2="19"/>
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                </svg>
+                Add Header
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeWebhookModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="saveWebhook()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            Save Webhook
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    // Modal functions
+    function openWebhookModal(id = null) {
+      const modal = document.getElementById('webhook-modal');
+      const title = document.getElementById('webhook-modal-title');
+
+      if (id) {
+        title.textContent = 'Edit Webhook';
+      } else {
+        title.textContent = 'Add Webhook';
+        document.getElementById('webhook-form').reset();
+      }
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeWebhookModal() {
+      document.getElementById('webhook-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function saveWebhook() {
+      const name = document.getElementById('webhook-name').value;
+      const url = document.getElementById('webhook-url').value;
+
+      if (!name || !url) {
+        showNotification('Please fill in all required fields', 'error');
+        return;
+      }
+
+      closeWebhookModal();
+      showNotification('Webhook saved successfully', 'success');
+    }
+
+    // Webhook actions
+    function testWebhook(id) {
+      showNotification('Sending test event...', 'info');
+      setTimeout(() => {
+        showNotification('Test webhook delivered successfully', 'success');
+      }, 1500);
+    }
+
+    function editWebhook(id) {
+      openWebhookModal(id);
+    }
+
+    function deleteWebhook(id) {
+      if (confirm('Are you sure you want to delete this webhook?')) {
+        const item = document.querySelector(`[data-webhook-id="${id}"]`);
+        if (item) {
+          item.style.opacity = '0';
+          item.style.transform = 'translateX(-20px)';
+          setTimeout(() => item.remove(), 300);
+          showNotification('Webhook deleted', 'success');
+        }
+      }
+    }
+
+    function refreshDeliveries() {
+      showNotification('Refreshing delivery log...', 'info');
+    }
+
+    // Form helpers
+    function generateSecret() {
+      const secret = 'whsec_' + Array.from(crypto.getRandomValues(new Uint8Array(24)))
+        .map(b => b.toString(16).padStart(2, '0')).join('');
+      document.getElementById('webhook-secret').value = secret;
+    }
+
+    function addHeader() {
+      const list = document.getElementById('headers-list');
+      const row = document.createElement('div');
+      row.className = 'header-row';
+      row.innerHTML = `
+        <input type="text" class="form-input" placeholder="Header name">
+        <input type="text" class="form-input" placeholder="Value">
+        <button type="button" class="btn-icon" onclick="removeHeader(this)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      `;
+      list.appendChild(row);
+    }
+
+    function removeHeader(btn) {
+      const row = btn.closest('.header-row');
+      if (document.querySelectorAll('.header-row').length > 1) {
+        row.remove();
+      } else {
+        row.querySelectorAll('input').forEach(i => i.value = '');
+      }
+    }
+
+    // Notification
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          ${type === 'success' ? '<polyline points="20 6 9 17 4 12"/>'
+            : type === 'error' ? '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>'
+            : '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>'}
+        </svg>
+        <span>${message}</span>
+      `;
+      document.body.appendChild(notification);
+
+      setTimeout(() => notification.classList.add('show'), 10);
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeWebhookModal();
+      }
+    });
+  </script>
+
+  <style>
+    /* Webhook styles */
+    .webhook-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .webhook-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .webhook-item:hover {
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+    }
+
+    .webhook-status-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .status-healthy {
+      background: #10b981;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+    }
+
+    .status-failing {
+      background: #ef4444;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .webhook-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-hover);
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+
+    .webhook-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .webhook-info h4 {
+      margin: 0 0 0.375rem 0;
+      font-size: 1rem;
+    }
+
+    .webhook-url {
+      font-family: monospace;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      margin: 0 0 0.75rem 0;
+      word-break: break-all;
+    }
+
+    .webhook-events {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+    }
+
+    .event-badge {
+      padding: 0.25rem 0.5rem;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary);
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.75rem;
+    }
+
+    .webhook-error {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+      border-radius: 6px;
+      font-size: 0.8125rem;
+    }
+
+    .webhook-stats {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .webhook-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .webhook-stat .stat-number {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .webhook-stat .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .text-danger {
+      color: #ef4444;
+    }
+
+    .webhook-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    /* Table styles */
+    .card-body-flush {
+      padding: 0;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table th,
+    .table td {
+      padding: 1rem 1.5rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table th {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      background: var(--surface-hover);
+    }
+
+    .table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table code {
+      padding: 0.25rem 0.5rem;
+      background: var(--surface-hover);
+      border-radius: 4px;
+      font-size: 0.8125rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      padding: 0.25rem 0.625rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .status-success {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+
+    .status-error {
+      background: rgba(239, 68, 68, 0.1);
+      color: #ef4444;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      position: relative;
+      background: var(--background);
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    .modal-large {
+      max-width: 700px;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9375rem;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .form-hint {
+      display: block;
+      margin-top: 0.375rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .input-with-button {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .input-with-button input {
+      flex: 1;
+    }
+
+    .event-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .event-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .event-checkbox input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    .event-checkbox span {
+      font-family: monospace;
+      font-size: 0.875rem;
+    }
+
+    .headers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .header-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .header-row input {
+      flex: 1;
+    }
+
+    .btn-sm {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8125rem;
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification-success {
+      border-left: 4px solid #10b981;
+    }
+
+    .notification-success svg {
+      stroke: #10b981;
+    }
+
+    .notification-info {
+      border-left: 4px solid #6366f1;
+    }
+
+    .notification-info svg {
+      stroke: #6366f1;
+    }
+
+    .notification-error {
+      border-left: 4px solid #ef4444;
+    }
+
+    .notification-error svg {
+      stroke: #ef4444;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .webhook-item {
+        flex-wrap: wrap;
+      }
+
+      .webhook-stats {
+        width: 100%;
+        justify-content: center;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border);
+        margin-top: 1rem;
+      }
+
+      .webhook-actions {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .event-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</body>
+</html>

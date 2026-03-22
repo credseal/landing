@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security - CredSeal Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <a href="../index.html" class="logo">
+        <svg width="32" height="32" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#6366f1"/>
+              <stop offset="100%" style="stop-color:#8b5cf6"/>
+            </linearGradient>
+          </defs>
+          <path d="M50 5 L90 20 L90 45 C90 70 70 90 50 95 C30 90 10 70 10 45 L10 20 Z" fill="url(#shieldGradient)"/>
+          <path d="M35 50 L45 60 L65 40" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>CredSeal</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <span class="nav-section-title">Overview</span>
+        <a href="index.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"/>
+            <rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3" y="14" width="7" height="7"/>
+          </svg>
+          Dashboard
+        </a>
+        <a href="quickstart.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          Quickstart
+        </a>
+        <a href="playground.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="4 17 10 11 4 5"/>
+            <line x1="12" y1="19" x2="20" y2="19"/>
+          </svg>
+          Playground
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Manage</span>
+        <a href="credentials.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+          </svg>
+          Credentials
+        </a>
+        <a href="sessions.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 20V10"/>
+            <path d="M18 20V4"/>
+            <path d="M6 20v-4"/>
+          </svg>
+          Sessions
+        </a>
+        <a href="agents.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+          Agents
+        </a>
+        <a href="workflows.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
+          </svg>
+          Workflows
+        </a>
+        <a href="analytics.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 3v18h18"/>
+            <path d="M18 9l-5 5-4-4-3 3"/>
+          </svg>
+          Analytics
+        </a>
+        <a href="rate-limits.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+          Rate Limits
+        </a>
+        <a href="policies.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          Policies
+        </a>
+        <a href="team.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          Team
+        </a>
+        <a href="roles.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M5 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
+            <path d="M12 14c-3 0-6 1.5-6 4v2h12v-2c0-2.5-3-4-6-4z"/>
+          </svg>
+          Roles
+        </a>
+        <a href="audit.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+          Audit Logs
+        </a>
+        <a href="webhooks.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+          Webhooks
+        </a>
+        <a href="integrations.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="8" height="8" rx="1"/>
+            <rect x="14" y="2" width="8" height="8" rx="1"/>
+            <rect x="2" y="14" width="8" height="8" rx="1"/>
+            <rect x="14" y="14" width="8" height="8" rx="1"/>
+            <path d="M10 6h4M6 10v4M18 10v4M10 18h4"/>
+          </svg>
+          Integrations
+        </a>
+        <a href="security.html" class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          Security
+        </a>
+        <a href="compliance.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+          Compliance
+        </a>
+      </div>
+
+      <div class="nav-section">
+        <span class="nav-section-title">Account</span>
+        <a href="settings.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          Settings
+        </a>
+        <a href="branding.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="13.5" cy="6.5" r="2.5"/>
+            <circle cx="17.5" cy="10.5" r="2.5"/>
+            <circle cx="8.5" cy="7.5" r="2.5"/>
+            <circle cx="6.5" cy="12.5" r="2.5"/>
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+          </svg>
+          Branding
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+            <line x1="1" y1="10" x2="23" y2="10"/>
+          </svg>
+          Billing
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main-content" id="main-content">
+    <header class="main-header">
+      <div class="header-left">
+        <h1>Security Settings</h1>
+        <p class="header-subtitle">Configure authentication, SSO, and MFA settings</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn-icon" onclick="CommandPalette.open()" title="Search (⌘K)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Security Score -->
+    <div class="security-score-card">
+      <div class="score-ring">
+        <svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="54" fill="none" stroke="var(--border)" stroke-width="8"/>
+          <circle cx="60" cy="60" r="54" fill="none" stroke="url(#scoreGradient)" stroke-width="8"
+                  stroke-dasharray="339.3" stroke-dashoffset="67.86" stroke-linecap="round"
+                  transform="rotate(-90 60 60)"/>
+          <defs>
+            <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#10b981"/>
+              <stop offset="100%" style="stop-color:#34d399"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="score-value">
+          <span class="score-number">80</span>
+          <span class="score-label">Security Score</span>
+        </div>
+      </div>
+      <div class="score-details">
+        <h3>Good Security Posture</h3>
+        <p>Your organization has implemented most security best practices. Complete the remaining items to achieve maximum protection.</p>
+        <div class="score-checklist">
+          <div class="checklist-item completed">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Password policy configured</span>
+          </div>
+          <div class="checklist-item completed">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Session timeout enabled</span>
+          </div>
+          <div class="checklist-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+            <span>Enable MFA for all users</span>
+          </div>
+          <div class="checklist-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+            <span>Configure SSO provider</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MFA Settings -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h3>Multi-Factor Authentication (MFA)</h3>
+          <span class="badge badge-warning">Partially Enabled</span>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" id="mfa-toggle" checked onchange="toggleMFA()">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="card-body">
+        <p class="card-description">Require additional verification beyond passwords for enhanced security.</p>
+
+        <div class="mfa-methods">
+          <div class="mfa-method">
+            <div class="mfa-method-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+            </div>
+            <div class="mfa-method-info">
+              <h4>Authenticator App</h4>
+              <p>Use apps like Google Authenticator, Authy, or 1Password</p>
+            </div>
+            <div class="mfa-method-status">
+              <span class="status-enabled">Enabled</span>
+              <span class="user-count">8 users</span>
+            </div>
+            <button class="btn btn-secondary btn-sm">Configure</button>
+          </div>
+
+          <div class="mfa-method">
+            <div class="mfa-method-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="mfa-method-info">
+              <h4>SMS Verification</h4>
+              <p>Receive one-time codes via text message</p>
+            </div>
+            <div class="mfa-method-status">
+              <span class="status-enabled">Enabled</span>
+              <span class="user-count">4 users</span>
+            </div>
+            <button class="btn btn-secondary btn-sm">Configure</button>
+          </div>
+
+          <div class="mfa-method">
+            <div class="mfa-method-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+              </svg>
+            </div>
+            <div class="mfa-method-info">
+              <h4>Hardware Security Keys</h4>
+              <p>Use FIDO2/WebAuthn compatible keys like YubiKey</p>
+            </div>
+            <div class="mfa-method-status">
+              <span class="status-disabled">Not configured</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Enable</button>
+          </div>
+
+          <div class="mfa-method">
+            <div class="mfa-method-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="mfa-method-info">
+              <h4>Email Verification</h4>
+              <p>Receive one-time codes via email (least secure)</p>
+            </div>
+            <div class="mfa-method-status">
+              <span class="status-disabled">Disabled</span>
+            </div>
+            <button class="btn btn-secondary btn-sm">Enable</button>
+          </div>
+        </div>
+
+        <div class="mfa-enforcement">
+          <h4>Enforcement Policy</h4>
+          <div class="enforcement-options">
+            <label class="radio-option">
+              <input type="radio" name="mfa-enforcement" value="optional">
+              <span class="radio-label">
+                <strong>Optional</strong>
+                <small>Users can choose to enable MFA</small>
+              </span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="mfa-enforcement" value="required-admins" checked>
+              <span class="radio-label">
+                <strong>Required for Admins</strong>
+                <small>Only admin users must use MFA</small>
+              </span>
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="mfa-enforcement" value="required-all">
+              <span class="radio-label">
+                <strong>Required for All</strong>
+                <small>All users must enable MFA</small>
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SSO Configuration -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title-group">
+          <h3>Single Sign-On (SSO)</h3>
+          <span class="badge badge-secondary">Not Configured</span>
+        </div>
+        <button class="btn btn-primary" onclick="openSSOModal()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Configure SSO
+        </button>
+      </div>
+      <div class="card-body">
+        <p class="card-description">Allow users to sign in using your organization's identity provider.</p>
+
+        <div class="sso-providers">
+          <div class="sso-provider" onclick="selectSSOProvider('saml')">
+            <div class="sso-provider-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="sso-provider-info">
+              <h4>SAML 2.0</h4>
+              <p>Enterprise identity federation standard</p>
+            </div>
+            <span class="sso-provider-badge">Enterprise</span>
+          </div>
+
+          <div class="sso-provider" onclick="selectSSOProvider('oidc')">
+            <div class="sso-provider-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/>
+                <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/>
+                <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/>
+                <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/>
+              </svg>
+            </div>
+            <div class="sso-provider-info">
+              <h4>OpenID Connect</h4>
+              <p>Modern authentication protocol</p>
+            </div>
+            <span class="sso-provider-badge">Recommended</span>
+          </div>
+
+          <div class="sso-provider" onclick="selectSSOProvider('google')">
+            <div class="sso-provider-icon google">
+              <svg width="32" height="32" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+              </svg>
+            </div>
+            <div class="sso-provider-info">
+              <h4>Google Workspace</h4>
+              <p>Sign in with Google accounts</p>
+            </div>
+          </div>
+
+          <div class="sso-provider" onclick="selectSSOProvider('microsoft')">
+            <div class="sso-provider-icon microsoft">
+              <svg width="32" height="32" viewBox="0 0 24 24">
+                <rect x="1" y="1" width="10" height="10" fill="#F25022"/>
+                <rect x="13" y="1" width="10" height="10" fill="#7FBA00"/>
+                <rect x="1" y="13" width="10" height="10" fill="#00A4EF"/>
+                <rect x="13" y="13" width="10" height="10" fill="#FFB900"/>
+              </svg>
+            </div>
+            <div class="sso-provider-info">
+              <h4>Microsoft Entra ID</h4>
+              <p>Azure Active Directory</p>
+            </div>
+          </div>
+
+          <div class="sso-provider" onclick="selectSSOProvider('okta')">
+            <div class="sso-provider-icon okta">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" fill="#007DC1"/>
+                <circle cx="12" cy="12" r="4" fill="white"/>
+              </svg>
+            </div>
+            <div class="sso-provider-info">
+              <h4>Okta</h4>
+              <p>Identity management platform</p>
+            </div>
+          </div>
+
+          <div class="sso-provider" onclick="selectSSOProvider('onelogin')">
+            <div class="sso-provider-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 12h8"/>
+              </svg>
+            </div>
+            <div class="sso-provider-info">
+              <h4>OneLogin</h4>
+              <p>Unified access management</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Session Settings -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Session Security</h3>
+      </div>
+      <div class="card-body">
+        <div class="settings-grid">
+          <div class="setting-item">
+            <div class="setting-info">
+              <h4>Session Timeout</h4>
+              <p>Automatically log out inactive users</p>
+            </div>
+            <select class="form-select" id="session-timeout">
+              <option value="15">15 minutes</option>
+              <option value="30" selected>30 minutes</option>
+              <option value="60">1 hour</option>
+              <option value="120">2 hours</option>
+              <option value="480">8 hours</option>
+              <option value="0">Never</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <h4>Maximum Sessions</h4>
+              <p>Limit concurrent sessions per user</p>
+            </div>
+            <select class="form-select" id="max-sessions">
+              <option value="1">1 session</option>
+              <option value="3" selected>3 sessions</option>
+              <option value="5">5 sessions</option>
+              <option value="0">Unlimited</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <h4>Remember Device</h4>
+              <p>Skip MFA on trusted devices</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-item">
+            <div class="setting-info">
+              <h4>Force Re-authentication</h4>
+              <p>Require login for sensitive actions</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked>
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password Policy -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Password Policy</h3>
+      </div>
+      <div class="card-body">
+        <div class="password-requirements">
+          <div class="requirement-item">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span>Minimum length</span>
+            </label>
+            <input type="number" class="form-input form-input-sm" value="12" min="8" max="128">
+            <span class="requirement-unit">characters</span>
+          </div>
+          <div class="requirement-item">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span>Require uppercase letter</span>
+            </label>
+          </div>
+          <div class="requirement-item">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span>Require lowercase letter</span>
+            </label>
+          </div>
+          <div class="requirement-item">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span>Require number</span>
+            </label>
+          </div>
+          <div class="requirement-item">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span>Require special character</span>
+            </label>
+          </div>
+          <div class="requirement-item">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span>Password expiration</span>
+            </label>
+            <input type="number" class="form-input form-input-sm" value="90" min="0" max="365">
+            <span class="requirement-unit">days</span>
+          </div>
+          <div class="requirement-item">
+            <label class="checkbox-label">
+              <input type="checkbox" checked>
+              <span>Prevent password reuse (last N passwords)</span>
+            </label>
+            <input type="number" class="form-input form-input-sm" value="5" min="1" max="24">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SSO Modal -->
+    <div class="modal" id="sso-modal">
+      <div class="modal-backdrop" onclick="closeSSOModal()"></div>
+      <div class="modal-content modal-large">
+        <div class="modal-header">
+          <h2>Configure SSO</h2>
+          <button class="btn-icon" onclick="closeSSOModal()">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="sso-setup-steps">
+            <div class="setup-step active" data-step="1">
+              <div class="step-number">1</div>
+              <span>Choose Provider</span>
+            </div>
+            <div class="setup-step" data-step="2">
+              <div class="step-number">2</div>
+              <span>Configure</span>
+            </div>
+            <div class="setup-step" data-step="3">
+              <div class="step-number">3</div>
+              <span>Test & Enable</span>
+            </div>
+          </div>
+
+          <div class="sso-config-form" id="sso-step-1">
+            <h3>Select Identity Provider</h3>
+            <div class="provider-select-grid">
+              <label class="provider-select-card">
+                <input type="radio" name="sso-provider" value="saml">
+                <div class="provider-card-content">
+                  <span class="provider-name">SAML 2.0</span>
+                </div>
+              </label>
+              <label class="provider-select-card">
+                <input type="radio" name="sso-provider" value="oidc" checked>
+                <div class="provider-card-content">
+                  <span class="provider-name">OpenID Connect</span>
+                </div>
+              </label>
+              <label class="provider-select-card">
+                <input type="radio" name="sso-provider" value="google">
+                <div class="provider-card-content">
+                  <span class="provider-name">Google</span>
+                </div>
+              </label>
+              <label class="provider-select-card">
+                <input type="radio" name="sso-provider" value="microsoft">
+                <div class="provider-card-content">
+                  <span class="provider-name">Microsoft</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="sso-config-form" id="sso-step-2" style="display: none;">
+            <h3>OIDC Configuration</h3>
+            <div class="form-group">
+              <label>Client ID</label>
+              <input type="text" class="form-input" placeholder="your-client-id">
+            </div>
+            <div class="form-group">
+              <label>Client Secret</label>
+              <input type="password" class="form-input" placeholder="your-client-secret">
+            </div>
+            <div class="form-group">
+              <label>Issuer URL</label>
+              <input type="url" class="form-input" placeholder="https://your-idp.com">
+            </div>
+            <div class="form-group">
+              <label>Callback URL (copy this to your IdP)</label>
+              <div class="input-with-copy">
+                <input type="text" class="form-input" value="https://app.credseal.io/auth/callback" readonly>
+                <button class="btn btn-secondary" onclick="copyCallback()">Copy</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="sso-config-form" id="sso-step-3" style="display: none;">
+            <h3>Test Connection</h3>
+            <div class="test-sso-section">
+              <p>Click the button below to test your SSO configuration.</p>
+              <button class="btn btn-primary" onclick="testSSO()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                Test SSO Connection
+              </button>
+              <div class="test-result" id="sso-test-result"></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeSSOModal()">Cancel</button>
+          <button class="btn btn-secondary" id="sso-prev-btn" onclick="prevSSOStep()" style="display: none;">Previous</button>
+          <button class="btn btn-primary" id="sso-next-btn" onclick="nextSSOStep()">Next</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/command-palette.js"></script>
+  <script src="js/theme.js"></script>
+  <script>
+    let currentSSOStep = 1;
+    const totalSSOSteps = 3;
+
+    function toggleMFA() {
+      const toggle = document.getElementById('mfa-toggle');
+      if (toggle.checked) {
+        showNotification('MFA enabled for your organization', 'success');
+      } else {
+        showNotification('MFA disabled - this reduces security', 'warning');
+      }
+    }
+
+    function openSSOModal() {
+      document.getElementById('sso-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      currentSSOStep = 1;
+      updateSSOSteps();
+    }
+
+    function closeSSOModal() {
+      document.getElementById('sso-modal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function selectSSOProvider(provider) {
+      openSSOModal();
+      document.querySelector(`input[name="sso-provider"][value="${provider}"]`).checked = true;
+    }
+
+    function nextSSOStep() {
+      if (currentSSOStep < totalSSOSteps) {
+        currentSSOStep++;
+        updateSSOSteps();
+      } else {
+        // Final step - save
+        closeSSOModal();
+        showNotification('SSO configuration saved successfully', 'success');
+      }
+    }
+
+    function prevSSOStep() {
+      if (currentSSOStep > 1) {
+        currentSSOStep--;
+        updateSSOSteps();
+      }
+    }
+
+    function updateSSOSteps() {
+      // Update step indicators
+      document.querySelectorAll('.setup-step').forEach((step, index) => {
+        step.classList.toggle('active', index + 1 === currentSSOStep);
+        step.classList.toggle('completed', index + 1 < currentSSOStep);
+      });
+
+      // Show/hide step content
+      for (let i = 1; i <= totalSSOSteps; i++) {
+        const stepEl = document.getElementById(`sso-step-${i}`);
+        if (stepEl) {
+          stepEl.style.display = i === currentSSOStep ? 'block' : 'none';
+        }
+      }
+
+      // Update buttons
+      document.getElementById('sso-prev-btn').style.display = currentSSOStep > 1 ? 'inline-flex' : 'none';
+      document.getElementById('sso-next-btn').textContent = currentSSOStep === totalSSOSteps ? 'Save & Enable' : 'Next';
+    }
+
+    function testSSO() {
+      const result = document.getElementById('sso-test-result');
+      result.innerHTML = '<div class="test-loading">Testing connection...</div>';
+
+      setTimeout(() => {
+        result.innerHTML = `
+          <div class="test-success">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Connection successful! SSO is ready to enable.</span>
+          </div>
+        `;
+      }, 2000);
+    }
+
+    function copyCallback() {
+      const input = document.querySelector('.input-with-copy input');
+      navigator.clipboard.writeText(input.value);
+      showNotification('Callback URL copied to clipboard', 'success');
+    }
+
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.className = `notification notification-${type}`;
+      notification.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          ${type === 'success' ? '<polyline points="20 6 9 17 4 12"/>'
+            : type === 'warning' ? '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>'
+            : '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>'}
+        </svg>
+        <span>${message}</span>
+      `;
+      document.body.appendChild(notification);
+
+      setTimeout(() => notification.classList.add('show'), 10);
+      setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeSSOModal();
+      }
+    });
+  </script>
+
+  <style>
+    /* Security Score Card */
+    .security-score-card {
+      display: flex;
+      gap: 2rem;
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 1.5rem;
+    }
+
+    .score-ring {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+    }
+
+    .score-ring svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .score-value {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .score-number {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #10b981;
+    }
+
+    .score-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .score-details {
+      flex: 1;
+    }
+
+    .score-details h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.25rem;
+    }
+
+    .score-details > p {
+      color: var(--text-secondary);
+      margin: 0 0 1.5rem 0;
+    }
+
+    .score-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .checklist-item.completed {
+      color: #10b981;
+    }
+
+    .checklist-item.completed svg {
+      stroke: #10b981;
+    }
+
+    /* Card Title Group */
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .badge-warning {
+      background: rgba(245, 158, 11, 0.1);
+      color: #f59e0b;
+    }
+
+    .badge-secondary {
+      background: var(--surface-hover);
+      color: var(--text-muted);
+    }
+
+    .badge-success {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+
+    .card-description {
+      color: var(--text-secondary);
+      margin: 0 0 1.5rem 0;
+    }
+
+    /* Toggle Switch */
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--text-muted);
+      transition: 0.3s;
+      border-radius: 26px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: 0.3s;
+      border-radius: 50%;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    }
+
+    .toggle-switch input:checked + .toggle-slider:before {
+      transform: translateX(22px);
+    }
+
+    /* MFA Methods */
+    .mfa-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .mfa-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--surface-hover);
+      border-radius: 12px;
+    }
+
+    .mfa-method-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      border-radius: 10px;
+    }
+
+    .mfa-method-info {
+      flex: 1;
+    }
+
+    .mfa-method-info h4 {
+      margin: 0 0 0.25rem 0;
+      font-size: 0.9375rem;
+    }
+
+    .mfa-method-info p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .mfa-method-status {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+    }
+
+    .status-enabled {
+      color: #10b981;
+      font-size: 0.8125rem;
+      font-weight: 500;
+    }
+
+    .status-disabled {
+      color: var(--text-muted);
+      font-size: 0.8125rem;
+    }
+
+    .user-count {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* MFA Enforcement */
+    .mfa-enforcement {
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .mfa-enforcement h4 {
+      margin: 0 0 1rem 0;
+      font-size: 0.9375rem;
+    }
+
+    .enforcement-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: var(--surface-hover);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .radio-option:hover {
+      background: var(--bg-3);
+    }
+
+    .radio-option input {
+      margin-top: 3px;
+      accent-color: var(--primary);
+    }
+
+    .radio-label strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .radio-label small {
+      color: var(--text-muted);
+    }
+
+    /* SSO Providers */
+    .sso-providers {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .sso-provider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: var(--surface-hover);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .sso-provider:hover {
+      border-color: var(--primary);
+      background: var(--surface);
+    }
+
+    .sso-provider-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      border-radius: 10px;
+    }
+
+    .sso-provider-info {
+      flex: 1;
+    }
+
+    .sso-provider-info h4 {
+      margin: 0 0 0.25rem 0;
+      font-size: 0.9375rem;
+    }
+
+    .sso-provider-info p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    .sso-provider-badge {
+      padding: 0.25rem 0.5rem;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary);
+      border-radius: 4px;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* Settings Grid */
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .setting-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .setting-info h4 {
+      margin: 0 0 0.25rem 0;
+      font-size: 0.9375rem;
+    }
+
+    .setting-info p {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+
+    /* Password Requirements */
+    .password-requirements {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .requirement-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      min-width: 280px;
+    }
+
+    .checkbox-label input {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--primary);
+    }
+
+    .form-input-sm {
+      width: 80px;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    .requirement-unit {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-content {
+      position: relative;
+      background: var(--background);
+      border-radius: 16px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-large {
+      max-width: 700px;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-header h2 {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* SSO Setup Steps */
+    .sso-setup-steps {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .setup-step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .setup-step.active {
+      color: var(--primary);
+    }
+
+    .setup-step.completed {
+      color: #10b981;
+    }
+
+    .step-number {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface-hover);
+      border-radius: 50%;
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+
+    .setup-step.active .step-number {
+      background: var(--primary);
+      color: white;
+    }
+
+    .setup-step.completed .step-number {
+      background: #10b981;
+      color: white;
+    }
+
+    .sso-config-form h3 {
+      margin: 0 0 1.5rem 0;
+      font-size: 1.125rem;
+    }
+
+    .provider-select-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .provider-select-card {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .provider-select-card input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .provider-card-content {
+      padding: 1.25rem;
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+
+    .provider-select-card:hover .provider-card-content {
+      border-color: var(--primary);
+    }
+
+    .provider-select-card input:checked + .provider-card-content {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.1);
+    }
+
+    .provider-name {
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .form-input,
+    .form-select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.9375rem;
+    }
+
+    .form-input:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    .input-with-copy {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .input-with-copy input {
+      flex: 1;
+    }
+
+    .test-sso-section {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .test-sso-section p {
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .test-result {
+      margin-top: 1.5rem;
+    }
+
+    .test-loading {
+      color: var(--text-muted);
+    }
+
+    .test-success {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: #10b981;
+    }
+
+    /* Notification */
+    .notification {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+
+    .notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .notification-success {
+      border-left: 4px solid #10b981;
+    }
+
+    .notification-warning {
+      border-left: 4px solid #f59e0b;
+    }
+
+    .notification-warning svg {
+      stroke: #f59e0b;
+    }
+
+    .btn-sm {
+      padding: 0.5rem 0.875rem;
+      font-size: 0.8125rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .security-score-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .mfa-method {
+        flex-wrap: wrap;
+      }
+
+      .mfa-method-status {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .sso-providers {
+        grid-template-columns: 1fr;
+      }
+
+      .settings-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .requirement-item {
+        flex-wrap: wrap;
+      }
+
+      .provider-select-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</body>
+</html>
