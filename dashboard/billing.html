@@ -30,7 +30,7 @@
     <nav class="sidebar-nav">
       <div class="nav-section">
         <span class="nav-section-title">Overview</span>
-        <a href="index.html" class="nav-item">
+        <a href="/dashboard/index.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="7" height="9" rx="1"/>
             <rect x="14" y="3" width="7" height="5" rx="1"/>
@@ -39,14 +39,14 @@
           </svg>
           Dashboard
         </a>
-        <a href="quickstart.html" class="nav-item">
+        <a href="/dashboard/quickstart.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="4 17 10 11 4 5"/>
             <line x1="12" y1="19" x2="20" y2="19"/>
           </svg>
           Quickstart
         </a>
-        <a href="playground.html" class="nav-item">
+        <a href="/dashboard/playground.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="16 18 22 12 16 6"/>
             <polyline points="8 6 2 12 8 18"/>
@@ -57,14 +57,14 @@
 
       <div class="nav-section">
         <span class="nav-section-title">Manage</span>
-        <a href="credentials.html" class="nav-item">
+        <a href="/dashboard/credentials.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
           </svg>
           Credentials
-          <span class="nav-badge">3</span>
+          <span class="nav-badge" id="nav-credentials-count" style="display: none;">0</span>
         </a>
-        <a href="sessions.html" class="nav-item">
+        <a href="/dashboard/sessions.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 20V10"/>
             <path d="M18 20V4"/>
@@ -72,40 +72,40 @@
           </svg>
           Sessions
         </a>
-        <a href="agents.html" class="nav-item">
+        <a href="/dashboard/agents.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="3"/>
             <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
           </svg>
           Agents
         </a>
-        <a href="workflows.html" class="nav-item">
+        <a href="/dashboard/workflows.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 3h6v6H3zM15 3h6v6h-6zM9 9h6v6H9zM3 15h6v6H3zM15 15h6v6h-6z"/>
           </svg>
           Workflows
         </a>
-        <a href="analytics.html" class="nav-item">
+        <a href="/dashboard/analytics.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 3v18h18"/>
             <path d="M18 9l-5 5-4-4-3 3"/>
           </svg>
           Analytics
         </a>
-        <a href="rate-limits.html" class="nav-item">
+        <a href="/dashboard/rate-limits.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
             <circle cx="12" cy="12" r="4"/>
           </svg>
           Rate Limits
         </a>
-        <a href="policies.html" class="nav-item">
+        <a href="/dashboard/policies.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
           </svg>
           Policies
         </a>
-        <a href="team.html" class="nav-item">
+        <a href="/dashboard/team.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
             <circle cx="9" cy="7" r="4"/>
@@ -114,7 +114,7 @@
           </svg>
           Team
         </a>
-        <a href="roles.html" class="nav-item">
+        <a href="/dashboard/roles.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 2a3 3 0 0 0-3 3v1a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
             <path d="M19 8a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/>
@@ -123,7 +123,7 @@
           </svg>
           Roles
         </a>
-        <a href="audit.html" class="nav-item">
+        <a href="/dashboard/audit.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
             <polyline points="14 2 14 8 20 8"/>
@@ -132,14 +132,14 @@
           </svg>
           Audit Logs
         </a>
-        <a href="webhooks.html" class="nav-item">
+        <a href="/dashboard/webhooks.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
           </svg>
           Webhooks
         </a>
-        <a href="integrations.html" class="nav-item">
+        <a href="/dashboard/integrations.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="2" y="2" width="8" height="8" rx="1"/>
             <rect x="14" y="2" width="8" height="8" rx="1"/>
@@ -149,14 +149,14 @@
           </svg>
           Integrations
         </a>
-        <a href="security.html" class="nav-item">
+        <a href="/dashboard/security.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             <path d="M9 12l2 2 4-4"/>
           </svg>
           Security
         </a>
-        <a href="compliance.html" class="nav-item">
+        <a href="/dashboard/compliance.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M9 11l3 3L22 4"/>
             <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
@@ -167,14 +167,14 @@
 
       <div class="nav-section">
         <span class="nav-section-title">Account</span>
-        <a href="settings.html" class="nav-item">
+        <a href="/dashboard/settings.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="3"/>
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
           </svg>
           Settings
         </a>
-        <a href="branding.html" class="nav-item">
+        <a href="/dashboard/branding.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="13.5" cy="6.5" r="2.5"/>
             <circle cx="17.5" cy="10.5" r="2.5"/>
@@ -184,7 +184,7 @@
           </svg>
           Branding
         </a>
-        <a href="billing.html" class="nav-item active">
+        <a href="/dashboard/billing.html" class="nav-item active">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
             <line x1="1" y1="10" x2="23" y2="10"/>
@@ -198,12 +198,12 @@
       <div class="usage-meter">
         <div class="usage-header">
           <span>Executions</span>
-          <span>127 / 500</span>
+          <span id="usage-count">0 / 500</span>
         </div>
         <div class="usage-bar">
-          <div class="usage-fill" style="width: 25.4%"></div>
+          <div class="usage-fill" id="usage-fill" style="width: 0%"></div>
         </div>
-        <a href="billing.html" class="usage-upgrade">Upgrade plan</a>
+        <a href="/dashboard/billing.html" class="usage-upgrade">Upgrade plan</a>
       </div>
     </div>
   </aside>
@@ -248,8 +248,8 @@
 
         <div class="user-menu" id="user-menu">
           <button class="user-menu-btn" id="user-menu-btn">
-            <div class="user-avatar">A</div>
-            <span class="user-name">Acme Corp</span>
+            <div class="user-avatar" id="user-avatar">?</div>
+            <span class="user-name" id="user-name">Loading...</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="6 9 12 15 18 9"/>
             </svg>
@@ -257,13 +257,13 @@
           <div class="user-dropdown" id="user-dropdown">
             <div class="dropdown-header">
               <div class="dropdown-user-info">
-                <strong>Acme Corp</strong>
-                <span>admin@acme.com</span>
+                <strong id="dropdown-user-name">Loading...</strong>
+                <span id="dropdown-user-email">—</span>
               </div>
             </div>
             <div class="dropdown-divider"></div>
-            <a href="settings.html" class="dropdown-item">Settings</a>
-            <a href="billing.html" class="dropdown-item">Billing</a>
+            <a href="/dashboard/settings.html" class="dropdown-item">Settings</a>
+            <a href="/dashboard/billing.html" class="dropdown-item">Billing</a>
             <div class="dropdown-divider"></div>
             <a href="/login.html" class="dropdown-item dropdown-item-danger">Log out</a>
           </div>
@@ -273,6 +273,73 @@
 
     <!-- Page Content -->
     <div class="content">
+      <!-- Usage Warning Banner (shown at 80%+ usage) -->
+      <div class="usage-warning-banner" id="usage-warning-banner" style="display: none;">
+        <div class="warning-content">
+          <div class="warning-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <div class="warning-info">
+            <strong>Approaching execution limit</strong>
+            <span id="usage-warning-text">You've used 80% of your monthly executions</span>
+          </div>
+        </div>
+        <div class="warning-actions">
+          <button class="btn btn-secondary btn-sm" onclick="enableOverage()">Enable Pay-as-you-go</button>
+          <a href="#plans" class="btn btn-primary btn-sm">Upgrade Plan</a>
+        </div>
+      </div>
+
+      <!-- Limit Reached Banner (shown at 100% usage without overage) -->
+      <div class="limit-reached-banner" id="limit-reached-banner" style="display: none;">
+        <div class="limit-content">
+          <div class="limit-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="15" y1="9" x2="9" y2="15"/>
+              <line x1="9" y1="9" x2="15" y2="15"/>
+            </svg>
+          </div>
+          <div class="limit-info">
+            <strong>Execution limit reached</strong>
+            <span id="limit-reached-text">You've used all your monthly executions. Enable overage or upgrade to continue.</span>
+          </div>
+        </div>
+        <div class="limit-options">
+          <div class="limit-option">
+            <h4>Pay-as-you-go</h4>
+            <p>Continue using CredSeal at <strong id="overage-rate">$0.01</strong> per execution</p>
+            <button class="btn btn-primary" onclick="enableOverage()">Enable Overage</button>
+          </div>
+          <div class="limit-option">
+            <h4>Upgrade Plan</h4>
+            <p>Get more executions with a higher tier</p>
+            <a href="#plans" class="btn btn-secondary">View Plans</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trial Banner (shown during trial) -->
+      <div class="trial-banner" id="trial-banner">
+        <div class="trial-content">
+          <div class="trial-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="trial-info">
+            <strong>Free Trial</strong>
+            <span id="trial-days-left">7 days remaining</span>
+          </div>
+        </div>
+        <p class="trial-description">You have full access to all features. Choose a plan before your trial ends to continue using CredSeal.</p>
+      </div>
+
       <!-- Current Plan -->
       <div class="card">
         <div class="card-header">
@@ -281,59 +348,51 @@
         <div class="card-body">
           <div class="current-plan">
             <div class="plan-info">
-              <div class="plan-badge">Free</div>
+              <div class="plan-badge" id="current-plan-badge">Trial</div>
               <div class="plan-details">
-                <h4>Free Plan</h4>
-                <p>Perfect for getting started with AI credential management</p>
+                <h4 id="current-plan-name">7-Day Free Trial</h4>
+                <p id="current-plan-desc">Full access to test all features</p>
               </div>
             </div>
             <div class="plan-price">
-              <span class="price-amount">$0</span>
+              <span class="price-amount" id="current-plan-price">$0</span>
               <span class="price-period">/month</span>
             </div>
           </div>
 
           <div class="plan-features">
             <div class="feature-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
                 <polyline points="20 6 9 17 4 12"/>
               </svg>
-              <span>500 executions/month</span>
-              <span class="feature-usage">127 used</span>
+              <span>Unlimited executions</span>
+              <span class="feature-usage" id="usage-executions">0 used</span>
             </div>
             <div class="feature-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
                 <polyline points="20 6 9 17 4 12"/>
               </svg>
-              <span>Up to 5 credentials</span>
-              <span class="feature-usage">3 used</span>
+              <span>Unlimited credentials</span>
+              <span class="feature-usage" id="usage-credentials">0 used</span>
             </div>
             <div class="feature-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
                 <polyline points="20 6 9 17 4 12"/>
               </svg>
-              <span>Up to 3 agents</span>
-              <span class="feature-usage">2 used</span>
+              <span>Unlimited agents</span>
+              <span class="feature-usage" id="usage-agents">0 used</span>
             </div>
             <div class="feature-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
                 <polyline points="20 6 9 17 4 12"/>
               </svg>
-              <span>7-day audit log retention</span>
+              <span>Full audit logs</span>
             </div>
-            <div class="feature-item disabled">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
+            <div class="feature-item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
               </svg>
-              <span>Priority support</span>
-            </div>
-            <div class="feature-item disabled">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--fg-3)" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"/>
-                <line x1="6" y1="6" x2="18" y2="18"/>
-              </svg>
-              <span>SSO / SAML</span>
+              <span>All integrations</span>
             </div>
           </div>
         </div>
@@ -343,53 +402,53 @@
       <div class="card">
         <div class="card-header">
           <h3>Usage This Month</h3>
-          <span class="text-muted">Resets on Apr 1, 2026</span>
+          <span class="text-muted" id="usage-reset-date">—</span>
         </div>
         <div class="card-body">
           <div class="usage-grid">
             <div class="usage-item">
               <div class="usage-label">Executions</div>
-              <div class="usage-value">127 <span class="usage-limit">/ 500</span></div>
+              <div class="usage-value"><span id="billing-executions">0</span> <span class="usage-limit">/ <span id="billing-exec-limit">unlimited</span></span></div>
               <div class="usage-bar-large">
-                <div class="usage-fill-large" style="width: 25.4%"></div>
+                <div class="usage-fill-large" id="billing-exec-fill" style="width: 0%"></div>
               </div>
-              <div class="usage-percent">25.4% used</div>
+              <div class="usage-percent" id="billing-exec-percent">0% used</div>
             </div>
 
             <div class="usage-item">
               <div class="usage-label">Credentials</div>
-              <div class="usage-value">3 <span class="usage-limit">/ 5</span></div>
+              <div class="usage-value"><span id="billing-credentials">0</span> <span class="usage-limit">/ <span id="billing-cred-limit">unlimited</span></span></div>
               <div class="usage-bar-large">
-                <div class="usage-fill-large" style="width: 60%"></div>
+                <div class="usage-fill-large" id="billing-cred-fill" style="width: 0%"></div>
               </div>
-              <div class="usage-percent">60% used</div>
+              <div class="usage-percent" id="billing-cred-percent">0% used</div>
             </div>
 
             <div class="usage-item">
               <div class="usage-label">Agents</div>
-              <div class="usage-value">2 <span class="usage-limit">/ 3</span></div>
+              <div class="usage-value"><span id="billing-agents">0</span> <span class="usage-limit">/ <span id="billing-agent-limit">unlimited</span></span></div>
               <div class="usage-bar-large">
-                <div class="usage-fill-large" style="width: 66.7%"></div>
+                <div class="usage-fill-large" id="billing-agent-fill" style="width: 0%"></div>
               </div>
-              <div class="usage-percent">66.7% used</div>
+              <div class="usage-percent" id="billing-agent-percent">0% used</div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Upgrade Plans -->
+      <!-- Choose a Plan -->
       <div class="card">
         <div class="card-header">
-          <h3>Upgrade Your Plan</h3>
+          <h3>Choose a Plan</h3>
         </div>
         <div class="card-body">
           <div class="plans-grid">
-            <!-- Pro Plan -->
+            <!-- Starter Plan -->
             <div class="plan-card">
               <div class="plan-card-header">
-                <h4>Pro</h4>
+                <h4>Starter</h4>
                 <div class="plan-card-price">
-                  <span class="price-amount">$49</span>
+                  <span class="price-amount">$9</span>
                   <span class="price-period">/month</span>
                 </div>
               </div>
@@ -399,7 +458,104 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
-                    10,000 executions/month
+                    500 executions/month
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    3 credentials
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    2 agents
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    7-day audit logs
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Community support
+                  </li>
+                </ul>
+              </div>
+              <div class="plan-card-footer">
+                <button class="btn btn-secondary btn-block" onclick="selectPlan('starter')">Select Starter</button>
+              </div>
+            </div>
+
+            <!-- Pro Plan -->
+            <div class="plan-card plan-card-featured">
+              <div class="plan-card-badge">Most Popular</div>
+              <div class="plan-card-header">
+                <h4>Pro</h4>
+                <div class="plan-card-price">
+                  <span class="price-amount">$29</span>
+                  <span class="price-period">/month</span>
+                </div>
+              </div>
+              <div class="plan-card-body">
+                <ul class="plan-features-list">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    5,000 executions/month
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    15 credentials
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    10 agents
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    30-day audit logs
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Priority email support
+                  </li>
+                </ul>
+              </div>
+              <div class="plan-card-footer">
+                <button class="btn btn-primary btn-block" onclick="selectPlan('pro')">Select Pro</button>
+              </div>
+            </div>
+
+            <!-- Team Plan -->
+            <div class="plan-card">
+              <div class="plan-card-header">
+                <h4>Team</h4>
+                <div class="plan-card-price">
+                  <span class="price-amount">$79</span>
+                  <span class="price-period">/month</span>
+                </div>
+              </div>
+              <div class="plan-card-body">
+                <ul class="plan-features-list">
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    25,000 executions/month
                   </li>
                   <li>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -417,82 +573,33 @@
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
-                    90-day audit log retention
+                    5 team seats
                   </li>
                   <li>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
-                    Priority email support
+                    90-day audit logs
+                  </li>
+                  <li>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Slack support
                   </li>
                 </ul>
               </div>
               <div class="plan-card-footer">
-                <button class="btn btn-primary btn-block">Upgrade to Pro</button>
+                <button class="btn btn-secondary btn-block" onclick="selectPlan('team')">Select Team</button>
               </div>
             </div>
 
             <!-- Enterprise Plan -->
-            <div class="plan-card plan-card-featured">
-              <div class="plan-card-badge">Most Popular</div>
+            <div class="plan-card">
               <div class="plan-card-header">
                 <h4>Enterprise</h4>
                 <div class="plan-card-price">
-                  <span class="price-amount">$199</span>
-                  <span class="price-period">/month</span>
-                </div>
-              </div>
-              <div class="plan-card-body">
-                <ul class="plan-features-list">
-                  <li>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    Unlimited executions
-                  </li>
-                  <li>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    Unlimited everything
-                  </li>
-                  <li>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    1-year audit log retention
-                  </li>
-                  <li>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    SSO / SAML
-                  </li>
-                  <li>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    Dedicated support
-                  </li>
-                  <li>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="20 6 9 17 4 12"/>
-                    </svg>
-                    Custom SLAs
-                  </li>
-                </ul>
-              </div>
-              <div class="plan-card-footer">
-                <button class="btn btn-primary btn-block">Upgrade to Enterprise</button>
-              </div>
-            </div>
-
-            <!-- Custom Plan -->
-            <div class="plan-card">
-              <div class="plan-card-header">
-                <h4>Custom</h4>
-                <div class="plan-card-price">
-                  <span class="price-amount">Contact us</span>
+                  <span class="price-amount">Custom</span>
                 </div>
               </div>
               <div class="plan-card-body">
@@ -581,10 +688,157 @@
   </main>
 
   <script src="/dashboard/js/dashboard.js"></script>
+  <script src="/dashboard/js/data.js"></script>
   <script src="/dashboard/js/command-palette.js"></script>
   <script src="/dashboard/js/theme.js"></script>
 
   <style>
+    /* Usage Warning Banner */
+    .usage-warning-banner {
+      background: linear-gradient(135deg, var(--warning-muted) 0%, rgba(245,158,11,0.05) 100%);
+      border: 1px solid var(--warning);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .warning-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .warning-icon {
+      color: var(--warning);
+    }
+
+    .warning-info strong {
+      display: block;
+      font-size: 15px;
+      color: var(--fg-0);
+      margin-bottom: 2px;
+    }
+
+    .warning-info span {
+      font-size: 13px;
+      color: var(--fg-2);
+    }
+
+    .warning-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    /* Limit Reached Banner */
+    .limit-reached-banner {
+      background: linear-gradient(135deg, var(--danger-muted) 0%, rgba(239,68,68,0.05) 100%);
+      border: 1px solid var(--danger);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .limit-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .limit-icon {
+      color: var(--danger);
+    }
+
+    .limit-info strong {
+      display: block;
+      font-size: 16px;
+      color: var(--fg-0);
+      margin-bottom: 4px;
+    }
+
+    .limit-info span {
+      font-size: 14px;
+      color: var(--fg-2);
+    }
+
+    .limit-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .limit-option {
+      background: var(--bg-2);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .limit-option h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .limit-option p {
+      font-size: 13px;
+      color: var(--fg-2);
+      margin-bottom: 16px;
+    }
+
+    /* Trial Banner */
+    .trial-banner {
+      background: linear-gradient(135deg, var(--accent-muted) 0%, rgba(0,229,160,0.05) 100%);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+
+    .trial-content {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .trial-icon {
+      color: var(--accent);
+    }
+
+    .trial-info strong {
+      display: block;
+      font-size: 16px;
+      color: var(--fg-0);
+      margin-bottom: 2px;
+    }
+
+    .trial-info span {
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .trial-description {
+      font-size: 14px;
+      color: var(--fg-2);
+      margin: 0;
+    }
+
+    /* Expired Trial Banner */
+    .trial-banner.expired {
+      background: linear-gradient(135deg, var(--danger-muted) 0%, rgba(239,68,68,0.05) 100%);
+      border-color: var(--danger);
+    }
+
+    .trial-banner.expired .trial-icon,
+    .trial-banner.expired .trial-info span {
+      color: var(--danger);
+    }
+
     /* Billing-specific styles */
     .current-plan {
       display: flex;

@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Your Region — CredSeal</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --surface: #0f0f0f;
+      --surface-2: #161616;
+      --surface-3: #1a1a1a;
+      --border: rgba(255,255,255,0.07);
+      --border-bright: rgba(255,255,255,0.14);
+      --fg: #f5f5f5;
+      --fg-2: #a0a0a0;
+      --fg-3: #555;
+      --green: #00e5a0;
+      --green-dim: rgba(0,229,160,0.12);
+      --green-glow: rgba(0,229,160,0.25);
+      --blue: #3b82f6;
+      --mono: 'Geist Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Geist', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ── */
+    header {
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      background: var(--green);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-indicator {
+      font-size: 13px;
+      color: var(--fg-2);
+    }
+
+    .step-indicator span {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .header-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header-section h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .header-section p {
+      font-size: 16px;
+      color: var(--fg-2);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* ── REGION CARDS ── */
+    .region-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .region-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .region-card:hover {
+      border-color: var(--border-bright);
+      transform: translateY(-2px);
+    }
+
+    .region-card.selected {
+      border-color: var(--green);
+      background: linear-gradient(135deg, var(--green-dim) 0%, transparent 100%);
+    }
+
+    .region-card.selected::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px var(--green-glow);
+      pointer-events: none;
+    }
+
+    .recommended-badge {
+      position: absolute;
+      top: -10px;
+      right: 16px;
+      background: var(--green);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.03em;
+      display: none;
+    }
+
+    .region-card.recommended .recommended-badge {
+      display: block;
+    }
+
+    .region-flag {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .region-name {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .region-location {
+      font-size: 14px;
+      color: var(--fg-2);
+      margin-bottom: 16px;
+    }
+
+    .region-compliance {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .compliance-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--fg-2);
+      border: 1px solid var(--border);
+    }
+
+    .check-icon {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--border-bright);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .region-card.selected .check-icon {
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .check-icon svg {
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .region-card.selected .check-icon svg {
+      opacity: 1;
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .info-box svg {
+      color: var(--blue);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-box p {
+      font-size: 14px;
+      color: var(--fg-2);
+      line-height: 1.6;
+    }
+
+    .info-box a {
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* ── MULTI-REGION EXPANDER ── */
+    .multi-region-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 32px;
+      overflow: hidden;
+    }
+
+    .toggle-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .toggle-header:hover {
+      background: var(--surface-2);
+    }
+
+    .toggle-header svg {
+      color: var(--fg-2);
+    }
+
+    .toggle-header span {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .toggle-arrow {
+      transition: transform 0.2s;
+    }
+
+    .multi-region-toggle.open .toggle-arrow {
+      transform: rotate(180deg);
+    }
+
+    .toggle-content {
+      display: none;
+      padding: 0 20px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .multi-region-toggle.open .toggle-content {
+      display: block;
+    }
+
+    .multi-region-diagram {
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 16px 0;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--fg-2);
+    }
+
+    .multi-region-diagram .highlight {
+      color: var(--green);
+    }
+
+    .multi-region-features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .multi-region-features li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--fg-2);
+      list-style: none;
+    }
+
+    .multi-region-features li svg {
+      color: var(--green);
+      flex-shrink: 0;
+    }
+
+    .plan-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--green-dim);
+      color: var(--green);
+      margin-left: auto;
+    }
+
+    /* ── CONTINUE BUTTON ── */
+    .continue-btn {
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--green);
+      color: #000;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Geist', sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .continue-btn:hover:not(:disabled) {
+      background: #00ffb3;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--green-glow);
+    }
+
+    .continue-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .continue-btn svg {
+      transition: transform 0.15s;
+    }
+
+    .continue-btn:hover:not(:disabled) svg {
+      transform: translateX(4px);
+    }
+
+    /* ── SKIP LINK ── */
+    .skip-link {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--fg-3);
+      transition: color 0.15s;
+    }
+
+    .skip-link:hover {
+      color: var(--fg-2);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      header {
+        padding: 16px 20px;
+      }
+
+      main {
+        padding: 40px 20px;
+      }
+
+      .region-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .header-section h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo">
+      <div class="logo-mark">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      CredSeal
+    </a>
+    <div class="step-indicator">
+      Step <span>1</span> of 2
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="header-section">
+        <h1>Where should we store your data?</h1>
+        <p>Choose the region closest to your customers for optimal performance and compliance.</p>
+      </div>
+
+      <div class="region-grid">
+        <div class="region-card" data-region="eu">
+          <div class="recommended-badge">RECOMMENDED</div>
+          <div class="check-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="region-flag">🇪🇺</div>
+          <div class="region-name">Europe</div>
+          <div class="region-location">London, UK</div>
+          <div class="region-compliance">
+            <span class="compliance-tag">GDPR</span>
+            <span class="compliance-tag">UK Law</span>
+          </div>
+        </div>
+
+        <div class="region-card" data-region="us">
+          <div class="recommended-badge">RECOMMENDED</div>
+          <div class="check-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+          </div>
+          <div class="region-flag">🇺🇸</div>
+          <div class="region-name">United States</div>
+          <div class="region-location">San Francisco, CA</div>
+          <div class="region-compliance">
+            <span class="compliance-tag">SOC 2</span>
+            <span class="compliance-tag">US Law</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+        <p>
+          This sets your <strong>primary region</strong> and cannot be changed later.
+          Your credentials will be stored in this region by default.
+          <a href="#" id="learn-more-link">Need multiple regions?</a>
+        </p>
+      </div>
+
+      <div class="multi-region-toggle" id="multi-region-toggle">
+        <div class="toggle-header">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span>Have customers in both regions?</span>
+          <svg class="toggle-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </div>
+        <div class="toggle-content">
+          <div class="multi-region-diagram">
+            <span class="highlight">Your Dashboard</span> (Single Login)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;┌───┴───┐<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+            &nbsp;&nbsp;<span class="highlight">🇪🇺 EU</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="highlight">🇺🇸 US</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;▼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼<br>
+            EU Users&nbsp;&nbsp;US Users<br>
+            <br>
+            <span style="color: var(--fg-3)">↑ Data never crosses borders</span>
+          </div>
+          <ul class="multi-region-features">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              One dashboard, multiple regions
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Each credential tagged to a region
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Billing consolidated to one account
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Add more regions anytime from Settings
+              <span class="plan-badge">Pro+</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <button class="continue-btn" id="continue-btn" disabled>
+        Continue
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+
+      <a href="/dashboard/index.html" class="skip-link">I'll choose later</a>
+    </div>
+  </main>
+
+  <script>
+    // Auto-detect region based on timezone
+    function detectRegion() {
+      try {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        // US timezones
+        if (tz.startsWith('America/') || tz.startsWith('US/') || tz.startsWith('Pacific/')) {
+          return 'us';
+        }
+        // Default to EU for everything else
+        return 'eu';
+      } catch {
+        return 'eu';
+      }
+    }
+
+    const recommendedRegion = detectRegion();
+    const regionCards = document.querySelectorAll('.region-card');
+    const continueBtn = document.getElementById('continue-btn');
+    const multiRegionToggle = document.getElementById('multi-region-toggle');
+    const learnMoreLink = document.getElementById('learn-more-link');
+    let selectedRegion = null;
+
+    // Mark recommended region
+    document.querySelector(`[data-region="${recommendedRegion}"]`).classList.add('recommended');
+
+    // Region selection
+    regionCards.forEach(card => {
+      card.addEventListener('click', () => {
+        regionCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedRegion = card.dataset.region;
+        continueBtn.disabled = false;
+      });
+    });
+
+    // Multi-region toggle
+    multiRegionToggle.querySelector('.toggle-header').addEventListener('click', () => {
+      multiRegionToggle.classList.toggle('open');
+    });
+
+    // Learn more link opens toggle
+    learnMoreLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      multiRegionToggle.classList.add('open');
+      multiRegionToggle.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // Continue button
+    continueBtn.addEventListener('click', async () => {
+      if (!selectedRegion) return;
+
+      continueBtn.disabled = true;
+      continueBtn.innerHTML = `
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin">
+          <circle cx="12" cy="12" r="10" stroke-dasharray="32" stroke-dashoffset="32"/>
+        </svg>
+        Setting up...
+      `;
+
+      try {
+        // Get the right API URL based on selected region
+        const apiUrls = {
+          us: 'https://credseal-cloud-us.fly.dev',
+          eu: 'https://credseal-cloud.fly.dev'
+        };
+
+        const response = await fetch(`${apiUrls[selectedRegion]}/v1/org/set-region`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            region: selectedRegion,
+            primary: true
+          }),
+          credentials: 'include'
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to set region');
+        }
+
+        // Store the selected region for SDK routing
+        localStorage.setItem('credseal_primary_region', selectedRegion);
+        localStorage.setItem('credseal_api_url', apiUrls[selectedRegion]);
+
+        // Redirect to dashboard
+        window.location.href = '/dashboard/index.html?welcome=true';
+
+      } catch (error) {
+        console.error('Error setting region:', error);
+        continueBtn.disabled = false;
+        continueBtn.innerHTML = `
+          Continue
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        `;
+        alert('Failed to set region. Please try again.');
+      }
+    });
+
+    // Add spin animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      .spin {
+        animation: spin 1s linear infinite;
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+</body>
+</html>

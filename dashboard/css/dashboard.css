@@ -511,6 +511,7 @@ body {
 }
 
 .sidebar-footer {
+  position: relative;
   margin-top: auto;
   padding: var(--space-4);
   border-top: 1px solid var(--border-subtle);
@@ -563,6 +564,93 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* User Dropdown */
+.user-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  margin-bottom: var(--space-2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all var(--transition-fast);
+  z-index: 100;
+  overflow: hidden;
+}
+
+.user-dropdown.active,
+.user-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-header {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.dropdown-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdown-user-info strong,
+.dropdown-header .user-name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--fg-0);
+}
+
+.dropdown-user-info span,
+.dropdown-header .user-email {
+  font-size: var(--text-xs);
+  color: var(--fg-3);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--border-subtle);
+  margin: var(--space-1) 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--fg-2);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.dropdown-item:hover {
+  background: var(--bg-3);
+  color: var(--fg-1);
+}
+
+.dropdown-item svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+.dropdown-item-danger {
+  color: var(--danger);
+}
+
+.dropdown-item-danger:hover {
+  background: var(--danger-muted);
+  color: var(--danger);
 }
 
 
@@ -1051,6 +1139,18 @@ body {
   justify-content: center;
   padding: var(--space-16) var(--space-8);
   text-align: center;
+}
+
+.empty-state svg {
+  color: var(--fg-4);
+  margin-bottom: var(--space-4);
+}
+
+.empty-state p {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--fg-2);
+  margin: 0 0 var(--space-2) 0;
 }
 
 .empty-icon {
