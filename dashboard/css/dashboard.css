@@ -315,6 +315,14 @@ img, svg {
    LAYOUT
    ═══════════════════════════════════════════════════════════════════════════ */
 
+body {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-0);
+  color: var(--fg-1);
+  font-family: var(--font-sans);
+}
+
 .dashboard {
   display: flex;
   min-height: 100vh;
@@ -334,7 +342,8 @@ img, svg {
   transition: width var(--transition-slow);
 }
 
-.main {
+.main,
+.main-content {
   flex: 1;
   margin-left: var(--sidebar-width);
   min-height: 100vh;
@@ -2088,7 +2097,8 @@ img, svg {
     transform: translateX(0);
   }
 
-  .main {
+  .main,
+  .main-content {
     margin-left: 0;
   }
 
