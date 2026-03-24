@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Demo — CredSeal</title>
+  <meta name="description" content="Try CredSeal live in your browser. No signup required. See how credential isolation works for AI agents.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="CredSeal Live Demo — Try It Now">
+  <meta property="og:description" content="Interactive demo of credential isolation for AI agents. No signup required.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Plausible Analytics (privacy-friendly, GDPR compliant) -->
+  <script defer data-domain="credseal.vercel.app" src="https://plausible.io/js/script.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080808;
+      --surface: #0f0f0f;
+      --surface-2: #161616;
+      --border: rgba(255,255,255,0.07);
+      --border-bright: rgba(255,255,255,0.14);
+      --fg: #f5f5f5;
+      --fg-2: #a0a0a0;
+      --fg-3: #555;
+      --green: #00e5a0;
+      --green-dim: rgba(0,229,160,0.12);
+      --green-glow: rgba(0,229,160,0.25);
+      --red: #ff4d4d;
+      --blue: #3b82f6;
+      --mono: 'Geist Mono', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Geist', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* Nav */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8,8,8,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      background: var(--green);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: var(--fg-2);
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--fg); }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 20px var(--green-glow);
+    }
+
+    .btn-secondary {
+      background: var(--surface-2);
+      color: var(--fg);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-bright);
+    }
+
+    /* Demo container */
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .demo-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .demo-header h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .demo-header p {
+      color: var(--fg-2);
+      font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .demo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-dim);
+      color: var(--green);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* Split view */
+    .demo-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .demo-split {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .demo-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+
+    .panel-title {
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .code-editor {
+      padding: 20px;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.7;
+      min-height: 400px;
+      white-space: pre-wrap;
+      color: var(--fg-2);
+    }
+
+    .code-editor .keyword { color: #c678dd; }
+    .code-editor .string { color: #98c379; }
+    .code-editor .comment { color: #5c6370; }
+    .code-editor .function { color: #61afef; }
+    .code-editor .variable { color: #e5c07b; }
+    .code-editor .number { color: #d19a66; }
+
+    /* Response panel */
+    .response-panel {
+      padding: 20px;
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.7;
+      min-height: 400px;
+    }
+
+    .response-empty {
+      color: var(--fg-3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 360px;
+      text-align: center;
+    }
+
+    .response-empty svg {
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .response-content {
+      color: var(--fg);
+    }
+
+    .response-meta {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .meta-item {
+      background: var(--surface-2);
+      padding: 12px 16px;
+      border-radius: 8px;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      color: var(--fg-3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    .meta-value.green { color: var(--green); }
+
+    /* Run button */
+    .run-section {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .btn-run {
+      padding: 14px 32px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-run svg {
+      transition: transform 0.2s;
+    }
+
+    .btn-run:hover svg {
+      transform: translateX(2px);
+    }
+
+    /* Loading state */
+    .loading .btn-run {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 2px solid transparent;
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    /* Streaming text */
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 16px;
+      background: var(--green);
+      margin-left: 2px;
+      animation: blink 1s infinite;
+    }
+
+    /* Key points */
+    .key-points {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .key-points {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .key-point {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .key-point-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-dim);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      color: var(--green);
+    }
+
+    .key-point h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .key-point p {
+      font-size: 14px;
+      color: var(--fg-2);
+    }
+
+    /* CTA */
+    .cta-section {
+      margin-top: 60px;
+      text-align: center;
+      padding: 48px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .cta-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-section p {
+      color: var(--fg-2);
+      margin-bottom: 24px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* Message input */
+    .message-input {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .message-input input {
+      flex: 1;
+      padding: 12px 16px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--fg);
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    .message-input input:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+
+    .message-input input::placeholder {
+      color: var(--fg-3);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="logo">
+      <div class="logo-mark">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+          <rect x="3" y="11" width="18" height="11" rx="2"/>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+        </svg>
+      </div>
+      <span>CredSeal</span>
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="https://github.com/credseal/sdk" target="_blank">GitHub</a>
+      <a href="https://pypi.org/project/credseal-sdk/" target="_blank">PyPI</a>
+    </div>
+    <div style="display: flex; gap: 12px;">
+      <a href="/login" class="btn btn-secondary">Log in</a>
+      <a href="/signup" class="btn btn-primary">Start free</a>
+    </div>
+  </nav>
+
+  <main class="demo-container">
+    <div class="demo-header">
+      <div class="demo-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+        Interactive Demo
+      </div>
+      <h1>Try CredSeal in your browser</h1>
+      <p>No signup required. See how agents execute LLM calls without ever touching your API keys.</p>
+    </div>
+
+    <div class="demo-split">
+      <div class="demo-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <div class="dot"></div>
+            agent.py
+          </div>
+          <span style="font-size: 12px; color: var(--fg-3);">Python</span>
+        </div>
+        <div class="code-editor" id="codeEditor">
+<span class="keyword">from</span> credseal <span class="keyword">import</span> ControlPlaneGateway, Message, Role
+
+<span class="comment"># Agent holds ZERO credentials</span>
+<span class="comment"># Only a session token that expires</span>
+gateway = <span class="function">ControlPlaneGateway</span>()
+
+<span class="keyword">async def</span> <span class="function">ask_agent</span>(question: <span class="variable">str</span>):
+    response = <span class="keyword">await</span> gateway.<span class="function">invoke_llm</span>(
+        new_messages=[
+            <span class="function">Message</span>(
+                role=Role.<span class="variable">USER</span>,
+                content=question
+            )
+        ]
+    )
+
+    <span class="keyword">return</span> {
+        <span class="string">"answer"</span>: response.message.content,
+        <span class="string">"cost"</span>: response.cost_usd,
+        <span class="string">"model"</span>: response.model,
+    }
+
+<span class="comment"># The credential (OpenAI API key) is:</span>
+<span class="comment"># - Stored encrypted in Vault</span>
+<span class="comment"># - Fetched per-request by the gateway</span>
+<span class="comment"># - NEVER exposed to the agent code</span></div>
+      </div>
+
+      <div class="demo-panel">
+        <div class="panel-header">
+          <div class="panel-title">
+            <div class="dot" style="background: var(--blue);"></div>
+            Response
+          </div>
+          <span style="font-size: 12px; color: var(--fg-3);" id="responseTime"></span>
+        </div>
+        <div class="response-panel" id="responsePanel">
+          <div class="response-empty">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <p>Enter a message and click "Run" to see<br>CredSeal in action</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="message-input">
+      <input type="text" id="userMessage" placeholder="Ask anything... (e.g., 'Explain quantum computing in one sentence')" value="What is the capital of France?">
+    </div>
+
+    <div class="run-section">
+      <button class="btn btn-primary btn-run" id="runBtn" onclick="runDemo()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+        Run Demo
+      </button>
+      <button class="btn btn-secondary" onclick="resetDemo()">Reset</button>
+    </div>
+
+    <div class="key-points">
+      <div class="key-point">
+        <div class="key-point-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h3>Zero Secrets in Agent</h3>
+        <p>The agent code above holds no API keys. Credentials are fetched per-request by the gateway and never exposed.</p>
+      </div>
+      <div class="key-point">
+        <div class="key-point-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>Encrypted at Rest</h3>
+        <p>Your LLM API keys are stored in an encrypted vault (Infisical). AES-256-GCM encryption with automatic key rotation.</p>
+      </div>
+      <div class="key-point">
+        <div class="key-point-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <h3>Full Audit Trail</h3>
+        <p>Every LLM call is logged with timestamp, tokens, cost, and latency. Immutable audit log for compliance.</p>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2>Ready to secure your agents?</h2>
+      <p>Get started with 500 free executions per month. No credit card required.</p>
+      <div class="cta-buttons">
+        <a href="/signup" class="btn btn-primary btn-run">
+          Start free
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="https://github.com/credseal/sdk" target="_blank" class="btn btn-secondary">View on GitHub</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const responses = [
+      "The capital of France is Paris.",
+      "Paris is the capital city of France.",
+      "France's capital is Paris, known as the 'City of Light'.",
+    ];
+
+    const models = ["gpt-4o", "gpt-4o-mini", "claude-3-5-sonnet"];
+
+    let isRunning = false;
+
+    async function runDemo() {
+      if (isRunning) return;
+      isRunning = true;
+
+      const btn = document.getElementById('runBtn');
+      const panel = document.getElementById('responsePanel');
+      const timeEl = document.getElementById('responseTime');
+      const userMessage = document.getElementById('userMessage').value || "What is the capital of France?";
+
+      btn.innerHTML = '<span class="spinner"></span> Running...';
+
+      const startTime = Date.now();
+
+      // Simulate API call with streaming
+      panel.innerHTML = '<div class="response-content"><span class="cursor"></span></div>';
+
+      // Simulate network latency
+      await sleep(300 + Math.random() * 200);
+
+      // Get a contextual response
+      let response;
+      if (userMessage.toLowerCase().includes('capital') && userMessage.toLowerCase().includes('france')) {
+        response = responses[Math.floor(Math.random() * responses.length)];
+      } else if (userMessage.toLowerCase().includes('quantum')) {
+        response = "Quantum computing uses quantum mechanics principles like superposition and entanglement to process information in ways classical computers cannot.";
+      } else if (userMessage.toLowerCase().includes('hello') || userMessage.toLowerCase().includes('hi')) {
+        response = "Hello! I'm an AI assistant running through CredSeal's secure gateway. How can I help you today?";
+      } else {
+        response = `That's an interesting question about "${userMessage.substring(0, 30)}${userMessage.length > 30 ? '...' : ''}". In a real CredSeal deployment, this would be answered by your chosen LLM (GPT-4, Claude, etc.) with your credentials securely isolated from the agent code.`;
+      }
+
+      // Stream the response character by character
+      const content = panel.querySelector('.response-content');
+      for (let i = 0; i < response.length; i++) {
+        content.innerHTML = response.substring(0, i + 1) + '<span class="cursor"></span>';
+        await sleep(15 + Math.random() * 25);
+      }
+
+      const endTime = Date.now();
+      const latency = endTime - startTime;
+      const model = models[Math.floor(Math.random() * models.length)];
+      const tokens = Math.floor(response.length / 4) + Math.floor(userMessage.length / 4);
+      const cost = (tokens * 0.00001).toFixed(6);
+
+      // Remove cursor and add metadata
+      content.innerHTML = response;
+      content.innerHTML += `
+        <div class="response-meta">
+          <div class="meta-item">
+            <div class="meta-label">Model</div>
+            <div class="meta-value">${model}</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Tokens</div>
+            <div class="meta-value">${tokens}</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Cost</div>
+            <div class="meta-value green">$${cost}</div>
+          </div>
+        </div>
+      `;
+
+      timeEl.textContent = `${latency}ms`;
+
+      btn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+        Run Demo
+      `;
+
+      isRunning = false;
+    }
+
+    function resetDemo() {
+      const panel = document.getElementById('responsePanel');
+      const timeEl = document.getElementById('responseTime');
+
+      panel.innerHTML = `
+        <div class="response-empty">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <p>Enter a message and click "Run" to see<br>CredSeal in action</p>
+        </div>
+      `;
+      timeEl.textContent = '';
+    }
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // Allow Enter key to run demo
+    document.getElementById('userMessage').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        runDemo();
+      }
+    });
+  </script>
+</body>
+</html>
