@@ -26,7 +26,6 @@
   ],
   "redirects": [
     { "source": "/app", "destination": "/dashboard/index.html", "permanent": false },
-    { "source": "/docs", "destination": "https://github.com/credseal/sdk#readme", "permanent": false },
-    { "source": "/dashboard", "destination": "/dashboard/", "permanent": true }
+    { "source": "/docs", "destination": "https://github.com/credseal/sdk#readme", "permanent": false }
   ]
 }
