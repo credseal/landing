@@ -4,7 +4,7 @@
  */
 
 const DashboardData = {
-  API_BASE: '/api',
+  API_BASE: localStorage.getItem('credseal_api_url') || 'https://credseal-cloud.fly.dev/v1',
 
   // Get auth token from cookies
   getToken() {
@@ -129,8 +129,8 @@ const DashboardData = {
     const data = await this.fetch('/credentials');
     if (!data || !data.credentials || data.credentials.length === 0) return;
 
-    const emptyState = document.getElementById('credentials-empty');
-    const table = document.getElementById('credentials-table');
+    const emptyState = document.getElementById('credentials-empty-state');
+    const table = document.getElementById('credentials-table-card');
     const tbody = document.getElementById('credentials-tbody');
 
     if (emptyState) emptyState.style.display = 'none';

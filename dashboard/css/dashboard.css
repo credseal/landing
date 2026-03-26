@@ -2943,3 +2943,247 @@ body.keyboard-nav *:focus {
 body:not(.keyboard-nav) *:focus {
   outline: none;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ONBOARDING CHECKLIST
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#onboarding-checklist {
+  margin-bottom: 24px;
+}
+
+.checklist-card {
+  background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-2) 100%);
+  border: 1px solid var(--border-default);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.checklist-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), #00b377);
+}
+
+.checklist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.checklist-title-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.checklist-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--accent-muted);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.checklist-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.checklist-subtitle {
+  font-size: 13px;
+  color: var(--fg-2);
+}
+
+.checklist-close {
+  background: none;
+  border: none;
+  color: var(--fg-3);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.15s;
+}
+
+.checklist-close:hover {
+  color: var(--fg-0);
+  background: var(--bg-2);
+}
+
+.checklist-progress-bar {
+  height: 6px;
+  background: var(--border-default);
+  border-radius: 3px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.checklist-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #00b377);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.checklist-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.checklist-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-1);
+  border: 1px solid var(--border-default);
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+.checklist-step:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.checklist-step.completed {
+  opacity: 0.6;
+}
+
+.checklist-step.completed:hover {
+  opacity: 0.8;
+  transform: none;
+  border-color: var(--border-default);
+}
+
+.step-check {
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--border-strong);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.step-check.checked {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+
+.step-icon {
+  color: var(--fg-2);
+  flex-shrink: 0;
+}
+
+.checklist-step:hover .step-icon {
+  color: var(--accent);
+}
+
+.step-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.step-title {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.step-description {
+  display: block;
+  font-size: 12px;
+  color: var(--fg-2);
+}
+
+.step-arrow {
+  color: var(--fg-3);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.checklist-step:hover .step-arrow {
+  transform: translateX(4px);
+  color: var(--accent);
+}
+
+/* Checklist Toast */
+.checklist-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10000;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0,229,160,0.15);
+}
+
+.checklist-toast.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.checklist-toast.success {
+  border-color: #ffd700;
+}
+
+.checklist-toast.success .toast-icon {
+  background: #ffd700;
+}
+
+.checklist-toast .toast-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
+.checklist-toast .toast-text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .checklist-steps {
+    grid-template-columns: 1fr;
+  }
+}

@@ -606,6 +606,7 @@
     createSkeleton,
     api,
     formatDate,
+    escapeHtml,
     debounce,
     state
   };
