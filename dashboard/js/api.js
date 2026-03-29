@@ -42,22 +42,33 @@ const API = {
    */
   async request(endpoint, options = {}) {
     const url = `${this.baseUrl}/v1${endpoint}`;
+    const method = (options.method || 'GET').toUpperCase();
 
     const headers = {
-      'Content-Type': 'application/json',
       ...options.headers,
     };
+
+    // Only add Content-Type for methods that have a body
+    if (method !== 'GET' && method !== 'HEAD' && method !== 'DELETE') {
+      headers['Content-Type'] = 'application/json';
+    }
 
     // Add auth token if available
     if (this._accessToken) {
       headers['Authorization'] = `Bearer ${this._accessToken}`;
     }
 
+    // Build config - exclude body for GET/HEAD requests
     const config = {
-      ...options,
+      method,
       headers,
       credentials: 'include', // Send cookies
     };
+
+    // Only include body for methods that support it
+    if (options.body && method !== 'GET' && method !== 'HEAD') {
+      config.body = options.body;
+    }
 
     try {
       const response = await fetch(url, config);
