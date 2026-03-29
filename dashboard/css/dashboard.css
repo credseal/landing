@@ -17,7 +17,7 @@
 
   --border-subtle: rgba(255,255,255,0.06);
   --border-default: rgba(255,255,255,0.1);
-  --border-strong: rgba(255,255,255,0.16);
+  --border-strong: rgba(212,168,83,0.25);
 
   --fg-0: #ffffff;
   --fg-1: #ececec;
@@ -25,10 +25,15 @@
   --fg-3: #6b6b6b;
   --fg-4: #454545;
 
-  --accent: #00e5a0;
-  --accent-hover: #00ffb3;
-  --accent-muted: rgba(0,229,160,0.12);
-  --accent-subtle: rgba(0,229,160,0.06);
+  /* Vault Gold Accent */
+  --accent: #D4A853;
+  --accent-hover: #E5BE6A;
+  --accent-muted: rgba(212,168,83,0.12);
+  --accent-subtle: rgba(212,168,83,0.06);
+  --accent-glow: rgba(212,168,83,0.25);
+
+  /* Legacy alias for green */
+  --green: var(--accent);
 
   --danger: #ef4444;
   --danger-muted: rgba(239,68,68,0.12);
