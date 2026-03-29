@@ -339,18 +339,14 @@
           <label>Agent</label>
           <select id="filter-agent">
             <option value="">All agents</option>
-            <option value="research-agent">research-agent</option>
-            <option value="data-processor">data-processor</option>
-            <option value="code-review-bot">code-review-bot</option>
+            <!-- Populated dynamically -->
           </select>
         </div>
         <div class="filter-group">
           <label>Credential</label>
           <select id="filter-credential">
             <option value="">All credentials</option>
-            <option value="github-api">github-api</option>
-            <option value="aws-s3">aws-s3</option>
-            <option value="slack-bot">slack-bot</option>
+            <!-- Populated dynamically -->
           </select>
         </div>
         <div class="filter-group">
@@ -389,197 +385,16 @@
                 <th style="width: 60px"></th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="timestamp-cell">
-                    <span class="timestamp-date">Mar 18, 2026</span>
-                    <span class="timestamp-time">14:32:15</span>
-                  </div>
-                </td>
-                <td><code class="session-id">ses_7x9k2m</code></td>
-                <td>
-                  <div class="agent-cell">
-                    <span class="agent-indicator"></span>
-                    research-agent
-                  </div>
-                </td>
-                <td><code>github-api</code></td>
-                <td><code>repo:read</code></td>
-                <td class="text-muted">2.3s</td>
-                <td><span class="badge badge-success">Success</span></td>
-                <td>
-                  <button class="action-btn" title="View details" onclick="viewSession('ses_7x9k2m')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="12" y1="16" x2="12" y2="12"/>
-                      <line x1="12" y1="8" x2="12.01" y2="8"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="timestamp-cell">
-                    <span class="timestamp-date">Mar 18, 2026</span>
-                    <span class="timestamp-time">14:17:42</span>
-                  </div>
-                </td>
-                <td><code class="session-id">ses_4n2p8q</code></td>
-                <td>
-                  <div class="agent-cell">
-                    <span class="agent-indicator"></span>
-                    data-processor
-                  </div>
-                </td>
-                <td><code>aws-s3</code></td>
-                <td><code>s3:GetObject</code>, <code>s3:PutObject</code></td>
-                <td class="text-muted">45.2s</td>
-                <td><span class="badge badge-success">Success</span></td>
-                <td>
-                  <button class="action-btn" title="View details" onclick="viewSession('ses_4n2p8q')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="12" y1="16" x2="12" y2="12"/>
-                      <line x1="12" y1="8" x2="12.01" y2="8"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="timestamp-cell">
-                    <span class="timestamp-date">Mar 18, 2026</span>
-                    <span class="timestamp-time">13:45:08</span>
-                  </div>
-                </td>
-                <td><code class="session-id">ses_9m3k1v</code></td>
-                <td>
-                  <div class="agent-cell">
-                    <span class="agent-indicator"></span>
-                    research-agent
-                  </div>
-                </td>
-                <td><code>slack-bot</code></td>
-                <td><code>chat:write</code></td>
-                <td class="text-muted">—</td>
-                <td><span class="badge badge-warning">Denied</span></td>
-                <td>
-                  <button class="action-btn" title="View details" onclick="viewSession('ses_9m3k1v')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="12" y1="16" x2="12" y2="12"/>
-                      <line x1="12" y1="8" x2="12.01" y2="8"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="timestamp-cell">
-                    <span class="timestamp-date">Mar 18, 2026</span>
-                    <span class="timestamp-time">11:22:33</span>
-                  </div>
-                </td>
-                <td><code class="session-id">ses_2p5n8x</code></td>
-                <td>
-                  <div class="agent-cell">
-                    <span class="agent-indicator"></span>
-                    code-review-bot
-                  </div>
-                </td>
-                <td><code>github-api</code></td>
-                <td><code>repo:read</code>, <code>issues:write</code></td>
-                <td class="text-muted">8.7s</td>
-                <td><span class="badge badge-success">Success</span></td>
-                <td>
-                  <button class="action-btn" title="View details" onclick="viewSession('ses_2p5n8x')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="12" y1="16" x2="12" y2="12"/>
-                      <line x1="12" y1="8" x2="12.01" y2="8"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="timestamp-cell">
-                    <span class="timestamp-date">Mar 18, 2026</span>
-                    <span class="timestamp-time">09:15:22</span>
-                  </div>
-                </td>
-                <td><code class="session-id">ses_1k7m3p</code></td>
-                <td>
-                  <div class="agent-cell">
-                    <span class="agent-indicator"></span>
-                    data-processor
-                  </div>
-                </td>
-                <td><code>aws-s3</code></td>
-                <td><code>s3:GetObject</code></td>
-                <td class="text-muted">120.0s</td>
-                <td><span class="badge badge-error">Expired</span></td>
-                <td>
-                  <button class="action-btn" title="View details" onclick="viewSession('ses_1k7m3p')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="12" y1="16" x2="12" y2="12"/>
-                      <line x1="12" y1="8" x2="12.01" y2="8"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="timestamp-cell">
-                    <span class="timestamp-date">Mar 17, 2026</span>
-                    <span class="timestamp-time">22:48:11</span>
-                  </div>
-                </td>
-                <td><code class="session-id">ses_8v2n4k</code></td>
-                <td>
-                  <div class="agent-cell">
-                    <span class="agent-indicator"></span>
-                    research-agent
-                  </div>
-                </td>
-                <td><code>github-api</code></td>
-                <td><code>repo:read</code></td>
-                <td class="text-muted">1.8s</td>
-                <td><span class="badge badge-success">Success</span></td>
-                <td>
-                  <button class="action-btn" title="View details" onclick="viewSession('ses_8v2n4k')">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <circle cx="12" cy="12" r="10"/>
-                      <line x1="12" y1="16" x2="12" y2="12"/>
-                      <line x1="12" y1="8" x2="12.01" y2="8"/>
-                    </svg>
-                  </button>
-                </td>
-              </tr>
+            <tbody id="sessions-tbody">
+              <!-- Sessions loaded dynamically -->
             </tbody>
           </table>
         </div>
         <div class="card-footer">
           <div class="pagination">
-            <span class="pagination-info">Showing 1-6 of 127 sessions</span>
-            <div class="pagination-controls">
-              <button class="pagination-btn" disabled>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="15 18 9 12 15 6"/>
-                </svg>
-              </button>
-              <button class="pagination-btn pagination-btn-active">1</button>
-              <button class="pagination-btn">2</button>
-              <button class="pagination-btn">3</button>
-              <span class="pagination-ellipsis">...</span>
-              <button class="pagination-btn">22</button>
-              <button class="pagination-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="9 18 15 12 9 6"/>
-                </svg>
-              </button>
+            <span class="pagination-info" id="pagination-info">Showing 0 sessions</span>
+            <div class="pagination-controls" id="pagination-controls">
+              <!-- Pagination rendered dynamically -->
             </div>
           </div>
         </div>
@@ -604,7 +419,7 @@
           <div class="session-details-grid">
             <div class="detail-item">
               <label>Session ID</label>
-              <code id="detail-session-id">ses_7x9k2m</code>
+              <code id="detail-session-id">—</code>
             </div>
             <div class="detail-item">
               <label>Status</label>
@@ -612,61 +427,35 @@
             </div>
             <div class="detail-item">
               <label>Agent</label>
-              <span id="detail-agent">research-agent</span>
+              <span id="detail-agent">—</span>
             </div>
             <div class="detail-item">
               <label>Credential</label>
-              <code id="detail-credential">github-api</code>
+              <code id="detail-credential">—</code>
             </div>
             <div class="detail-item">
               <label>Started</label>
-              <span id="detail-started">Mar 18, 2026 14:32:15 UTC</span>
+              <span id="detail-started">—</span>
             </div>
             <div class="detail-item">
               <label>Duration</label>
-              <span id="detail-duration">2.3 seconds</span>
+              <span id="detail-duration">—</span>
             </div>
             <div class="detail-item full-width">
               <label>Scopes Requested</label>
-              <code id="detail-scopes">repo:read</code>
+              <code id="detail-scopes">—</code>
             </div>
             <div class="detail-item full-width">
               <label>IP Address</label>
-              <code id="detail-ip">192.168.1.42</code>
+              <code id="detail-ip">—</code>
             </div>
           </div>
 
           <div class="session-timeline">
             <h4>Event Timeline</h4>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-dot success"></div>
-                <div class="timeline-content">
-                  <span class="timeline-time">14:32:15.001</span>
-                  <span class="timeline-event">Session requested by research-agent</span>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot success"></div>
-                <div class="timeline-content">
-                  <span class="timeline-time">14:32:15.023</span>
-                  <span class="timeline-event">Policy check passed</span>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot success"></div>
-                <div class="timeline-content">
-                  <span class="timeline-time">14:32:15.045</span>
-                  <span class="timeline-event">Credential injected (scope: repo:read)</span>
-                </div>
-              </div>
-              <div class="timeline-item">
-                <div class="timeline-dot success"></div>
-                <div class="timeline-content">
-                  <span class="timeline-time">14:32:17.312</span>
-                  <span class="timeline-event">Session completed successfully</span>
-                </div>
-              </div>
+            <div class="timeline" id="detail-timeline">
+              <!-- Timeline populated dynamically -->
+              <div class="text-muted text-center" id="timeline-empty">No events recorded</div>
             </div>
           </div>
         </div>
@@ -683,31 +472,330 @@
   <script src="/dashboard/js/theme.js"></script>
   <script src="/dashboard/js/checklist.js"></script>
   <script>
-    // Mark first session step as complete when viewing sessions
-    document.addEventListener('DOMContentLoaded', () => {
-      // In production, this would check if user has any real sessions
-      const hasData = document.querySelectorAll('tbody tr').length > 0;
-      if (hasData && window.OnboardingChecklist) {
-        OnboardingChecklist.completeStep('first_session');
-      }
-    });
+    /**
+     * Sessions Manager - Handles session display and filtering
+     */
+    const SessionsManager = {
+      sessions: [],
+      agents: [],
+      credentials: [],
+      isAuthenticated: false,
+      currentPage: 1,
+      pageSize: 20,
+      totalSessions: 0,
+      filters: {
+        agent: '',
+        credential: '',
+        status: '',
+        time: '24h'
+      },
 
+      async init() {
+        try {
+          this.isAuthenticated = await API.init();
+        } catch (e) {
+          this.isAuthenticated = false;
+        }
+
+        if (this.isAuthenticated) {
+          await this.loadFilters();
+          await this.refresh();
+        } else {
+          this.showEmptyState();
+        }
+
+        this.bindEvents();
+      },
+
+      async loadFilters() {
+        try {
+          // Load agents and credentials for filter dropdowns
+          const [agents, credentials] = await Promise.all([
+            API.listAgents().catch(() => []),
+            API.listCredentials().catch(() => [])
+          ]);
+
+          this.agents = Array.isArray(agents) ? agents : [];
+          this.credentials = Array.isArray(credentials) ? credentials : [];
+
+          this.populateFilterDropdowns();
+        } catch (e) {
+          console.warn('Could not load filter options:', e);
+        }
+      },
+
+      populateFilterDropdowns() {
+        const agentSelect = document.getElementById('filter-agent');
+        const credSelect = document.getElementById('filter-credential');
+
+        // Populate agents dropdown
+        if (agentSelect && this.agents.length > 0) {
+          this.agents.forEach(agent => {
+            const option = document.createElement('option');
+            option.value = agent.id || agent.name;
+            option.textContent = agent.name;
+            agentSelect.appendChild(option);
+          });
+        }
+
+        // Populate credentials dropdown
+        if (credSelect && this.credentials.length > 0) {
+          this.credentials.forEach(cred => {
+            const option = document.createElement('option');
+            option.value = cred.id || cred.label;
+            option.textContent = cred.label || cred.provider;
+            credSelect.appendChild(option);
+          });
+        }
+      },
+
+      async refresh() {
+        try {
+          const offset = (this.currentPage - 1) * this.pageSize;
+          const result = await API.listSessions(this.pageSize, offset);
+
+          // Handle both array and paginated response formats
+          if (Array.isArray(result)) {
+            this.sessions = result;
+            this.totalSessions = result.length;
+          } else if (result && result.items) {
+            this.sessions = result.items;
+            this.totalSessions = result.total || result.items.length;
+          } else {
+            this.sessions = [];
+            this.totalSessions = 0;
+          }
+
+          this.render();
+        } catch (e) {
+          console.error('Failed to load sessions:', e);
+          this.sessions = [];
+          this.render();
+        }
+      },
+
+      render() {
+        const tbody = document.getElementById('sessions-tbody');
+        const emptyState = document.getElementById('sessions-empty-state');
+        const filtersBar = document.getElementById('filters-bar');
+        const tableCard = document.getElementById('sessions-table-card');
+
+        if (!this.isAuthenticated || this.sessions.length === 0) {
+          if (emptyState) emptyState.style.display = 'block';
+          if (filtersBar) filtersBar.style.display = 'none';
+          if (tableCard) tableCard.style.display = 'none';
+          return;
+        }
+
+        if (emptyState) emptyState.style.display = 'none';
+        if (filtersBar) filtersBar.style.display = 'flex';
+        if (tableCard) tableCard.style.display = 'block';
+
+        // Render session rows
+        tbody.innerHTML = this.sessions.map(session => this.createSessionRow(session)).join('');
+
+        // Update pagination
+        this.renderPagination();
+
+        // Mark onboarding step complete
+        if (this.sessions.length > 0 && window.OnboardingChecklist) {
+          OnboardingChecklist.completeStep('first_session');
+        }
+      },
+
+      createSessionRow(session) {
+        const timestamp = new Date(session.created_at || session.started_at || Date.now());
+        const dateStr = timestamp.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        const timeStr = timestamp.toLocaleTimeString('en-US', { hour12: false });
+
+        const statusBadge = this.getStatusBadge(session.status);
+        const duration = session.duration ? `${session.duration.toFixed(1)}s` : '—';
+        const scopes = session.scopes?.map(s => `<code>${this.escapeHtml(s)}</code>`).join(', ') || '—';
+
+        return `
+          <tr>
+            <td>
+              <div class="timestamp-cell">
+                <span class="timestamp-date">${dateStr}</span>
+                <span class="timestamp-time">${timeStr}</span>
+              </div>
+            </td>
+            <td><code class="session-id">${this.escapeHtml(session.id || session.session_id || '—')}</code></td>
+            <td>
+              <div class="agent-cell">
+                <span class="agent-indicator"></span>
+                ${this.escapeHtml(session.agent_name || session.agent_id || '—')}
+              </div>
+            </td>
+            <td><code>${this.escapeHtml(session.credential_label || session.credential_id || '—')}</code></td>
+            <td>${scopes}</td>
+            <td class="text-muted">${duration}</td>
+            <td>${statusBadge}</td>
+            <td>
+              <button class="action-btn" title="View details" onclick="SessionsManager.viewSession('${this.escapeHtml(session.id || session.session_id)}')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+              </button>
+            </td>
+          </tr>
+        `;
+      },
+
+      getStatusBadge(status) {
+        const statusMap = {
+          'success': '<span class="badge badge-success">Success</span>',
+          'completed': '<span class="badge badge-success">Success</span>',
+          'denied': '<span class="badge badge-warning">Denied</span>',
+          'failed': '<span class="badge badge-error">Failed</span>',
+          'expired': '<span class="badge badge-error">Expired</span>',
+          'active': '<span class="badge badge-info">Active</span>',
+        };
+        return statusMap[status?.toLowerCase()] || `<span class="badge">${this.escapeHtml(status || 'Unknown')}</span>`;
+      },
+
+      renderPagination() {
+        const info = document.getElementById('pagination-info');
+        const controls = document.getElementById('pagination-controls');
+
+        const start = (this.currentPage - 1) * this.pageSize + 1;
+        const end = Math.min(this.currentPage * this.pageSize, this.totalSessions);
+
+        if (info) {
+          info.textContent = this.totalSessions > 0
+            ? `Showing ${start}-${end} of ${this.totalSessions} sessions`
+            : 'No sessions found';
+        }
+
+        if (controls && this.totalSessions > this.pageSize) {
+          const totalPages = Math.ceil(this.totalSessions / this.pageSize);
+          let html = `
+            <button class="pagination-btn" ${this.currentPage === 1 ? 'disabled' : ''} onclick="SessionsManager.goToPage(${this.currentPage - 1})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+          `;
+
+          for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+            html += `<button class="pagination-btn ${i === this.currentPage ? 'pagination-btn-active' : ''}" onclick="SessionsManager.goToPage(${i})">${i}</button>`;
+          }
+
+          if (totalPages > 5) {
+            html += `<span class="pagination-ellipsis">...</span>`;
+            html += `<button class="pagination-btn" onclick="SessionsManager.goToPage(${totalPages})">${totalPages}</button>`;
+          }
+
+          html += `
+            <button class="pagination-btn" ${this.currentPage === totalPages ? 'disabled' : ''} onclick="SessionsManager.goToPage(${this.currentPage + 1})">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          `;
+
+          controls.innerHTML = html;
+        }
+      },
+
+      goToPage(page) {
+        this.currentPage = page;
+        this.refresh();
+      },
+
+      async viewSession(sessionId) {
+        try {
+          const session = await API.getSession(sessionId);
+          this.populateSessionDetails(session);
+        } catch (e) {
+          // Fallback to local data
+          const session = this.sessions.find(s => (s.id || s.session_id) === sessionId);
+          if (session) {
+            this.populateSessionDetails(session);
+          } else {
+            Toast.error('Could not load session details');
+            return;
+          }
+        }
+        CredSeal.openModal('session-details-modal');
+      },
+
+      populateSessionDetails(session) {
+        const setElement = (id, value) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = value || '—';
+        };
+
+        setElement('detail-session-id', session.id || session.session_id);
+        setElement('detail-agent', session.agent_name || session.agent_id);
+        setElement('detail-credential', session.credential_label || session.credential_id);
+        setElement('detail-scopes', session.scopes?.join(', '));
+        setElement('detail-ip', session.ip_address || session.client_ip);
+
+        const timestamp = new Date(session.created_at || session.started_at || Date.now());
+        setElement('detail-started', timestamp.toLocaleString('en-US', {
+          month: 'short', day: 'numeric', year: 'numeric',
+          hour: '2-digit', minute: '2-digit', second: '2-digit',
+          timeZoneName: 'short'
+        }));
+
+        setElement('detail-duration', session.duration ? `${session.duration.toFixed(1)} seconds` : '—');
+
+        // Update status badge
+        const statusEl = document.getElementById('detail-status');
+        if (statusEl) {
+          statusEl.className = `badge badge-${session.status === 'success' || session.status === 'completed' ? 'success' : session.status === 'denied' ? 'warning' : 'error'}`;
+          statusEl.textContent = session.status || 'Unknown';
+        }
+      },
+
+      bindEvents() {
+        // Filter change handlers
+        document.querySelectorAll('.filters-bar select').forEach(select => {
+          select.addEventListener('change', (e) => {
+            const filterId = e.target.id.replace('filter-', '');
+            this.filters[filterId] = e.target.value;
+            this.currentPage = 1;
+            this.refresh();
+          });
+        });
+      },
+
+      showEmptyState() {
+        const emptyState = document.getElementById('sessions-empty-state');
+        const filtersBar = document.getElementById('filters-bar');
+        const tableCard = document.getElementById('sessions-table-card');
+
+        if (emptyState) emptyState.style.display = 'block';
+        if (filtersBar) filtersBar.style.display = 'none';
+        if (tableCard) tableCard.style.display = 'none';
+      },
+
+      escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+    };
+
+    // Legacy function for backwards compatibility
     function viewSession(sessionId) {
-      document.getElementById('detail-session-id').textContent = sessionId;
-      CredSeal.openModal('session-details-modal');
+      SessionsManager.viewSession(sessionId);
     }
 
     function exportSessions() {
-      CredSeal.showToast('Export started. You will receive a download link shortly.', 'info');
+      Toast.info('Export started. You will receive a download link shortly.');
     }
 
-    // Filter change handlers
-    document.querySelectorAll('.filters-bar select').forEach(select => {
-      select.addEventListener('change', () => {
-        // In production, this would trigger an API call to filter sessions
-        CredSeal.showToast('Filters applied', 'info');
-      });
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      SessionsManager.init();
     });
+
+    window.SessionsManager = SessionsManager;
   </script>
 
   <style>

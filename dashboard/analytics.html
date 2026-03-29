@@ -477,37 +477,8 @@
                   <th>Trend</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td><code>research-agent</code></td>
-                  <td>423</td>
-                  <td><span class="badge badge-success">99.5%</span></td>
-                  <td>
-                    <svg width="60" height="20" viewBox="0 0 60 20">
-                      <polyline points="0,15 10,12 20,8 30,10 40,5 50,7 60,3" fill="none" stroke="var(--accent)" stroke-width="2"/>
-                    </svg>
-                  </td>
-                </tr>
-                <tr>
-                  <td><code>data-processor</code></td>
-                  <td>312</td>
-                  <td><span class="badge badge-success">98.7%</span></td>
-                  <td>
-                    <svg width="60" height="20" viewBox="0 0 60 20">
-                      <polyline points="0,10 10,8 20,12 30,6 40,9 50,4 60,5" fill="none" stroke="var(--accent)" stroke-width="2"/>
-                    </svg>
-                  </td>
-                </tr>
-                <tr>
-                  <td><code>code-review-bot</code></td>
-                  <td>89</td>
-                  <td><span class="badge badge-warning">97.2%</span></td>
-                  <td>
-                    <svg width="60" height="20" viewBox="0 0 60 20">
-                      <polyline points="0,8 10,10 20,6 30,12 40,8 50,10 60,7" fill="none" stroke="var(--warning)" stroke-width="2"/>
-                    </svg>
-                  </td>
-                </tr>
+              <tbody id="agents-stats-tbody">
+                <!-- Loaded dynamically -->
               </tbody>
             </table>
           </div>
@@ -523,62 +494,10 @@
             <span class="text-xs text-muted">Auto-refreshes every 5s</span>
           </div>
           <div class="card-body activity-feed" id="activity-feed">
-            <div class="activity-item">
-              <div class="activity-icon success">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-              </div>
-              <div class="activity-content">
-                <span class="activity-agent">research-agent</span> accessed <code>github-api</code>
-              </div>
-              <span class="activity-time">just now</span>
+            <div class="activity-empty" id="activity-empty">
+              <span class="text-muted">No recent activity</span>
             </div>
-            <div class="activity-item">
-              <div class="activity-icon success">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-              </div>
-              <div class="activity-content">
-                <span class="activity-agent">data-processor</span> accessed <code>aws-s3</code>
-              </div>
-              <span class="activity-time">12s ago</span>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon success">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-              </div>
-              <div class="activity-content">
-                <span class="activity-agent">research-agent</span> accessed <code>slack-bot</code>
-              </div>
-              <span class="activity-time">34s ago</span>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon denied">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <line x1="18" y1="6" x2="6" y2="18"/>
-                  <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-              </div>
-              <div class="activity-content">
-                <span class="activity-agent">unknown-agent</span> denied access to <code>stripe-api</code>
-              </div>
-              <span class="activity-time">1m ago</span>
-            </div>
-            <div class="activity-item">
-              <div class="activity-icon success">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-              </div>
-              <div class="activity-content">
-                <span class="activity-agent">code-review-bot</span> accessed <code>github-api</code>
-              </div>
-              <span class="activity-time">2m ago</span>
-            </div>
+            <!-- Activity items loaded dynamically -->
           </div>
         </div>
       </div>
@@ -650,56 +569,186 @@
   <script src="/dashboard/js/command-palette.js"></script>
   <script src="/dashboard/js/theme.js"></script>
   <script>
-    // Date range picker
-    document.querySelectorAll('.date-range-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.date-range-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        // In production, this would fetch new data
-        CredSeal.showToast(`Showing data for ${btn.dataset.range}`, 'info');
-      });
+    /**
+     * Analytics Manager - Real-time analytics display
+     */
+    const AnalyticsManager = {
+      isAuthenticated: false,
+      agents: [],
+      sessions: [],
+      refreshInterval: null,
+
+      async init() {
+        try {
+          this.isAuthenticated = await API.init();
+        } catch (e) {
+          this.isAuthenticated = false;
+        }
+
+        if (this.isAuthenticated) {
+          await this.refresh();
+          this.startAutoRefresh();
+        } else {
+          this.showEmptyState();
+        }
+
+        this.bindEvents();
+      },
+
+      async refresh() {
+        try {
+          // Fetch agents and recent sessions in parallel
+          const [agents, sessions] = await Promise.all([
+            API.listAgents().catch(() => []),
+            API.listSessions(10, 0).catch(() => [])
+          ]);
+
+          this.agents = Array.isArray(agents) ? agents : [];
+          this.sessions = Array.isArray(sessions) ? sessions : (sessions?.items || []);
+
+          this.renderAgentStats();
+          this.renderActivityFeed();
+        } catch (e) {
+          console.error('Failed to load analytics:', e);
+        }
+      },
+
+      renderAgentStats() {
+        const tbody = document.getElementById('agents-stats-tbody');
+        if (!tbody) return;
+
+        if (this.agents.length === 0) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="4" class="text-center text-muted">No agents registered yet</td>
+            </tr>
+          `;
+          return;
+        }
+
+        tbody.innerHTML = this.agents.map(agent => {
+          const sessions = agent.session_count || 0;
+          const successRate = agent.success_rate || 100;
+          const badgeClass = successRate >= 99 ? 'success' : successRate >= 95 ? 'warning' : 'error';
+
+          return `
+            <tr>
+              <td><code>${this.escapeHtml(agent.name)}</code></td>
+              <td>${sessions}</td>
+              <td><span class="badge badge-${badgeClass}">${successRate.toFixed(1)}%</span></td>
+              <td>
+                <svg width="60" height="20" viewBox="0 0 60 20">
+                  <polyline points="0,15 10,12 20,10 30,8 40,6 50,5 60,4" fill="none" stroke="var(--accent)" stroke-width="2"/>
+                </svg>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      },
+
+      renderActivityFeed() {
+        const feed = document.getElementById('activity-feed');
+        const emptyEl = document.getElementById('activity-empty');
+        if (!feed) return;
+
+        if (this.sessions.length === 0) {
+          if (emptyEl) emptyEl.style.display = 'block';
+          return;
+        }
+
+        if (emptyEl) emptyEl.style.display = 'none';
+
+        // Clear existing items (except empty state)
+        feed.querySelectorAll('.activity-item').forEach(el => el.remove());
+
+        // Add session activity items
+        this.sessions.slice(0, 6).forEach(session => {
+          const item = this.createActivityItem(session);
+          feed.appendChild(item);
+        });
+      },
+
+      createActivityItem(session) {
+        const item = document.createElement('div');
+        item.className = 'activity-item';
+
+        const status = session.status === 'success' || session.status === 'completed' ? 'success' : 'denied';
+        const icon = status === 'success'
+          ? '<polyline points="20 6 9 17 4 12"/>'
+          : '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';
+
+        const agentName = session.agent_name || session.agent_id || 'unknown';
+        const credLabel = session.credential_label || session.credential_id || 'credential';
+        const timeAgo = this.timeAgo(session.created_at || session.started_at);
+
+        item.innerHTML = `
+          <div class="activity-icon ${status}">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              ${icon}
+            </svg>
+          </div>
+          <div class="activity-content">
+            <span class="activity-agent">${this.escapeHtml(agentName)}</span> accessed <code>${this.escapeHtml(credLabel)}</code>
+          </div>
+          <span class="activity-time">${timeAgo}</span>
+        `;
+
+        return item;
+      },
+
+      timeAgo(dateStr) {
+        if (!dateStr) return 'recently';
+        const date = new Date(dateStr);
+        const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+
+        if (seconds < 60) return seconds <= 5 ? 'just now' : `${seconds}s ago`;
+        if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
+        if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
+        return `${Math.floor(seconds / 86400)}d ago`;
+      },
+
+      startAutoRefresh() {
+        // Refresh every 30 seconds
+        this.refreshInterval = setInterval(() => this.refresh(), 30000);
+      },
+
+      bindEvents() {
+        // Date range picker
+        document.querySelectorAll('.date-range-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.date-range-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            Toast.info(`Showing data for ${btn.dataset.range}`);
+            this.refresh();
+          });
+        });
+      },
+
+      showEmptyState() {
+        const tbody = document.getElementById('agents-stats-tbody');
+        if (tbody) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="4" class="text-center text-muted">Sign in to view analytics</td>
+            </tr>
+          `;
+        }
+      },
+
+      escapeHtml(text) {
+        if (!text) return '';
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+      }
+    };
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      AnalyticsManager.init();
     });
 
-    // Simulated live activity feed
-    const activities = [
-      { agent: 'research-agent', cred: 'github-api', status: 'success' },
-      { agent: 'data-processor', cred: 'aws-s3', status: 'success' },
-      { agent: 'code-review-bot', cred: 'github-api', status: 'success' },
-      { agent: 'research-agent', cred: 'slack-bot', status: 'success' },
-      { agent: 'data-processor', cred: 'openai-api', status: 'success' },
-    ];
-
-    function addActivity() {
-      const feed = document.getElementById('activity-feed');
-      const activity = activities[Math.floor(Math.random() * activities.length)];
-
-      const item = document.createElement('div');
-      item.className = 'activity-item new';
-      item.innerHTML = `
-        <div class="activity-icon ${activity.status}">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
-        </div>
-        <div class="activity-content">
-          <span class="activity-agent">${activity.agent}</span> accessed <code>${activity.cred}</code>
-        </div>
-        <span class="activity-time">just now</span>
-      `;
-
-      feed.insertBefore(item, feed.firstChild);
-
-      // Remove oldest if more than 6
-      while (feed.children.length > 6) {
-        feed.removeChild(feed.lastChild);
-      }
-
-      // Remove 'new' class after animation
-      setTimeout(() => item.classList.remove('new'), 500);
-    }
-
-    // Add new activity every 5-10 seconds
-    setInterval(addActivity, 5000 + Math.random() * 5000);
+    window.AnalyticsManager = AnalyticsManager;
   </script>
 
   <style>
