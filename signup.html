@@ -402,6 +402,7 @@
   <main>
     <div class="signup-container">
       <div class="signup-header">
+        <p class="beta-invite" style="color: var(--gold); font-size: 13px; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.02em;">You've been invited to the private beta</p>
         <h1>Create your account</h1>
         <p>Start securing your AI agents for free</p>
       </div>
@@ -432,6 +433,7 @@
 
         <!-- Email/Password Form -->
         <form action="https://credseal-cloud.fly.dev/v1/auth/signup" method="POST" id="signup-form">
+          <input type="hidden" id="invite_code" name="invite_code" value="">
           <div class="form-row">
             <div class="form-group">
               <label for="first_name">First name</label>
@@ -511,6 +513,19 @@
   </footer>
 
   <script>
+    // Invite code validation
+    const urlParams = new URLSearchParams(window.location.search);
+    const inviteCode = urlParams.get('invite');
+    const validCodes = ['CREDSEAL10', 'EARLY2026', 'FOUNDER'];
+
+    if (!inviteCode || !validCodes.includes(inviteCode)) {
+      // Redirect to request-access page
+      window.location.href = '/request-access.html';
+    }
+
+    // Store invite code in hidden field
+    document.getElementById('invite_code').value = inviteCode;
+
     // Password strength indicator
     const passwordInput = document.getElementById('password');
     const strengthBars = document.querySelectorAll('.strength-bar');

@@ -1,1 +1,5 @@
 .vercel
+
+# Internal team docs - do not commit
+TEAM.md
+*.internal.md
