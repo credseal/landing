@@ -1,0 +1,341 @@
+.access-app {
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.12);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Geist", -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── HEADER ── */
+.access-app header {
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+}
+
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px var(--gold-glow);
+}
+
+.header-link {
+  font-size: 14px;
+  color: var(--fg-2);
+  transition: color 0.15s;
+}
+.header-link:hover { color: var(--fg); }
+
+/* ── MAIN ── */
+.access-app main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.form-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.form-header p {
+  font-size: 15px;
+  color: var(--fg-2);
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ── CARD ── */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+/* ── FORM ── */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-2);
+  margin-bottom: 8px;
+}
+
+.form-group label .required {
+  color: var(--gold);
+  margin-left: 2px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border-bright);
+  border-radius: 10px;
+  color: var(--fg);
+  font-size: 14px;
+  font-family: 'Geist', sans-serif;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-dim);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--fg-3);
+}
+
+/* ── CHECKBOXES ── */
+.checkbox-group {
+  margin-bottom: 20px;
+}
+
+.checkbox-group > label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg-2);
+  margin-bottom: 12px;
+}
+
+.checkbox-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.checkbox-option:hover {
+  border-color: var(--border-bright);
+}
+
+.checkbox-option.checked {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.checkbox-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--gold);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.checkbox-option span {
+  font-size: 13px;
+  color: var(--fg-2);
+}
+
+.checkbox-option.checked span {
+  color: var(--fg);
+}
+
+/* ── SUBMIT ── */
+.submit-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Geist', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+  margin-top: 8px;
+}
+
+.submit-btn:hover {
+  background: var(--gold-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px var(--gold-glow);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── SUCCESS MESSAGE ── */
+.success-message {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.success-message.show {
+  display: block;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--gold-dim);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.success-icon svg {
+  color: var(--gold);
+}
+
+.success-message h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.success-message p {
+  font-size: 15px;
+  color: var(--fg-2);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.success-message a {
+  color: var(--gold);
+  font-weight: 600;
+  transition: opacity 0.15s;
+}
+
+.success-message a:hover {
+  opacity: 0.8;
+}
+
+/* ── ERROR MESSAGE ── */
+.error-message {
+  background: rgba(239,68,68,0.1);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.error-message p {
+  font-size: 13px;
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.error-message.is-visible {
+  display: block;
+}
+
+/* ── PAGE FOOTER ── */
+.access-app footer {
+  padding: 20px 40px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--fg-3);
+}
+
+.access-app footer a {
+  color: var(--fg-2);
+  transition: color 0.15s;
+}
+.access-app footer a:hover { color: var(--fg); }
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .access-app header,
+  .access-app footer {
+    padding: 16px 20px;
+  }
+
+  .form-card {
+    padding: 24px;
+  }
+
+  .checkbox-options {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-links {
+    display: none;
+  }
+}

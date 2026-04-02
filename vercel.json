@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "name": "credseal",
+  "name": "identark",
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
@@ -18,14 +18,15 @@
       "source": "/dashboard/(.*)",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, must-revalidate" }
-      ]
+      ]  
     }
   ],
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://credseal-cloud.fly.dev/v1/$1" }
+    { "source": "/api/(.*)", "destination": "https://identark-cloud.fly.dev/v1/$1" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
     { "source": "/app", "destination": "/dashboard/index.html", "permanent": false },
-    { "source": "/docs", "destination": "https://github.com/credseal/sdk#readme", "permanent": false }
+    { "source": "/docs", "destination": "https://github.com/identark/sdk#readme", "permanent": false }
   ]
 }

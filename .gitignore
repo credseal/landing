@@ -1,4 +1,6 @@
 .vercel
+node_modules
+dist
 
 # Internal team docs - do not commit
 TEAM.md

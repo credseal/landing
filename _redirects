@@ -1,5 +1,5 @@
 # Netlify/Cloudflare Pages redirects
 
 /app            /dashboard/index.html   200
-/docs           https://github.com/credseal/sdk#readme  301
+/docs           https://github.com/identark/sdk#readme  301
 /api/*          https://credseal-cloud.fly.dev/v1/:splat  200

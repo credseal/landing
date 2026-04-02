@@ -1,8 +1,8 @@
-# Netlify configuration for CredSeal Landing + Dashboard
+# Netlify configuration for IdentArk Landing + Dashboard
 
 [build]
-  publish = "."
-  command = "echo 'Static site - no build needed'"
+  publish = "dist"
+  command = "npm run build"
 
 # Pretty URLs (remove .html)
 [[redirects]]
@@ -12,7 +12,7 @@
 
 [[redirects]]
   from = "/docs"
-  to = "https://github.com/credseal/sdk#readme"
+  to = "https://github.com/identark/sdk#readme"
   status = 301
 
 # API proxy to backend
@@ -22,10 +22,10 @@
   status = 200
   force = true
 
-# SPA fallback for dashboard
+# React SPA (Vite output) — real files under /dashboard/*, /demo.html, etc. are served first
 [[redirects]]
-  from = "/dashboard/*"
-  to = "/dashboard/index.html"
+  from = "/*"
+  to = "/index.html"
   status = 200
 
 # Security headers

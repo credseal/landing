@@ -1,9 +1,9 @@
-# CredSeal Brand Guidelines
+# IdentArk Brand Guidelines
 
 ## Brand Identity
 
-**Name:** CredSeal
-**Domain:** credseal.ai
+**Name:** IdentArk
+**Domain:** identark.io
 **Tagline:** "The credential layer for AI agents"
 **Secondary Tagline:** "Zero secrets in your agents"
 
