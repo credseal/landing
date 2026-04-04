@@ -104,6 +104,14 @@
           </svg>
           Policies
         </a>
+        <a href="/dashboard/approvals.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          HITL Approvals
+          <span class="nav-badge nav-badge-danger" id="nav-approvals-count" style="display: none;">0</span>
+        </a>
         <a href="/dashboard/team.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -228,7 +236,7 @@
           </svg>
         </div>
         <div class="stat-content">
-          <span class="stat-value">4</span>
+          <span class="stat-value">-</span>
           <span class="stat-label">Active Webhooks</span>
         </div>
       </div>
@@ -239,7 +247,7 @@
           </svg>
         </div>
         <div class="stat-content">
-          <span class="stat-value">1,847</span>
+          <span class="stat-value">-</span>
           <span class="stat-label">Delivered Today</span>
         </div>
       </div>
@@ -251,7 +259,7 @@
           </svg>
         </div>
         <div class="stat-content">
-          <span class="stat-value">142ms</span>
+          <span class="stat-value">-</span>
           <span class="stat-label">Avg Response Time</span>
         </div>
       </div>
@@ -264,7 +272,7 @@
           </svg>
         </div>
         <div class="stat-content">
-          <span class="stat-value">3</span>
+          <span class="stat-value">-</span>
           <span class="stat-label">Failed Today</span>
         </div>
       </div>
@@ -276,213 +284,14 @@
         <h3>Configured Webhooks</h3>
       </div>
       <div class="card-body">
-        <div class="webhook-list">
-          <!-- Slack Webhook -->
-          <div class="webhook-item" data-webhook-id="1">
-            <div class="webhook-status-indicator status-healthy"></div>
-            <div class="webhook-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/>
-                <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
-                <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/>
-                <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/>
-                <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/>
-                <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/>
-                <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/>
-                <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/>
-              </svg>
-            </div>
-            <div class="webhook-info">
-              <h4>Slack Notifications</h4>
-              <p class="webhook-url">https://hooks.slack.com/services/T00.../B00.../xxx</p>
-              <div class="webhook-events">
-                <span class="event-badge">credential.accessed</span>
-                <span class="event-badge">policy.violated</span>
-                <span class="event-badge">auth.failed</span>
-              </div>
-            </div>
-            <div class="webhook-stats">
-              <div class="webhook-stat">
-                <span class="stat-number">847</span>
-                <span class="stat-label">Delivered</span>
-              </div>
-              <div class="webhook-stat">
-                <span class="stat-number">99.8%</span>
-                <span class="stat-label">Success Rate</span>
-              </div>
-            </div>
-            <div class="webhook-actions">
-              <button class="btn-icon" onclick="testWebhook(1)" title="Test">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-              </button>
-              <button class="btn-icon" onclick="editWebhook(1)" title="Edit">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                </svg>
-              </button>
-              <button class="btn-icon" onclick="deleteWebhook(1)" title="Delete">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="3 6 5 6 21 6"/>
-                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- PagerDuty Webhook -->
-          <div class="webhook-item" data-webhook-id="2">
-            <div class="webhook-status-indicator status-healthy"></div>
-            <div class="webhook-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 17H2a3 3 0 0 0 3-3V9a7 7 0 0 1 14 0v5a3 3 0 0 0 3 3zm-8.27 4a2 2 0 0 1-3.46 0"/>
-              </svg>
-            </div>
-            <div class="webhook-info">
-              <h4>PagerDuty Alerts</h4>
-              <p class="webhook-url">https://events.pagerduty.com/v2/enqueue</p>
-              <div class="webhook-events">
-                <span class="event-badge">policy.violated</span>
-                <span class="event-badge">credential.expired</span>
-              </div>
-            </div>
-            <div class="webhook-stats">
-              <div class="webhook-stat">
-                <span class="stat-number">23</span>
-                <span class="stat-label">Delivered</span>
-              </div>
-              <div class="webhook-stat">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Success Rate</span>
-              </div>
-            </div>
-            <div class="webhook-actions">
-              <button class="btn-icon" onclick="testWebhook(2)" title="Test">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-              </button>
-              <button class="btn-icon" onclick="editWebhook(2)" title="Edit">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                </svg>
-              </button>
-              <button class="btn-icon" onclick="deleteWebhook(2)" title="Delete">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="3 6 5 6 21 6"/>
-                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Custom API -->
-          <div class="webhook-item" data-webhook-id="3">
-            <div class="webhook-status-indicator status-healthy"></div>
-            <div class="webhook-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                <line x1="8" y1="21" x2="16" y2="21"/>
-                <line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <div class="webhook-info">
-              <h4>Internal Analytics API</h4>
-              <p class="webhook-url">https://api.internal.company.com/webhooks/credseal</p>
-              <div class="webhook-events">
-                <span class="event-badge">credential.accessed</span>
-                <span class="event-badge">session.created</span>
-                <span class="event-badge">session.ended</span>
-              </div>
-            </div>
-            <div class="webhook-stats">
-              <div class="webhook-stat">
-                <span class="stat-number">974</span>
-                <span class="stat-label">Delivered</span>
-              </div>
-              <div class="webhook-stat">
-                <span class="stat-number">99.5%</span>
-                <span class="stat-label">Success Rate</span>
-              </div>
-            </div>
-            <div class="webhook-actions">
-              <button class="btn-icon" onclick="testWebhook(3)" title="Test">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-              </button>
-              <button class="btn-icon" onclick="editWebhook(3)" title="Edit">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                </svg>
-              </button>
-              <button class="btn-icon" onclick="deleteWebhook(3)" title="Delete">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="3 6 5 6 21 6"/>
-                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <!-- Failing Webhook -->
-          <div class="webhook-item" data-webhook-id="4">
-            <div class="webhook-status-indicator status-failing"></div>
-            <div class="webhook-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div class="webhook-info">
-              <h4>Email Service (Failing)</h4>
-              <p class="webhook-url">https://api.mailservice.io/webhook/credseal</p>
-              <div class="webhook-events">
-                <span class="event-badge">team.invited</span>
-                <span class="event-badge">credential.rotated</span>
-              </div>
-              <div class="webhook-error">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <line x1="12" y1="8" x2="12" y2="12"/>
-                  <line x1="12" y1="16" x2="12.01" y2="16"/>
-                </svg>
-                Last 3 requests failed with HTTP 503
-              </div>
-            </div>
-            <div class="webhook-stats">
-              <div class="webhook-stat">
-                <span class="stat-number text-danger">3</span>
-                <span class="stat-label">Failed</span>
-              </div>
-              <div class="webhook-stat">
-                <span class="stat-number text-danger">85%</span>
-                <span class="stat-label">Success Rate</span>
-              </div>
-            </div>
-            <div class="webhook-actions">
-              <button class="btn-icon" onclick="testWebhook(4)" title="Test">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-              </button>
-              <button class="btn-icon" onclick="editWebhook(4)" title="Edit">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                </svg>
-              </button>
-              <button class="btn-icon" onclick="deleteWebhook(4)" title="Delete">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="3 6 5 6 21 6"/>
-                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                </svg>
-              </button>
-            </div>
+        <div class="webhook-list" id="webhook-list">
+          <!-- Webhooks loaded dynamically -->
+          <div class="empty-state" style="padding: 3rem; text-align: center;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-muted); margin-bottom: 1rem;">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+            <p style="color: var(--text-muted);">No webhooks configured. Add a webhook to receive event notifications.</p>
           </div>
         </div>
       </div>
@@ -511,42 +320,8 @@
               <th>Time</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><code>credential.accessed</code></td>
-              <td>Slack Notifications</td>
-              <td><span class="status-badge status-success">200 OK</span></td>
-              <td>89ms</td>
-              <td>Just now</td>
-            </tr>
-            <tr>
-              <td><code>session.created</code></td>
-              <td>Internal Analytics API</td>
-              <td><span class="status-badge status-success">200 OK</span></td>
-              <td>142ms</td>
-              <td>2 min ago</td>
-            </tr>
-            <tr>
-              <td><code>credential.rotated</code></td>
-              <td>Email Service</td>
-              <td><span class="status-badge status-error">503 Error</span></td>
-              <td>5,012ms</td>
-              <td>5 min ago</td>
-            </tr>
-            <tr>
-              <td><code>auth.failed</code></td>
-              <td>Slack Notifications</td>
-              <td><span class="status-badge status-success">200 OK</span></td>
-              <td>76ms</td>
-              <td>8 min ago</td>
-            </tr>
-            <tr>
-              <td><code>policy.violated</code></td>
-              <td>PagerDuty Alerts</td>
-              <td><span class="status-badge status-success">202 Accepted</span></td>
-              <td>234ms</td>
-              <td>15 min ago</td>
-            </tr>
+          <tbody id="deliveries-tbody">
+            <!-- Deliveries loaded dynamically -->
           </tbody>
         </table>
       </div>

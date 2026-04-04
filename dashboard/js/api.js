@@ -7,7 +7,7 @@
 
 const API = {
   // Configuration
-  baseUrl: localStorage.getItem('identark_api_url') || 'https://credseal-cloud.fly.dev',
+  baseUrl: localStorage.getItem('identark_api_url') || 'https://identark-cloud.fly.dev',
 
   // Auth state
   _accessToken: null,

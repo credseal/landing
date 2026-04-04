@@ -18,7 +18,7 @@
 # API proxy to backend
 [[redirects]]
   from = "/api/*"
-  to = "https://credseal-cloud.fly.dev/v1/:splat"
+  to = "https://identark-cloud.fly.dev/v1/:splat"
   status = 200
   force = true
 

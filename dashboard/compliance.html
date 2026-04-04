@@ -104,6 +104,14 @@
           </svg>
           Policies
         </a>
+        <a href="/dashboard/approvals.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          HITL Approvals
+          <span class="nav-badge nav-badge-danger" id="nav-approvals-count" style="display: none;">0</span>
+        </a>
         <a href="/dashboard/team.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -457,68 +465,18 @@
     <div class="card">
       <div class="card-header">
         <h3>Action Required</h3>
-        <span class="badge badge-danger">2 Critical</span>
+        <span class="badge badge-success">0 Critical</span>
       </div>
       <div class="card-body">
-        <div class="issues-list">
-          <div class="issue-item critical">
-            <div class="issue-severity">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                <line x1="12" y1="9" x2="12" y2="13"/>
-                <line x1="12" y1="17" x2="12.01" y2="17"/>
-              </svg>
-            </div>
-            <div class="issue-content">
-              <h4>HIPAA Audit Logging Incomplete</h4>
-              <p>PHI access events are not being logged with required detail level. This affects compliance with 45 CFR 164.312(b).</p>
-              <div class="issue-meta">
-                <span class="issue-framework">HIPAA</span>
-                <span class="issue-control">Control: Audit Controls</span>
-                <span class="issue-due">Due: Mar 30, 2026</span>
-              </div>
-            </div>
-            <button class="btn btn-primary btn-sm" onclick="fixIssue('hipaa-audit')">Remediate</button>
-          </div>
-
-          <div class="issue-item critical">
-            <div class="issue-severity">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                <line x1="12" y1="9" x2="12" y2="13"/>
-                <line x1="12" y1="17" x2="12.01" y2="17"/>
-              </svg>
-            </div>
-            <div class="issue-content">
-              <h4>Encryption at Rest Not Enabled for All Credentials</h4>
-              <p>3 credential stores are using deprecated encryption. Upgrade required for HIPAA and SOC 2 compliance.</p>
-              <div class="issue-meta">
-                <span class="issue-framework">HIPAA, SOC 2</span>
-                <span class="issue-control">Control: Encryption</span>
-                <span class="issue-due">Due: Mar 25, 2026</span>
-              </div>
-            </div>
-            <button class="btn btn-primary btn-sm" onclick="fixIssue('encryption')">Remediate</button>
-          </div>
-
-          <div class="issue-item warning">
-            <div class="issue-severity warning">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
-              </svg>
-            </div>
-            <div class="issue-content">
-              <h4>MFA Not Enforced for All Admin Users</h4>
-              <p>2 admin users do not have MFA enabled. SOC 2 CC6.1 requires strong authentication for privileged access.</p>
-              <div class="issue-meta">
-                <span class="issue-framework">SOC 2</span>
-                <span class="issue-control">Control: CC6.1</span>
-                <span class="issue-due">Due: Apr 5, 2026</span>
-              </div>
-            </div>
-            <button class="btn btn-secondary btn-sm" onclick="fixIssue('mfa')">Review</button>
+        <div class="issues-list" id="issues-list">
+          <!-- Issues loaded dynamically -->
+          <div class="empty-state" style="padding: 2rem;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 1rem;">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+            <p>No compliance issues found</p>
+            <span class="text-muted">You're all caught up!</span>
           </div>
         </div>
       </div>
@@ -551,72 +509,8 @@
           </thead>
           <tbody>
             <tr>
-              <td>
-                <div class="report-name">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                  </svg>
-                  <span>Q1 2026 Compliance Report</span>
-                </div>
-              </td>
-              <td><span class="framework-badge soc2">SOC 2</span></td>
-              <td>Mar 15, 2026</td>
-              <td><span class="status-badge status-success">Completed</span></td>
-              <td>
-                <button class="btn-icon" onclick="downloadReport('q1-2026')" title="Download">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                  </svg>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="report-name">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                  </svg>
-                  <span>GDPR Data Processing Report</span>
-                </div>
-              </td>
-              <td><span class="framework-badge gdpr">GDPR</span></td>
-              <td>Mar 10, 2026</td>
-              <td><span class="status-badge status-success">Completed</span></td>
-              <td>
-                <button class="btn-icon" onclick="downloadReport('gdpr-dpa')" title="Download">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                  </svg>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <div class="report-name">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                  </svg>
-                  <span>PCI DSS Self-Assessment</span>
-                </div>
-              </td>
-              <td><span class="framework-badge pci">PCI DSS</span></td>
-              <td>Feb 28, 2026</td>
-              <td><span class="status-badge status-success">Completed</span></td>
-              <td>
-                <button class="btn-icon" onclick="downloadReport('pci-saq')" title="Download">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                    <polyline points="7 10 12 15 17 10"/>
-                    <line x1="12" y1="15" x2="12" y2="3"/>
-                  </svg>
-                </button>
+              <td colspan="5" class="text-center text-muted" style="padding: 2rem;">
+                No reports generated yet
               </td>
             </tr>
           </tbody>

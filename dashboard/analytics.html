@@ -114,6 +114,14 @@
           </svg>
           Policies
         </a>
+        <a href="/dashboard/approvals.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          HITL Approvals
+          <span class="nav-badge nav-badge-danger" id="nav-approvals-count" style="display: none;">0</span>
+        </a>
         <a href="/dashboard/team.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -265,7 +273,7 @@
             </svg>
           </div>
           <div class="stat-content">
-            <span class="stat-value">1,247</span>
+            <span class="stat-value">-</span>
             <span class="stat-label">Total Executions</span>
           </div>
           <div class="stat-change stat-change-up">
@@ -285,7 +293,7 @@
             </svg>
           </div>
           <div class="stat-content">
-            <span class="stat-value">99.2%</span>
+            <span class="stat-value">-</span>
             <span class="stat-label">Success Rate</span>
           </div>
           <div class="stat-change stat-change-up">
@@ -305,7 +313,7 @@
             </svg>
           </div>
           <div class="stat-content">
-            <span class="stat-value">142ms</span>
+            <span class="stat-value">-</span>
             <span class="stat-label">Avg Response Time</span>
           </div>
           <div class="stat-change stat-change-down">
@@ -325,7 +333,7 @@
             </svg>
           </div>
           <div class="stat-content">
-            <span class="stat-value">$12.47</span>
+            <span class="stat-value">-</span>
             <span class="stat-label">Est. Cost This Month</span>
           </div>
           <div class="stat-change">
@@ -409,52 +417,8 @@
             <h3>Top Credentials</h3>
           </div>
           <div class="card-body">
-            <div class="usage-bars">
-              <div class="usage-bar-item">
-                <div class="usage-bar-header">
-                  <code>github-api</code>
-                  <span>523 requests</span>
-                </div>
-                <div class="usage-bar-track">
-                  <div class="usage-bar-fill" style="width: 72%"></div>
-                </div>
-              </div>
-              <div class="usage-bar-item">
-                <div class="usage-bar-header">
-                  <code>aws-s3</code>
-                  <span>312 requests</span>
-                </div>
-                <div class="usage-bar-track">
-                  <div class="usage-bar-fill" style="width: 43%"></div>
-                </div>
-              </div>
-              <div class="usage-bar-item">
-                <div class="usage-bar-header">
-                  <code>slack-bot</code>
-                  <span>198 requests</span>
-                </div>
-                <div class="usage-bar-track">
-                  <div class="usage-bar-fill" style="width: 27%"></div>
-                </div>
-              </div>
-              <div class="usage-bar-item">
-                <div class="usage-bar-header">
-                  <code>openai-api</code>
-                  <span>142 requests</span>
-                </div>
-                <div class="usage-bar-track">
-                  <div class="usage-bar-fill" style="width: 19%"></div>
-                </div>
-              </div>
-              <div class="usage-bar-item">
-                <div class="usage-bar-header">
-                  <code>stripe-api</code>
-                  <span>72 requests</span>
-                </div>
-                <div class="usage-bar-track">
-                  <div class="usage-bar-fill" style="width: 10%"></div>
-                </div>
-              </div>
+            <div class="usage-bars" id="usage-bars">
+              <p class="text-muted text-center">No credential usage data available</p>
             </div>
           </div>
         </div>
@@ -517,7 +481,7 @@
                 </svg>
               </div>
               <div class="security-content">
-                <strong>0 Policy Violations</strong>
+                <strong>- Policy Violations</strong>
                 <span>Last 7 days</span>
               </div>
             </div>
@@ -541,7 +505,7 @@
                 </svg>
               </div>
               <div class="security-content">
-                <strong>3 Registered Agents</strong>
+                <strong>- Registered Agents</strong>
                 <span>All verified</span>
               </div>
             </div>
@@ -554,7 +518,7 @@
                 </svg>
               </div>
               <div class="security-content">
-                <strong>1 Denied Request</strong>
+                <strong>- Denied Request</strong>
                 <span>Unregistered agent blocked</span>
               </div>
             </div>

@@ -42,7 +42,7 @@ export function HeroSection() {
 
       <div className="hero-eyebrow">
         <span className="eyebrow-dot" />
-        Private Beta · 10 spots · Open source · MIT license
+        Open Source · MIT License · Self-Host Ready
       </div>
 
       <h1>

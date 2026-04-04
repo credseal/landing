@@ -73,7 +73,7 @@ export function RequestAccessPage() {
             <div className="form-header">
               <h1>Request Early Access</h1>
               <p>
-                We&apos;re onboarding 10 developers for our private beta. Tell us about your project and we&apos;ll be in touch within 24 hours.
+                Get early access to IdentArk. Tell us about your project and we&apos;ll be in touch within 24 hours.
               </p>
             </div>
 
@@ -91,7 +91,7 @@ export function RequestAccessPage() {
 
               {!success ? (
                 <form action="https://api.web3forms.com/submit" method="POST" onSubmit={onSubmit}>
-                  <input type="hidden" name="access_key" value="7b1acff3-edcc-4a00-80e4-0dc4e385be9f" readOnly />
+                  <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_KEY} readOnly />
                   <input type="hidden" name="subject" value="IdentArk Early Access Request" readOnly />
                   <input type="hidden" name="from_name" value="IdentArk Waitlist" readOnly />
                   <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} readOnly tabIndex={-1} />

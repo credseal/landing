@@ -105,6 +105,14 @@
           </svg>
           Policies
         </a>
+        <a href="/dashboard/approvals.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          HITL Approvals
+          <span class="nav-badge nav-badge-danger" id="nav-approvals-count" style="display: none;">0</span>
+        </a>
         <a href="/dashboard/team.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -446,7 +454,7 @@
           if (this.isAuthenticated) {
             this.credentials = await API.listCredentials();
           } else {
-            this.credentials = JSON.parse(localStorage.getItem('credseal_credentials') || '[]');
+            this.credentials = JSON.parse(localStorage.getItem('identark_credentials') || '[]');
           }
           this.populateCredentialDropdown();
         } catch (e) {
@@ -482,7 +490,7 @@
           if (this.isAuthenticated) {
             this.agents = await API.listAgents();
           } else {
-            this.agents = JSON.parse(localStorage.getItem('credseal_agents') || '[]');
+            this.agents = JSON.parse(localStorage.getItem('identark_agents') || '[]');
           }
           this.render();
         } catch (err) {
@@ -625,14 +633,14 @@
               is_active: true,
               created_at: new Date().toISOString()
             };
-            const stored = JSON.parse(localStorage.getItem('credseal_agents') || '[]');
+            const stored = JSON.parse(localStorage.getItem('identark_agents') || '[]');
             stored.push(agent);
-            localStorage.setItem('credseal_agents', JSON.stringify(stored));
+            localStorage.setItem('identark_agents', JSON.stringify(stored));
             Toast.success(`Agent "${name}" registered (demo mode)`);
           }
 
           // Mark onboarding complete
-          localStorage.setItem('credseal_has_agents', 'true');
+          localStorage.setItem('identark_has_agents', 'true');
           if (window.OnboardingChecklist) {
             OnboardingChecklist.completeStep('first_agent');
           }
@@ -659,9 +667,9 @@
           if (this.isAuthenticated) {
             await API.deleteAgent(id);
           } else {
-            const stored = JSON.parse(localStorage.getItem('credseal_agents') || '[]');
+            const stored = JSON.parse(localStorage.getItem('identark_agents') || '[]');
             const filtered = stored.filter(a => a.id !== id);
-            localStorage.setItem('credseal_agents', JSON.stringify(filtered));
+            localStorage.setItem('identark_agents', JSON.stringify(filtered));
           }
           Toast.success(`Agent "${name}" deleted`);
           await this.refresh();

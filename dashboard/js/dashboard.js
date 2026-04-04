@@ -11,7 +11,7 @@
   // ────────────────────────────────────────────────────────────────────────────
 
   const CONFIG = {
-    apiBase: 'https://credseal-cloud.fly.dev/v1',
+    apiBase: 'https://identark-cloud.fly.dev/v1',
     toastDuration: 4000,
     storageKeys: {
       sidebarCollapsed: 'identark_sidebar_collapsed',

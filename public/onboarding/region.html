@@ -630,8 +630,8 @@
       try {
         // Get the right API URL based on selected region
         const apiUrls = {
-          us: 'https://credseal-cloud-us.fly.dev',
-          eu: 'https://credseal-cloud.fly.dev'
+          us: 'https://identark-cloud-us.fly.dev',
+          eu: 'https://identark-cloud.fly.dev'
         };
 
         const response = await fetch(`${apiUrls[selectedRegion]}/v1/org/set-region`, {

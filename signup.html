@@ -432,7 +432,7 @@
         </div>
 
         <!-- Email/Password Form -->
-        <form action="https://credseal-cloud.fly.dev/v1/auth/signup" method="POST" id="signup-form">
+        <form action="https://identark-cloud.fly.dev/v1/auth/signup" method="POST" id="signup-form">
           <input type="hidden" id="invite_code" name="invite_code" value="">
           <div class="form-row">
             <div class="form-group">
@@ -564,7 +564,7 @@
       const data = Object.fromEntries(formData.entries());
 
       try {
-        const response = await fetch('https://credseal-cloud.fly.dev/v1/auth/signup', {
+        const response = await fetch('https://identark-cloud.fly.dev/v1/auth/signup', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data),
@@ -599,12 +599,12 @@
 
     // GitHub OAuth
     document.querySelector('.social-btn.github').addEventListener('click', () => {
-      window.location.href = 'https://credseal-cloud.fly.dev/v1/auth/github';
+      window.location.href = 'https://identark-cloud.fly.dev/v1/auth/github';
     });
 
     // Google OAuth
     document.querySelector('.social-btn.google').addEventListener('click', () => {
-      window.location.href = 'https://credseal-cloud.fly.dev/v1/auth/google';
+      window.location.href = 'https://identark-cloud.fly.dev/v1/auth/google';
     });
   </script>
 

@@ -8,7 +8,7 @@
 
   class APIClient {
     constructor(config = {}) {
-      this.baseURL = config.baseURL || 'https://credseal-cloud.fly.dev/v1';
+      this.baseURL = config.baseURL || 'https://identark-cloud.fly.dev/v1';
       this.tokenRefreshURL = config.tokenRefreshURL || (this.baseURL + '/auth/refresh');
       this.maxRetries = config.maxRetries || 3;
       this.retryDelay = config.retryDelay || 1000; // ms

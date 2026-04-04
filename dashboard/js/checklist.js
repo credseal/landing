@@ -10,7 +10,6 @@ const OnboardingChecklist = {
   defaultState: {
     dismissed: false,
     steps: {
-      email_verified: false,
       first_credential: false,
       first_agent: false,
       first_session: false,
@@ -22,16 +21,6 @@ const OnboardingChecklist = {
 
   // Step definitions
   steps: [
-    {
-      id: 'email_verified',
-      title: 'Verify your email',
-      description: 'Confirm your email address to secure your account',
-      href: '/verify-email.html',
-      icon: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-        <polyline points="22,6 12,13 2,6"/>
-      </svg>`
-    },
     {
       id: 'first_credential',
       title: 'Add your first credential',
@@ -97,9 +86,6 @@ const OnboardingChecklist = {
   checkUrlParams() {
     const params = new URLSearchParams(window.location.search);
 
-    if (params.get('verified') === 'true') {
-      this.complete('email_verified');
-    }
     if (params.get('credential_added') === 'true') {
       this.complete('first_credential');
     }
@@ -293,8 +279,8 @@ const OnboardingChecklist = {
 };
 
 // Auto-initialize unless disabled via global flag
-// Set window.CREDSEAL_CHECKLIST_NO_AUTO = true before loading to disable
-if (!window.CREDSEAL_CHECKLIST_NO_AUTO) {
+// Set window.IDENTARK_CHECKLIST_NO_AUTO = true before loading to disable
+if (!window.IDENTARK_CHECKLIST_NO_AUTO) {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => OnboardingChecklist.init());
   } else {

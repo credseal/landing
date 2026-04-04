@@ -446,7 +446,7 @@
           if (this.isAuthenticated) {
             this.credentials = await API.listCredentials();
           } else {
-            this.credentials = JSON.parse(localStorage.getItem('credseal_credentials') || '[]');
+            this.credentials = JSON.parse(localStorage.getItem('identark_credentials') || '[]');
           }
           this.populateCredentialDropdown();
         } catch (e) {
@@ -482,7 +482,7 @@
           if (this.isAuthenticated) {
             this.agents = await API.listAgents();
           } else {
-            this.agents = JSON.parse(localStorage.getItem('credseal_agents') || '[]');
+            this.agents = JSON.parse(localStorage.getItem('identark_agents') || '[]');
           }
           this.render();
         } catch (err) {
@@ -625,14 +625,14 @@
               is_active: true,
               created_at: new Date().toISOString()
             };
-            const stored = JSON.parse(localStorage.getItem('credseal_agents') || '[]');
+            const stored = JSON.parse(localStorage.getItem('identark_agents') || '[]');
             stored.push(agent);
-            localStorage.setItem('credseal_agents', JSON.stringify(stored));
+            localStorage.setItem('identark_agents', JSON.stringify(stored));
             Toast.success(`Agent "${name}" registered (demo mode)`);
           }
 
           // Mark onboarding complete
-          localStorage.setItem('credseal_has_agents', 'true');
+          localStorage.setItem('identark_has_agents', 'true');
           if (window.OnboardingChecklist) {
             OnboardingChecklist.completeStep('first_agent');
           }
@@ -659,9 +659,9 @@
           if (this.isAuthenticated) {
             await API.deleteAgent(id);
           } else {
-            const stored = JSON.parse(localStorage.getItem('credseal_agents') || '[]');
+            const stored = JSON.parse(localStorage.getItem('identark_agents') || '[]');
             const filtered = stored.filter(a => a.id !== id);
-            localStorage.setItem('credseal_agents', JSON.stringify(filtered));
+            localStorage.setItem('identark_agents', JSON.stringify(filtered));
           }
           Toast.success(`Agent "${name}" deleted`);
           await this.refresh();

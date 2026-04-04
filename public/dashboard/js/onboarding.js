@@ -211,7 +211,7 @@
     langEl.textContent = lang;
 
     const snippets = {
-      python: `from credseal import IdentArk
+      python: `from identark import IdentArk
 
 # Initialize the client
 cs = IdentArk(agent_id="${agentId}")
@@ -226,7 +226,7 @@ with cs.session("${credName}") as session:
         "https://api.example.com/data",
         headers={"Authorization": f"Bearer {api_key}"}
     )`,
-      typescript: `import { IdentArk } from '@credseal/sdk';
+      typescript: `import { IdentArk } from '@identark/sdk';
 
 // Initialize the client
 const cs = new IdentArk({ agentId: '${agentId}' });

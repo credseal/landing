@@ -515,6 +515,11 @@ body {
   color: var(--accent);
 }
 
+.nav-badge-danger {
+  background: rgba(239,68,68,0.2);
+  color: #ef4444;
+}
+
 .sidebar-footer {
   position: relative;
   margin-top: auto;

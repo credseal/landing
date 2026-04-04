@@ -510,7 +510,7 @@
   <script src="/dashboard/js/theme.js"></script>
   <script src="/dashboard/js/api.js"></script>
   <script src="/dashboard/js/onboarding.js"></script>
-  <script>window.CREDSEAL_CHECKLIST_NO_AUTO = true;</script>
+  <script>window.IDENTARK_CHECKLIST_NO_AUTO = true;</script>
   <script src="/dashboard/js/checklist.js"></script>
   <script>
     // Initialize onboarding checklist for new users
@@ -521,11 +521,6 @@
       // Show checklist for new users
       if (isWelcome || !localStorage.getItem('onboarding_checklist_dismissed')) {
         OnboardingChecklist.init();
-
-        // Mark email as verified if coming from verification
-        if (isWelcome) {
-          OnboardingChecklist.completeStep('email_verified');
-        }
       }
     });
   </script>

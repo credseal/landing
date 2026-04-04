@@ -104,6 +104,14 @@
           </svg>
           Policies
         </a>
+        <a href="/dashboard/approvals.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          HITL Approvals
+          <span class="nav-badge nav-badge-danger" id="nav-approvals-count" style="display: none;">0</span>
+        </a>
         <a href="/dashboard/team.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -226,7 +234,7 @@
           </svg>
         </div>
         <div class="stat-content">
-          <span class="stat-value">8</span>
+          <span class="stat-value">-</span>
           <span class="stat-label">Active Policies</span>
         </div>
       </div>
@@ -237,7 +245,7 @@
           </svg>
         </div>
         <div class="stat-content">
-          <span class="stat-value">1,247</span>
+          <span class="stat-value">-</span>
           <span class="stat-label">Requests Allowed</span>
         </div>
       </div>
@@ -250,7 +258,7 @@
           </svg>
         </div>
         <div class="stat-content">
-          <span class="stat-value">23</span>
+          <span class="stat-value">-</span>
           <span class="stat-label">Blocked Today</span>
         </div>
       </div>
@@ -263,7 +271,7 @@
           </svg>
         </div>
         <div class="stat-content">
-          <span class="stat-value">3</span>
+          <span class="stat-value">-</span>
           <span class="stat-label">Critical Violations</span>
         </div>
       </div>
@@ -282,283 +290,13 @@
         </div>
       </div>
       <div class="card-body">
-        <div class="policy-list">
-          <!-- Rate Limiting Policy -->
-          <div class="policy-item" data-policy-id="1">
-            <div class="policy-header">
-              <div class="policy-toggle">
-                <label class="toggle-switch">
-                  <input type="checkbox" checked>
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-              <div class="policy-info">
-                <h4>API Rate Limiting</h4>
-                <p>Limit API calls to 100 requests per minute per agent</p>
-              </div>
-              <div class="policy-meta">
-                <span class="policy-badge badge-success">Active</span>
-                <span class="policy-scope">All Credentials</span>
-              </div>
-              <div class="policy-actions">
-                <button class="btn-icon" onclick="editPolicy(1)" title="Edit">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                  </svg>
-                </button>
-                <button class="btn-icon" onclick="deletePolicy(1)" title="Delete">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="3 6 5 6 21 6"/>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="policy-rules">
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                100 req/min
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
-                </svg>
-                Per Agent
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                </svg>
-                Block on exceed
-              </div>
-            </div>
-          </div>
-
-          <!-- IP Whitelist Policy -->
-          <div class="policy-item" data-policy-id="2">
-            <div class="policy-header">
-              <div class="policy-toggle">
-                <label class="toggle-switch">
-                  <input type="checkbox" checked>
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-              <div class="policy-info">
-                <h4>IP Whitelist</h4>
-                <p>Only allow requests from approved IP ranges</p>
-              </div>
-              <div class="policy-meta">
-                <span class="policy-badge badge-success">Active</span>
-                <span class="policy-scope">Production Keys</span>
-              </div>
-              <div class="policy-actions">
-                <button class="btn-icon" onclick="editPolicy(2)" title="Edit">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                  </svg>
-                </button>
-                <button class="btn-icon" onclick="deletePolicy(2)" title="Delete">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="3 6 5 6 21 6"/>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="policy-rules">
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-                </svg>
-                10.0.0.0/8
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-                </svg>
-                192.168.1.0/24
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="20 6 9 17 4 12"/>
-                </svg>
-                Strict mode
-              </div>
-            </div>
-          </div>
-
-          <!-- Time Window Policy -->
-          <div class="policy-item" data-policy-id="3">
-            <div class="policy-header">
-              <div class="policy-toggle">
-                <label class="toggle-switch">
-                  <input type="checkbox" checked>
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-              <div class="policy-info">
-                <h4>Business Hours Only</h4>
-                <p>Restrict credential access to business hours (9AM - 6PM EST)</p>
-              </div>
-              <div class="policy-meta">
-                <span class="policy-badge badge-success">Active</span>
-                <span class="policy-scope">Financial APIs</span>
-              </div>
-              <div class="policy-actions">
-                <button class="btn-icon" onclick="editPolicy(3)" title="Edit">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                  </svg>
-                </button>
-                <button class="btn-icon" onclick="deletePolicy(3)" title="Delete">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="3 6 5 6 21 6"/>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="policy-rules">
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                09:00 - 18:00
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                </svg>
-                EST Timezone
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/>
-                  <line x1="8" y1="2" x2="8" y2="6"/>
-                </svg>
-                Mon - Fri
-              </div>
-            </div>
-          </div>
-
-          <!-- Scope Restriction Policy -->
-          <div class="policy-item" data-policy-id="4">
-            <div class="policy-header">
-              <div class="policy-toggle">
-                <label class="toggle-switch">
-                  <input type="checkbox" checked>
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-              <div class="policy-info">
-                <h4>Scope Restrictions</h4>
-                <p>Limit credential actions to read-only for non-admin agents</p>
-              </div>
-              <div class="policy-meta">
-                <span class="policy-badge badge-success">Active</span>
-                <span class="policy-scope">Database Creds</span>
-              </div>
-              <div class="policy-actions">
-                <button class="btn-icon" onclick="editPolicy(4)" title="Edit">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                  </svg>
-                </button>
-                <button class="btn-icon" onclick="deletePolicy(4)" title="Delete">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="3 6 5 6 21 6"/>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="policy-rules">
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
-                Read Only
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-                Non-admin agents
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-                SELECT queries only
-              </div>
-            </div>
-          </div>
-
-          <!-- Audit Logging Policy -->
-          <div class="policy-item" data-policy-id="5">
-            <div class="policy-header">
-              <div class="policy-toggle">
-                <label class="toggle-switch">
-                  <input type="checkbox">
-                  <span class="toggle-slider"></span>
-                </label>
-              </div>
-              <div class="policy-info">
-                <h4>Enhanced Audit Logging</h4>
-                <p>Log all credential access with full request/response bodies</p>
-              </div>
-              <div class="policy-meta">
-                <span class="policy-badge badge-secondary">Inactive</span>
-                <span class="policy-scope">All Credentials</span>
-              </div>
-              <div class="policy-actions">
-                <button class="btn-icon" onclick="editPolicy(5)" title="Edit">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                  </svg>
-                </button>
-                <button class="btn-icon" onclick="deletePolicy(5)" title="Delete">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="3 6 5 6 21 6"/>
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                  </svg>
-                </button>
-              </div>
-            </div>
-            <div class="policy-rules">
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                  <polyline points="14 2 14 8 20 8"/>
-                </svg>
-                Full body logging
-              </div>
-              <div class="rule-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                90-day retention
-              </div>
-            </div>
+        <div class="policy-list" id="policy-list">
+          <!-- Policies loaded dynamically -->
+          <div class="empty-state" style="padding: 3rem; text-align: center;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color: var(--text-muted); margin-bottom: 1rem;">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <p style="color: var(--text-muted);">No policies configured. Create a policy to enforce access rules.</p>
           </div>
         </div>
       </div>
@@ -789,9 +527,6 @@
                   <label for="apply-agents">Agents</label>
                   <select id="apply-agents" class="form-select" multiple>
                     <option value="all" selected>All Agents</option>
-                    <option value="agent-1">Research Assistant</option>
-                    <option value="agent-2">Data Processor</option>
-                    <option value="agent-3">API Gateway</option>
                   </select>
                 </div>
               </div>

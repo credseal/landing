@@ -4,7 +4,7 @@
  */
 
 const Theme = {
-  STORAGE_KEY: 'credseal-theme',
+  STORAGE_KEY: 'identark-theme',
 
   // Initialize theme on page load
   init() {

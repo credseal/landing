@@ -112,6 +112,14 @@
           </svg>
           Policies
         </a>
+        <a href="/dashboard/approvals.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          HITL Approvals
+          <span class="nav-badge nav-badge-danger" id="nav-approvals-count" style="display: none;">0</span>
+        </a>
         <a href="/dashboard/team.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -246,7 +254,7 @@
             <span class="stat-label">API Requests (24h)</span>
             <span class="stat-badge success">Normal</span>
           </div>
-          <div class="stat-value">12,847</div>
+          <div class="stat-value">-</div>
           <div class="stat-footer">
             <span class="stat-change positive">+8.3%</span>
             <span>vs yesterday</span>
@@ -262,7 +270,7 @@
             <span class="stat-label">Requests/min (peak)</span>
             <span class="stat-badge warning">High</span>
           </div>
-          <div class="stat-value">847</div>
+          <div class="stat-value">-</div>
           <div class="stat-footer">
             <span class="stat-change positive">+23.1%</span>
             <span>vs yesterday</span>
@@ -278,7 +286,7 @@
             <span class="stat-label">Rate Limited (24h)</span>
             <span class="stat-badge success">Low</span>
           </div>
-          <div class="stat-value">23</div>
+          <div class="stat-value">-</div>
           <div class="stat-footer">
             <span class="stat-change negative">-45.2%</span>
             <span>vs yesterday</span>
@@ -294,7 +302,7 @@
             <span class="stat-label">Avg Response Time</span>
             <span class="stat-badge success">Fast</span>
           </div>
-          <div class="stat-value">42ms</div>
+          <div class="stat-value">-</div>
           <div class="stat-footer">
             <span class="stat-change positive">-12.5%</span>
             <span>vs yesterday</span>
@@ -485,105 +493,8 @@
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="client-info">
-                    <div class="client-icon">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 1v4M12 19v4"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong>data-pipeline-prod</strong>
-                      <span class="text-muted">Agent</span>
-                    </div>
-                  </div>
-                </td>
-                <td>4,521</td>
-                <td>12</td>
-                <td>38ms</td>
-                <td><span class="status-badge success">Healthy</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="client-info">
-                    <div class="client-icon">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong>api_key_prod_*****4f2a</strong>
-                      <span class="text-muted">API Key</span>
-                    </div>
-                  </div>
-                </td>
-                <td>3,892</td>
-                <td>8</td>
-                <td>45ms</td>
-                <td><span class="status-badge success">Healthy</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="client-info">
-                    <div class="client-icon">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 1v4M12 19v4"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong>ci-cd-runner</strong>
-                      <span class="text-muted">Agent</span>
-                    </div>
-                  </div>
-                </td>
-                <td>2,104</td>
-                <td>3</td>
-                <td>52ms</td>
-                <td><span class="status-badge success">Healthy</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="client-info">
-                    <div class="client-icon warning">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 1v4M12 19v4"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong>stress-test-agent</strong>
-                      <span class="text-muted">Agent</span>
-                    </div>
-                  </div>
-                </td>
-                <td>1,847</td>
-                <td>247</td>
-                <td>89ms</td>
-                <td><span class="status-badge warning">Throttled</span></td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="client-info">
-                    <div class="client-icon">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong>api_key_staging_*****8b1c</strong>
-                      <span class="text-muted">API Key</span>
-                    </div>
-                  </div>
-                </td>
-                <td>483</td>
-                <td>0</td>
-                <td>41ms</td>
-                <td><span class="status-badge success">Healthy</span></td>
-              </tr>
+            <tbody id="consumers-tbody">
+              <!-- API consumers loaded dynamically -->
             </tbody>
           </table>
         </div>

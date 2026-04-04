@@ -100,6 +100,14 @@
           </svg>
           Policies
         </a>
+        <a href="/dashboard/approvals.html" class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          HITL Approvals
+          <span class="nav-badge nav-badge-danger" id="nav-approvals-count" style="display: none;">0</span>
+        </a>
         <a href="/dashboard/team.html" class="nav-item">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -297,7 +305,7 @@
       <div class="card">
         <div class="card-header">
           <h3>Active Workflows</h3>
-          <span class="badge badge-success">3 Running</span>
+          <span class="badge badge-success">0 Running</span>
         </div>
         <div class="card-body" style="padding: 0;">
           <table class="data-table">
@@ -310,86 +318,8 @@
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <div class="workflow-name">
-                    <div class="workflow-icon">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 2v6h-6"/>
-                        <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong>Auto-Rotate AWS Keys</strong>
-                      <span class="text-muted">Rotates production AWS credentials every 30 days</span>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-secondary">Schedule</span> Every 30 days</td>
-                <td>2 days ago</td>
-                <td><span class="status-badge success">Active</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <button class="btn-icon" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-                    <button class="btn-icon" title="Run Now"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
-                    <button class="btn-icon" title="Pause"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="workflow-name">
-                    <div class="workflow-icon warning">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong>Expiry Notifications</strong>
-                      <span class="text-muted">Alerts via Slack 7 days before expiry</span>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-secondary">Event</span> Credential expiring</td>
-                <td>5 hours ago</td>
-                <td><span class="status-badge success">Active</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <button class="btn-icon" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-                    <button class="btn-icon" title="Run Now"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
-                    <button class="btn-icon" title="Pause"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="workflow-name">
-                    <div class="workflow-icon danger">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                        <line x1="12" y1="9" x2="12" y2="13"/>
-                        <line x1="12" y1="17" x2="12.01" y2="17"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <strong>Anomaly Alert</strong>
-                      <span class="text-muted">Detects unusual access patterns</span>
-                    </div>
-                  </div>
-                </td>
-                <td><span class="badge badge-secondary">Realtime</span> Continuous</td>
-                <td>Just now</td>
-                <td><span class="status-badge success">Active</span></td>
-                <td>
-                  <div class="action-buttons">
-                    <button class="btn-icon" title="Edit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-                    <button class="btn-icon" title="Run Now"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg></button>
-                    <button class="btn-icon" title="Pause"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></button>
-                  </div>
-                </td>
-              </tr>
+            <tbody id="workflows-tbody">
+              <!-- Workflows loaded dynamically -->
             </tbody>
           </table>
         </div>
@@ -411,37 +341,8 @@
                 <th>Result</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Anomaly Alert</td>
-                <td>Mar 22, 2026, 10:45 AM</td>
-                <td>0.2s</td>
-                <td><span class="status-badge success">Success</span></td>
-              </tr>
-              <tr>
-                <td>Expiry Notifications</td>
-                <td>Mar 22, 2026, 05:30 AM</td>
-                <td>1.8s</td>
-                <td><span class="status-badge success">Success</span></td>
-              </tr>
-              <tr>
-                <td>Anomaly Alert</td>
-                <td>Mar 21, 2026, 11:22 PM</td>
-                <td>0.3s</td>
-                <td><span class="status-badge warning">Warning</span></td>
-              </tr>
-              <tr>
-                <td>Auto-Rotate AWS Keys</td>
-                <td>Mar 20, 2026, 12:00 AM</td>
-                <td>4.5s</td>
-                <td><span class="status-badge success">Success</span></td>
-              </tr>
-              <tr>
-                <td>Access Review</td>
-                <td>Mar 15, 2026, 09:00 AM</td>
-                <td>12.3s</td>
-                <td><span class="status-badge success">Success</span></td>
-              </tr>
+            <tbody id="execution-tbody">
+              <!-- Execution history loaded dynamically -->
             </tbody>
           </table>
         </div>
